@@ -1,2 +1,2 @@
 <!doctype html><html><head><meta charset="utf-8"><meta name="robots" content="noindex"><style>html,body{margin:0;height:100%;background:#14213D;overflow:hidden}img{display:block;height:100vh;margin:0 auto}</style></head>
-<body><img id="i"><script>document.getElementById('i').src=(new URLSearchParams(location.search).get('i')||'hwahae')+'.png'</script></body></html>
+<body><img id="i"><script>var q=new URLSearchParams(location.search);if(q.get('bg'))document.body.style.background='#'+q.get('bg');document.getElementById('i').src=(new URLSearchParams(location.search).get('i')||'hwahae')+'.png'</script></body></html>
