@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
 Sitemap: https://whistlewhistle311-web.github.io/topik-q54/sitemap.xml
+Sitemap: https://whistlewhistle311-web.github.io/saju/sitemap.xml

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>2027 운세 그래프 무료 | 내 사주로 계산한 월별 흐름</title>
+<meta name="description" content="생년월일시만 넣으면 내 사주 여덟 글자와 2027 정미년 12달 운의 흐름을 그래프로 보여 드려요. 절기 날짜 기준, 서울 경도 30분 보정, 무료, 정보는 저장하지 않아요.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/saju/">
+<meta property="og:title" content="2027 내 운 그래프, 30초면 나와요">
+<meta property="og:description" content="내 사주로 계산한 2027년 12달 흐름. 차오르는 때와 숨 고를 때를 날짜로.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://whistlewhistle311-web.github.io/saju/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap">
+<style>
+:root{--paper:#F7F1E5;--card:#FBF7EE;--ink:#1C2A47;--ink2:#4A5368;--mute:#8A8576;--red:#C0432D;--gold:#B38F55;--line:#E2D6BD;
+--목:#4F7A4A;--화:#C0432D;--토:#B8893E;--금:#8C8C8C;--수:#24365C}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--paper:#15181f;--card:#1d212b;--ink:#efe8da;--ink2:#c9c2b4;--mute:#958f83;--line:#343a47;--수:#7f9bd6;--목:#7fb07a;--금:#b9b9b9}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;word-break:keep-all}
+main{max-width:640px;margin:0 auto;padding:28px 16px 64px}
+.k{font-size:12px;letter-spacing:.24em;color:var(--red);font-weight:700}
+h1{font-size:30px;line-height:1.3;margin:8px 0 10px;font-family:"Noto Serif KR",serif}
+h1 em{font-style:normal;color:var(--red)}
+.lead{color:var(--ink2);margin:0 0 20px}
+form{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+label{display:block;font-size:14px;font-weight:600;margin:10px 0 6px}
+input,select{width:100%;font:inherit;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.chk{display:flex;align-items:center;gap:8px;font-weight:400;margin-top:8px}.chk input{width:auto}
+button{font:inherit;font-weight:700;border:0;border-radius:12px;padding:14px;width:100%;background:var(--red);color:#fff;margin-top:16px;cursor:pointer}
+.note{font-size:13px;color:var(--mute);margin-top:10px}
+#out{display:none;margin-top:28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:14px 0}
+.ilju{text-align:center}
+.ilju b{display:block;font-family:"Noto Serif KR",serif;font-size:44px;line-height:1.1;color:var(--red)}
+.ilju span{font-size:20px;font-weight:700}
+table{width:100%;border-collapse:collapse;text-align:center}
+th{font-size:12px;color:var(--mute);font-weight:600;padding:4px 0}
+td{padding:6px 0;border-top:1px solid var(--line)}
+td .hz{font-family:"Noto Serif KR",serif;font-size:30px;font-weight:700;line-height:1.1}
+td .g{font-size:11px;color:var(--mute)}
+.me{background:rgba(192,67,45,.08)}
+.bar{height:12px;border-radius:6px;background:linear-gradient(90deg,var(--수),var(--토) 50%,var(--red));position:relative;margin:10px 0 6px}
+.bar i{position:absolute;top:-6px;width:6px;height:24px;background:var(--ink);border-radius:3px;transform:translateX(-50%)}
+.pills span{display:inline-block;font-size:13px;padding:3px 10px;border-radius:20px;margin:3px 4px 0 0;background:rgba(179,143,85,.15)}
+h2{font-size:20px;margin:0 0 8px}
+svg{width:100%;height:auto;display:block}
+.win{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.win div{border-radius:12px;padding:12px;text-align:center}
+.win small{display:block;font-size:12px;font-weight:700}
+.win b{font-family:"Noto Serif KR",serif;font-size:20px}
+.up{background:rgba(192,67,45,.12);color:var(--red)}.dn{background:rgba(36,54,92,.12)}
+.mlist div{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding:8px 2px;font-size:14px}
+.dots i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-left:3px;background:var(--line)}
+.dots i.on{background:var(--red)}
+.cta{background:var(--ink);color:#F7F1E5;border-radius:14px;padding:20px;margin:18px 0}
+.cta h2{color:#F7F1E5}.cta p{color:#D9C9A8;margin:6px 0 14px}
+.cta a{display:block;text-align:center;background:var(--red);color:#fff;text-decoration:none;font-weight:700;border-radius:12px;padding:14px}
+.share{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.faq h3{font-size:16px;margin:16px 0 4px}.faq p{margin:0;color:var(--ink2);font-size:15px}
+footer{font-size:12px;color:var(--mute);margin-top:30px}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"2027년 운세 그래프는 어떻게 계산하나요?","acceptedAnswer":{"@type":"Answer","text":"생년월일시로 사주 여덟 글자를 만세력으로 계산하고, 신강·신약과 용신을 정한 뒤 2027년 정미년의 열두 달(절기 기준)이 내 사주와 어떻게 만나는지(용신·희신 여부, 태어난 날과의 충·합, 귀인)를 다섯 단계 점수로 매깁니다."}},
+{"@type":"Question","name":"태어난 시간은 왜 30분을 빼나요?","acceptedAnswer":{"@type":"Answer","text":"한국 표준시는 동경 135도 기준이라 서울의 실제 태양 시각보다 약 30분 빠릅니다. 그래서 시주는 30분을 빼고 봅니다(자시 23:30~01:30)."}},
+{"@type":"Question","name":"입력한 생년월일은 저장되나요?","acceptedAnswer":{"@type":"Answer","text":"아니요. 계산은 모두 내 휴대폰·브라우저 안에서 이뤄지고 서버로 보내지 않습니다."}}]}</script>
+</head>
+<body><main>
+<div class="k">FREE · 2027 정미년</div>
+<h1>내 사주로 계산한<br><em>2027 운 그래프</em></h1>
+<p class="lead">생년월일시를 넣으면 2027년 열두 달 중 언제 차오르고 언제 숨을 골라야 하는지 날짜로 보여 드려요. 30초면 끝나고, 무료예요.</p>
+
+<form id="f">
+  <label for="b">생년월일 (양력)</label>
+  <input id="b" type="date" min="1940-01-01" max="2015-12-31" value="1995-06-15" required>
+  <div class="row">
+    <div><label for="t">태어난 시간</label><input id="t" type="time" value="12:00"></div>
+    <div><label for="s">성별</label><select id="s"><option value="M">남</option><option value="F">여</option></select></div>
+  </div>
+  <label class="chk"><input id="nt" type="checkbox"> 시간을 몰라요</label>
+  <button type="submit">내 2027 그래프 보기</button>
+  <div class="note">계산은 이 화면 안에서만 이뤄지고, 입력한 정보는 어디에도 저장하거나 보내지 않아요. 음력 생일은 양력으로 바꿔서 넣어 주세요.</div>
+</form>
+
+<section id="out">
+  <div class="card ilju"><div class="k">MY DAY PILLAR</div><b id="dgz"></b><span id="dname"></span><p id="dline" class="note" style="font-size:15px;color:var(--ink2)"></p></div>
+  <div class="card"><table id="pil"></table></div>
+  <div class="card">
+    <h2>내 사주의 힘과 숨통</h2>
+    <div class="bar"><i id="gauge"></i></div>
+    <div class="note" style="display:flex;justify-content:space-between;margin:0"><span>신약</span><span>중화</span><span>신강</span></div>
+    <p id="ytxt" style="margin:12px 0 4px"></p>
+    <div class="pills" id="cnt"></div>
+  </div>
+  <div class="card">
+    <h2>2027 나의 운 그래프</h2>
+    <div id="graph"></div>
+    <div class="win" style="margin-top:12px"><div class="up"><small>차오르는 때</small><b id="best"></b></div><div class="dn"><small>숨 고를 때</small><b id="worst"></b></div></div>
+    <div class="mlist" id="mlist" style="margin-top:12px"></div>
+    <p class="note" id="flags"></p>
+  </div>
+  <div class="cta">
+    <h2>내 질문에 맞춘 날짜 3개가 궁금하다면</h2>
+    <p>이직, 연애, 시험처럼 고민 하나를 보내 주시면, 같은 계산으로 13쪽 리포트(지난 3년 검증, 대운, 분야별 2027, 질문 답과 움직일 날짜 3개)를 만들어 드려요.</p>
+    <a id="ctaA" href="https://kmong.com/@%EC%95%8C%EB%A6%BC%EA%B3%B5%EB%B0%A9" rel="noopener">13쪽 리포트 보기 (크몽)</a>
+  </div>
+  <button class="share" id="sh" type="button">내 결과 링크 복사하기</button>
+</section>
+
+<section class="faq">
+  <h2 style="margin-top:36px">어떻게 계산하나요?</h2>
+  <h3>달은 양력이 아니라 절기로 끊어요</h3><p>사주의 한 달은 입춘·경칩 같은 절기에서 시작해요. 그래서 2027년 2월은 2/4부터, 3월은 3/6부터예요. 그래프의 날짜는 한국 시각으로 계산한 실제 절기 날짜예요.</p>
+  <h3>점수는 다섯 단계예요</h3><p>그달 기운이 내 사주에 필요한 기운(용신·희신)인지, 태어난 날 글자와 충·합이 있는지, 귀인이 드는지를 보고 1~5점을 매겨요. 낮은 달은 나쁜 달이 아니라 속도를 줄이는 게 유리한 달이에요.</p>
+  <h3>태어난 시간은 30분 보정해요</h3><p>한국 표준시가 서울의 실제 해 시각보다 약 30분 빨라서, 시주는 30분을 빼고 봐요(자시 23:30~01:30). 1987·88년 서머타임도 보정해요.</p>
+  <h3>재미로, 계획할 때 참고로</h3><p>사주는 정해진 운명을 말하지 않아요. 건강·법률·투자 같은 결정은 전문가와 상의해 주세요.</p>
+</section>
+<footer>계산: 만세력 오픈소스(lunar-javascript, MIT) · 만든 곳: 계산공방 · 결과는 저장되지 않아요.</footer>
+</main>
+<script src="lunar.js"></script>
+<script src="engine.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+const IMG={甲:'곧게 자라는 큰 나무',乙:'바람에 휘는 풀꽃',丙:'하늘의 태양',丁:'어둠을 밝히는 촛불',戊:'단단한 큰 산',己:'곡식을 키우는 논밭',庚:'다듬기 전의 바위',辛:'빛나는 보석',壬:'흐르는 큰 강',癸:'스며드는 이슬비'};
+const ZI={子:'한겨울 물가',丑:'언 땅',寅:'이른 봄 숲',卯:'봄 들판',辰:'봄비 내린 흙',巳:'초여름 햇살',午:'한여름 한낮',未:'늦여름 들판',申:'초가을 바위',酉:'가을 결실',戌:'늦가을 산',亥:'초겨울 바다'};
+const LINE={목:'방향을 정하면 밀고 나가는 사람',화:'드러내고 밝히는 데서 힘이 나는 사람',토:'버티고 품어 주는 데 강한 사람',금:'기준이 분명하고 끝을 맺는 사람',수:'생각이 깊고 흐름을 읽는 사람'};
+const ELH={목:'木',화:'火',토:'土',금:'金',수:'水'};
+function run(ms,pred){let best=null,cur=null;ms.forEach((m,i)=>{if(pred(m)){if(!cur)cur={a:i,b:i};else cur.b=i;if(!best||cur.b-cur.a>best.b-best.a)best={...cur}}else cur=null});return best}
+function rangeTxt(ms,r){if(!r)return'-';return ms[r.a].label.split('~')[0]+' ~ '+ms[r.b].label.split('~')[1]}
+function draw(r){
+  $('dgz').textContent=r.dayGz; $('dname').textContent=SajuEngine.ko(r.dayGz)+'일주';
+  $('dline').textContent=ZI[r.dayGz[1]]+'의 '+IMG[r.dm]+'. '+LINE[SajuEngine.EL[r.dm]]+'. 2027년은 '+r.year.gz+'년, 나에게 '+r.year.stem+'·'+r.year.branch+'의 해예요.';
+  const order=[3,2,1,0],nm=['시주','일주','월주','연주'];
+  let h='<tr>'+nm.map(x=>'<th>'+x+'</th>').join('')+'</tr>';
+  for(const row of ['gan','zhi']){h+='<tr>'+order.map((i,k)=>{const c=r.cols[i];if(!c)return'<td><div class="hz" style="color:var(--mute)">?</div><div class="g">시간 모름</div></td>';const x=c[row];return'<td class="'+(k===1&&row==='gan'?'me':'')+'"><div class="g">'+x.god+'</div><div class="hz" style="color:var(--'+x.el+')">'+x.c+'</div><div class="g">'+SajuEngine.ko(x.c)+'·'+x.el+'</div></td>'}).join('')+'</tr>'}
+  $('pil').innerHTML=h;
+  $('gauge').style.left=Math.round(r.ratio*100)+'%';
+  $('ytxt').innerHTML='일간을 돕는 힘 '+Math.round(r.ratio*100)+'%, <b>'+r.label+'</b>이에요. 가장 필요한 기운(용신)은 <b style="color:var(--'+r.yong+')">'+ELH[r.yong]+' '+r.yong+'</b>, 돕는 기운(희신)은 <b style="color:var(--'+r.hee+')">'+ELH[r.hee]+' '+r.hee+'</b>예요.';
+  $('cnt').innerHTML=Object.entries(r.cnt).map(([e,n])=>'<span>'+ELH[e]+' '+e+' '+n+'</span>').join('');
+  // graph
+  const W=600,H=260,px=34,top=20,bot=40,gx=i=>px+i*(W-2*px)/11,gy=s=>top+(5-s)*(H-top-bot)/4;
+  const pts=r.months.map((m,i)=>gx(i)+','+gy(m.score)).join(' ');
+  let s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="2027 월별 운 그래프">';
+  for(const v of [1,3,5])s+='<line x1="'+px+'" x2="'+(W-px)+'" y1="'+gy(v)+'" y2="'+gy(v)+'" stroke="var(--line)" stroke-dasharray="4 5"/>';
+  s+='<polygon points="'+px+','+(H-bot)+' '+pts+' '+gx(11)+','+(H-bot)+'" fill="rgba(192,67,45,.12)"/>';
+  s+='<polyline points="'+pts+'" fill="none" stroke="var(--red)" stroke-width="3.5" stroke-linejoin="round"/>';
+  r.months.forEach((m,i)=>{const c=m.score>=4?'var(--red)':m.score<=2?'var(--수)':'var(--paper)';s+='<circle cx="'+gx(i)+'" cy="'+gy(m.score)+'" r="6" fill="'+c+'" stroke="'+(m.score<=2?'var(--수)':'var(--red)')+'" stroke-width="2.5"/><text x="'+gx(i)+'" y="'+(H-bot+22)+'" text-anchor="middle" font-size="13" fill="var(--ink2)">'+m.m+'월</text>'});
+  s+='<text x="0" y="'+(gy(5)+4)+'" font-size="11" fill="var(--mute)">높음</text><text x="0" y="'+(gy(1)+4)+'" font-size="11" fill="var(--mute)">낮음</text></svg>';
+  $('graph').innerHTML=s;
+  $('best').textContent=rangeTxt(r.months,run(r.months,m=>m.score>=4));
+  $('worst').textContent=rangeTxt(r.months,run(r.months,m=>m.score<=2));
+  $('mlist').innerHTML=r.months.map(m=>'<div><span><b>'+m.m+'월</b> '+m.label+(m.nextYear?" ('28)":'')+'</span><span>'+m.gz+' · '+m.stem+'·'+m.branch+' <span class="dots">'+[1,2,3,4,5].map(k=>'<i class="'+(k<=m.score?'on':'')+'"></i>').join('')+'</span></span></div>').join('');
+  $('flags').textContent=r.flags.join(' ');
+  $('out').style.display='block';
+}
+function go(push){
+  const [y,m,d]=$('b').value.split('-').map(Number); if(!y)return;
+  const nt=$('nt').checked; const [h,mi]=($('t').value||'12:00').split(':').map(Number);
+  const r=SajuEngine.analyze(y,m,d,h,mi,$('s').value==='M',!nt,2027); draw(r);
+  const q='?b='+$('b').value+(nt?'':'&t='+$('t').value)+'&g='+$('s').value;
+  if(push)history.replaceState(null,'',q);
+  $('out').scrollIntoView({behavior:'smooth'});
+}
+$('f').addEventListener('submit',e=>{e.preventDefault();go(true)});
+$('nt').addEventListener('change',()=>{$('t').disabled=$('nt').checked});
+$('sh').addEventListener('click',async()=>{const u=location.href;try{if(navigator.share){await navigator.share({title:'내 2027 운 그래프',url:u})}else{await navigator.clipboard.writeText(u);$('sh').textContent='링크를 복사했어요'}}catch(e){}});
+const p=new URLSearchParams(location.search);
+if(p.get('b')){$('b').value=p.get('b');if(p.get('t'))$('t').value=p.get('t');else{$('nt').checked=true;$('t').disabled=true}if(p.get('g'))$('s').value=p.get('g');go(false)}
+</script>
+</body></html>
