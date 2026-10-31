@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sinking Funds Calculator: How Much to Save Each Month per Fund</title>
+<meta name="description" content="Free sinking funds calculator. List what you save for ahead of time (car repairs, gifts, insurance, travel), add a target, due date and what you have saved, and see how much to set aside each month for each fund and in total.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/tools/sinking-funds/">
+<meta property="og:title" content="Sinking funds calculator: what to set aside each month">
+<meta property="og:description" content="Target, due date and balance in. Monthly amount per fund and your total sinking fund budget out. Free, nothing saved.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/tools/sinking-funds/">
+<meta property="og:image" content="https://whistlewhistle311-web.github.io/tools/sinking-funds/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a sinking fund?","acceptedAnswer":{"@type":"Answer","text":"A sinking fund is money you set aside a little each month for a known future expense, such as car insurance, holiday gifts or a trip, so the bill does not land on one paycheck."}},{"@type":"Question","name":"How do I calculate a sinking fund monthly amount?","acceptedAnswer":{"@type":"Answer","text":"Subtract what you have already saved from the target, then divide by the number of months until the due date. A 1,100 insurance bill due in 7 months with 380 saved needs about 102.86 a month."}},{"@type":"Question","name":"Sinking fund vs emergency fund: what is the difference?","acceptedAnswer":{"@type":"Answer","text":"An emergency fund covers expenses you cannot predict, like a job loss. A sinking fund covers expenses you can see coming, with a known amount or date."}}]}</script>
+<style>
+:root{--bg:#F3F8F7;--card:#fff;--ink:#16292E;--ink2:#47646A;--mute:#7C9095;--acc:#1F5F6B;--y:#B7791F;--line:#D7E4E3;--soft:#E6F2F1}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#101a1c;--card:#172427;--ink:#eef5f4;--ink2:#c3d4d2;--mute:#8aa0a3;--line:#29393c;--soft:#1d2f32;--acc:#7cc4bd;--y:#f5d27a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:26px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--acc);font-weight:700}
+h1{font-size:30px;line-height:1.25;margin:8px 0 10px}h1 em{font-style:normal;color:var(--acc)}
+.lead{color:var(--ink2);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+.big{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.big div{border-radius:12px;padding:12px 6px;background:var(--soft)}.big small{display:block;font-size:12px;color:var(--mute)}.big b{font-size:20px}
+.f{display:grid;grid-template-columns:1.6fr 1fr 1.1fr 1fr auto;gap:6px;align-items:end;padding:10px 0;border-bottom:1px solid var(--line)}
+.f label{font-size:11px;color:var(--mute);display:block}
+.f input{width:100%;font:inherit;font-size:14px;padding:7px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.out{grid-column:1/-1;font-size:14px;color:var(--ink2)}.out b{color:var(--acc);font-size:16px}
+.x{border:0;background:none;color:var(--mute);font-size:20px;cursor:pointer;padding:4px 6px}
+.add{font:inherit;font-weight:700;border:1px dashed var(--acc);color:var(--acc);background:none;border-radius:10px;padding:8px 14px;margin-top:10px;cursor:pointer}
+.bar{height:6px;border-radius:3px;background:var(--line);margin-top:4px}.bar i{display:block;height:6px;border-radius:3px;background:var(--acc)}
+.cta{background:var(--acc);color:#fff;border-radius:14px;padding:18px;margin:18px 0}.cta a{color:#fff;font-weight:800}
+.faq h3{font-size:16px;margin:16px 0 4px}.faq p{margin:0;color:var(--ink2);font-size:15px}
+footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
+.r{color:#C0392B;font-weight:700}
+@media (max-width:520px){.f{grid-template-columns:1fr 1fr}.f .n{grid-column:1/-1}.x{grid-column:2;justify-self:end}}
+</style>
+</head>
+<body><main>
+<div class="k">FREE · SINKING FUNDS</div>
+<h1>Sinking funds calculator:<br><em>what to set aside each month</em></h1>
+<p class="lead">List what you save for ahead of time. Add the target, the month it is due and what you already have. You get the monthly amount for each fund and your total. Runs in your browser; nothing is saved.</p>
+<div class="card big">
+  <div><small>Set aside each month</small><b id="tm"></b></div>
+  <div><small>Still to save</small><b id="ts"></b></div>
+  <div><small>Saved so far</small><b id="tv"></b></div>
+</div>
+<div class="card"><div id="list"></div><button class="add" id="add">+ Add a fund</button></div>
+<div class="cta">Want this in a spreadsheet you keep using? The <a href="https://whistledown8.gumroad.com/l/sinking-funds-tracker" target="_blank" rel="noopener">Sinking Funds Tracker for Google Sheets and Excel</a> does the same math for up to 30 funds, logs each deposit and spend, updates balances, flags funds that are past due, and shows a month-by-month view. $7, made by the same person who built this calculator.</div>
+<section class="faq">
+  <h2 style="font-size:20px;margin-top:30px">Sinking funds, briefly</h2>
+  <h3>What is a sinking fund?</h3><p>Money you put aside a little each month for an expense you can see coming: car insurance, holiday gifts, a trip, annual subscriptions. When the bill arrives, the money is already there.</p>
+  <h3>How the monthly amount is worked out</h3><p>Target minus what you have saved, divided by the months from this month to the due month (at least one). A 1,100 bill due in 7 months with 380 saved needs about 102.86 a month.</p>
+  <h3>Sinking fund vs emergency fund</h3><p>An emergency fund is for what you cannot predict. A sinking fund is for what you can. Most budgets need both.</p>
+  <h3>No due date?</h3><p>Leave the month blank and the calculator spreads the rest over 12 months. Change it once you know the date.</p>
+</section>
+<footer>Made by a solo maker with help from AI tools · Calculations run in your browser and are not stored · <a href="../debt-payoff/">Debt payoff calculator</a> · <a href="../wedding-budget/">Wedding budget calculator</a></footer>
+</main>
+<script>
+const now=new Date(),ym=d=>d.getFullYear()*12+d.getMonth();
+const pad=n=>String(n).padStart(2,'0'),mon=(y,m)=>`${y}-${pad(m)}`;
+const Y=now.getFullYear()+1;
+let F=[['Car insurance (annual)',1100,mon(Y,6),380],['Holiday gifts',900,mon(Y,12),250],['Summer trip',2500,mon(Y,8),700],['Car repairs',1200,'',170],['Annual subscriptions',300,mon(Y,3),90]];
+const $=id=>document.getElementById(id),f2=n=>isFinite(n)?n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):'–';
+function draw(){$('list').innerHTML=F.map((r,i)=>`<div class="f" data-i="${i}">
+<div class="n"><label>Fund</label><input data-k="0" value="${String(r[0]).replace(/"/g,'&quot;')}"></div>
+<div><label>Target</label><input data-k="1" type="number" min="0" step="10" inputmode="decimal" value="${r[1]}"></div>
+<div><label>Due month</label><input data-k="2" type="month" value="${r[2]}"></div>
+<div><label>Saved</label><input data-k="3" type="number" min="0" step="10" inputmode="decimal" value="${r[3]}"></div>
+<button class="x" aria-label="Remove">×</button><div class="out" id="o${i}"></div></div>`).join('');calc();}
+function calc(){let tm=0,ts=0,tv=0;F.forEach((r,i)=>{const t=+r[1]||0,s=+r[3]||0,left=Math.max(0,t-s);let m=12,note='spread over 12 months (no due month)';
+ if(r[2]){const [y,mm]=r[2].split('-').map(Number);m=Math.max(1,y*12+mm-1-ym(now));note=(y*12+mm-1<ym(now))?'<span class="r">due month has passed</span>':`${m} month${m>1?'s':''} left`;}
+ const per=left/m;tm+=per;ts+=left;tv+=s;const p=t>0?Math.min(100,s/t*100):0;
+ $('o'+i).innerHTML=left===0&&t>0?`<b>Funded</b> · ${p.toFixed(0)}% <div class="bar"><i style="width:${p}%"></i></div>`:`<b>${f2(per)}</b> / month · ${f2(left)} to go · ${note}<div class="bar"><i style="width:${p}%"></i></div>`;});
+ $('tm').textContent=f2(tm);$('ts').textContent=f2(ts);$('tv').textContent=f2(tv);}
+$('list').addEventListener('input',e=>{const row=e.target.closest('.f');if(!row)return;F[+row.dataset.i][+e.target.dataset.k]=e.target.value;calc();});
+$('list').addEventListener('click',e=>{if(e.target.classList.contains('x')){F.splice(+e.target.closest('.f').dataset.i,1);draw();}});
+$('add').onclick=()=>{F.push(['New fund',500,'',0]);draw();};
+draw();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d4b593fd49874cf195851b41cd0caed4"}'></script>
+</body></html>
