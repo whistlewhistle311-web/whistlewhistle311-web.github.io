@@ -105,5 +105,5 @@
     return { cols, dm, dmKo: ko(dm), dayGz: pil[2], dayKo: ko(pil[2]), cnt, ratio, label, yong, hee, gi, johu, dayun, cur, months, flags,
              year: { gz: ygz, stem: god(dm, ygz[0]), branch: god(dm, ZM[ygz[1]]) } };
   }
-  g.SajuEngine = { analyze, ko, EL };
+  g.SajuEngine = { analyze, ko, EL, god, brel, GEN, CTRL, GANCHONG, pair };
 })(window);
