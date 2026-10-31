@@ -18,3 +18,6 @@
 - Korean lunar dates can differ by one day from the Chinese calendar (e.g., Seollal 2027 is Feb 7 in Korea, Feb 6 in China); these pages use the Korean calendar.
 - Saju months start at solar terms, not on the 1st (2027: 입춘 Feb 4).
 - Paid personalised report with three dates for a user's question: https://kmong.com/@%EA%B3%84%EC%82%B0%EA%B3%B5%EB%B0%A9
+
+## Home electricity (Korea)
+- [난방기 전기요금 계산기 (winter heater electricity bill calculator, Korea)](https://whistlewhistle311-web.github.io/%EC%A0%84%EA%B8%B0%EC%9A%94%EA%B8%88/): enter current monthly household use (kWh), the month, and heaters (watts, hours per day, thermostat on-ratio, days) → the KEPCO residential low-voltage bill before and after, including progressive tiers (non-summer 200/400 kWh at 120/214.6/307.3 KRW per kWh; July-August 300/450; over 1,000 kWh in Dec-Feb and Jul-Aug at 736.2), base charge 910/1,600/7,300 KRW, climate-environment 9 KRW/kWh, fuel adjustment +5 KRW/kWh (Q4 2026), VAT 10%, power fund 2.7%, rounded down to 10 KRW. Matches published examples (450 kWh in August = 85,740 KRW). Runs in the browser, nothing stored. Accepts ?use=KWH.
