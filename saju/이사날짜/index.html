@@ -113,7 +113,8 @@ footer{font-size:12px;color:var(--mute);margin-top:30px}
   <div id="picks"></div>
   <div class="card"><h2>예비 날짜</h2><p class="sum" style="margin-bottom:8px">후보 날짜에 예약이 안 될 때 쓰는 다음 순위예요.</p><div class="bk" id="bk"></div></div>
   <div class="cta"><h2>두 사람, 가족 날짜를 같이 맞춰야 한다면</h2><p>부부나 가족이 함께 움직일 때는 두 사람 모두와 충하지 않는 날을 골라야 해요. 두 사람 사주를 같이 넣고, 날짜마다 근거 글자와 준비 순서를 붙인 택일 리포트를 만들어 드려요.</p><a id="cta" href="https://kmong.com/@%EA%B3%84%EC%82%B0%EA%B3%B5%EB%B0%A9" rel="noopener">두 사람 택일 리포트 보기 (크몽)</a></div>
-  <button class="share" id="sh" type="button">결과 링크 공유 (링크에 생년월일이 담겨요)</button>
+  <button id="img" type="button">날짜 3개 이미지로 저장 (가족에게 보내기)</button>
+  <button class="share" id="sh" type="button" style="margin-top:8px">결과 링크 공유 (링크에 생년월일이 담겨요)</button>
 </section>
 
 <section class="card" id="goods">
@@ -214,6 +215,34 @@ window.__move={run};
   const p=new URLSearchParams(location.search);if(!p.get('b'))return;
   $('b').value=p.get('b');if(p.get('t'))$('t').value=p.get('t');else $('n').checked=true;if(p.get('s'))$('s').value=p.get('s');
   if(p.get('fr'))$('fr').value=p.get('fr');if(p.get('to'))$('to').value=p.get('to');$('we').checked=p.get('we')==='1';$('so').checked=p.get('so')==='1';go(false)})();
+
+async function storyCard(R){
+  try{await document.fonts.ready}catch(e){}
+  const W=1080,H=1920,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');
+  const SANS='Pretendard,"Apple SD Gothic Neo",sans-serif',SERIF='"Noto Serif KR",serif',A=R.A;
+  x.fillStyle='#1C2A47';x.fillRect(0,0,W,H);
+  x.fillStyle='#D9C9A8';x.font='700 34px '+SANS;x.fillText('손없는날 + 내 사주 · 이사 날짜',90,170);
+  x.fillStyle='#F7F1E5';x.font='800 76px '+SANS;x.fillText('내 사주로 고른',90,290);x.fillStyle='#E0563F';x.fillText('이사 날짜 3개',90,390);
+  x.fillStyle='#D9C9A8';x.font='500 34px '+SANS;x.fillText(E.ko(A.dayGz)+'일주 · '+ANI[A.cols[0].zhi.c]+'띠 · 충하는 '+[...new Set([CH[A.cols[2].zhi.c],CH[A.cols[0].zhi.c]])].join('·')+'일은 뺐어요',90,470);
+  let y=560;
+  R.best.forEach((r,i)=>{const [Y,M,D]=r.ds.split('-').map(Number);
+    x.fillStyle='rgba(247,241,229,.08)';x.beginPath();x.roundRect(90,y,W-180,300,28);x.fill();
+    x.fillStyle='#E0563F';x.font='700 30px '+SANS;x.fillText(['첫째','둘째','셋째'][i],140,y+70);
+    x.fillStyle='#F7F1E5';x.font='900 120px '+SERIF;x.fillText(M+'/'+D,140,y+200);
+    x.font='700 40px '+SANS;x.fillText(Y+' · '+r.wd+'요일',540,y+120);
+    x.fillStyle='#D9C9A8';x.font='500 34px '+SANS;x.fillText(r.gz+'일'+(r.lunar?' · 음 '+r.lunar:''),540,y+180);
+    if(r.son){x.fillStyle='#C0432D';x.beginPath();x.roundRect(540,y+210,170,52,26);x.fill();x.fillStyle='#fff';x.font='700 28px '+SANS;x.fillText('손없는날',568,y+246)}
+    y+=340});
+  if(!R.best.length){x.fillStyle='#D9C9A8';x.font='600 40px '+SANS;x.fillText('조건에 맞는 날이 없었어요',90,700)}
+  x.fillStyle='#8f9ab3';x.font='500 30px '+SANS;x.fillText('함께 움직이는 사람도 각자 넣어 보고, 둘 다 나온 날을 고르세요.',90,1620);
+  x.fillStyle='#D9C9A8';x.font='600 34px '+SANS;x.fillText('내 생년월일로 바로 · 무료',90,1780);
+  x.fillStyle='#8f9ab3';x.font='500 30px '+SANS;x.fillText('whistlewhistle311-web.github.io/saju/이사날짜 · 계산공방',90,1830);
+  return new Promise(res=>c.toBlob(res,'image/png'));
+}
+$('img').addEventListener('click',async()=>{if(!LAST)return;const b=await storyCard(LAST);const f=new File([b],'이사-날짜.png',{type:'image/png'});
+  try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:'내 사주로 고른 이사 날짜'});return}}catch(e){if(e.name==='AbortError')return}
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=f.name;document.body.appendChild(a);a.click();a.remove();$('img').textContent='이미지를 저장했어요'});
+window.__move.card=storyCard;
 $('f').addEventListener('submit',e=>{e.preventDefault();go(true)});
 $('sh').addEventListener('click',async()=>{const u=location.href;try{if(navigator.share){await navigator.share({title:'내 사주로 고른 이사 날짜',url:u})}else{await navigator.clipboard.writeText(u);$('sh').textContent='링크를 복사했어요'}}catch(e){}});
 </script>
