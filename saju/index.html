@@ -101,6 +101,12 @@ footer{font-size:12px;color:var(--mute);margin-top:30px}
     <div class="mlist" id="mlist" style="margin-top:12px"></div>
     <p class="note" id="flags"></p>
   </div>
+  <div class="card" id="mcard">
+    <h2>나의 재물 유형</h2>
+    <p id="mtype" style="margin:4px 0 6px"></p>
+    <div class="pills" id="mcnt"></div>
+    <p class="note">원국에서 재성(돈), 식상(버는 활동), 비겁(나누는 돈) 글자 수와 일간의 힘으로 나눈 다섯 가지 유형 중 하나예요. 2027년 12달 중 돈을 잡을 달과 지킬 달은 <a href="https://kmong.com/@%EA%B3%84%EC%82%B0%EA%B3%B5%EB%B0%A9" rel="noopener">재물 달력 리포트(크몽)</a>에서 날짜로 정리해 드려요. 투자 종목·시기는 다루지 않아요.</p>
+  </div>
   <div class="cta">
     <h2>내 질문에 맞춘 날짜 3개가 궁금하다면</h2>
     <p>이직, 연애, 시험처럼 고민 하나를 보내 주시면, 같은 계산으로 13쪽 리포트(지난 3년 검증, 대운, 분야별 2027, 질문 답과 움직일 날짜 3개)를 만들어 드려요.</p>
@@ -130,6 +136,16 @@ const LINE={목:'방향을 정하면 밀고 나가는 사람',화:'드러내고 
 const ELH={목:'木',화:'火',토:'土',금:'金',수:'水'};
 function run(ms,pred){let best=null,cur=null;ms.forEach((m,i)=>{if(pred(m)){if(!cur)cur={a:i,b:i};else cur.b=i;if(!best||cur.b-cur.a>best.b-best.a)best={...cur}}else cur=null});return best}
 function rangeTxt(ms,r){if(!r)return'-';return ms[r.a].label.split('~')[0]+' ~ '+ms[r.b].label.split('~')[1]}
+
+const MKIND={편재:'재',정재:'재',식신:'식',상관:'식',비견:'비',겁재:'비',편관:'관',정관:'관',편인:'인',정인:'인'};
+function moneyType(r){const c={재:0,식:0,비:0,관:0,인:0};r.cols.forEach((x,i)=>{if(!x)return;if(i!==2)c[MKIND[x.gan.god]]++;c[MKIND[x.zhi.god]]++});
+  let t;if(c.재===0)t=['일·기술로 버는 형','돈 글자(재성)가 원국에 드러나 있지 않아요. 돈을 쫓기보다 일과 기술이 쌓이면 따라오는 구조예요.'];
+  else if(c.식>=2)t=['만들어서 파는 형','재능·표현(식상)이 돈(재성)으로 이어지는 구조예요. 내가 만든 것, 말과 글이 수입이 돼요.'];
+  else if(c.재>=3&&r.ratio<0.45)t=['관리가 먼저인 형','돈 글자는 많은데 일간의 힘이 약한 편이라, 들어오는 것보다 지키는 구조를 먼저 만드는 게 중요해요.'];
+  else if(c.비>=3)t=['사람과 함께 버는 형','동료·경쟁자(비겁)가 많아 협업에서 기회가 오지만 돈이 나눠지기도 쉬워요.'];
+  else t=['꾸준히 쌓는 형','돈 글자가 무난하게 자리 잡아, 월급·정기 수입처럼 꾸준히 쌓을 때 강해요.'];
+  $('mtype').innerHTML='<b style="font-size:20px;color:var(--red)">'+t[0]+'</b><br>'+t[1];
+  $('mcnt').innerHTML=[['재','재성·돈'],['식','식상·버는 활동'],['비','비겁·나누는 돈']].map(([k,l])=>'<span>'+l+' '+c[k]+'</span>').join('');}
 function draw(r){
   $('dgz').textContent=r.dayGz; $('dname').textContent=SajuEngine.ko(r.dayGz)+'일주';
   $('dline').textContent=ZI[r.dayGz[1]]+'의 '+IMG[r.dm]+'. '+LINE[SajuEngine.EL[r.dm]]+'. 2027년은 '+r.year.gz+'년, 나에게 '+r.year.stem+'·'+r.year.branch+'의 해예요.';
@@ -154,6 +170,7 @@ function draw(r){
   $('worst').textContent=rangeTxt(r.months,run(r.months,m=>m.score<=2));
   $('mlist').innerHTML=r.months.map(m=>'<div><span><b>'+m.m+'월</b> '+m.label+(m.nextYear?" ('28)":'')+'</span><span>'+m.gz+' · '+m.stem+'·'+m.branch+' <span class="dots">'+[1,2,3,4,5].map(k=>'<i class="'+(k<=m.score?'on':'')+'"></i>').join('')+'</span></span></div>').join('');
   $('flags').textContent=r.flags.join(' ');
+  moneyType(r);
   $('out').style.display='block';
   LAST=r;
 }
