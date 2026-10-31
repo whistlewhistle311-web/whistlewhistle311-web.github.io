@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>내 사주로 이사 날짜 고르기 | 손없는날 + 충 피하는 날 무료 계산기</title>
+<meta name="description" content="생년월일시와 이사 가능한 기간을 넣으면, 내 일지·띠와 충하는 날을 빼고 그 달 운, 반기는 기운, 천을귀인, 손없는날을 더해 이사 날짜 후보 3개와 예비 날짜 5개를 골라 드려요. 무료, 저장 안 함.">
+<meta property="og:image" content="https://whistlewhistle311-web.github.io/saju/og/move.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/saju/%EC%9D%B4%EC%82%AC%EB%82%A0%EC%A7%9C/">
+<meta property="og:title" content="내 사주로 고른 이사 날짜 3개">
+<meta property="og:description" content="손없는날만 보지 말고, 내 사주와 충하는 날까지 빼고 고르기. 무료.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/saju/%EC%9D%B4%EC%82%AC%EB%82%A0%EC%A7%9C/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"손없는날이면 아무 날이나 괜찮나요?","acceptedAnswer":{"@type":"Answer","text":"손없는날은 모두에게 같은 날이에요. 사주로 이사 날을 볼 때는 그날의 일진이 내 일지(태어난 날의 아래 글자)나 띠와 충하는지를 먼저 보고, 충하는 날은 손없는날이어도 빼요."}},{"@type":"Question","name":"가족이 여러 명이면 누구 기준으로 보나요?","acceptedAnswer":{"@type":"Answer","text":"보통 세대주나 계약하는 사람을 먼저 보고, 함께 움직이는 사람과 충이 겹치는 날을 빼요. 이 계산기는 한 사람 기준이라, 두 사람이면 각자 넣어 보고 둘 다 후보에 있는 날을 고르면 돼요."}},{"@type":"Question","name":"입력한 생년월일은 저장되나요?","acceptedAnswer":{"@type":"Answer","text":"계산은 브라우저 안에서만 이뤄지고 어디에도 보내거나 저장하지 않아요."}}]}</script>
+<style>
+
+:root{--paper:#F7F1E5;--card:#FBF7EE;--ink:#1C2A47;--ink2:#4A5368;--mute:#8A8576;--red:#C0432D;--gold:#B38F55;--line:#E2D6BD;
+--목:#4F7A4A;--화:#C0432D;--토:#B8893E;--금:#8C8C8C;--수:#24365C}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--paper:#15181f;--card:#1d212b;--ink:#efe8da;--ink2:#c9c2b4;--mute:#958f83;--line:#343a47;--수:#7f9bd6;--목:#7fb07a;--금:#b9b9b9}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;word-break:keep-all}
+main{max-width:640px;margin:0 auto;padding:28px 16px 64px}
+.k{font-size:12px;letter-spacing:.24em;color:var(--red);font-weight:700}
+h1{font-size:30px;line-height:1.3;margin:8px 0 10px;font-family:"Noto Serif KR",serif}
+h1 em{font-style:normal;color:var(--red)}
+.lead{color:var(--ink2);margin:0 0 20px}
+form{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+label{display:block;font-size:14px;font-weight:600;margin:10px 0 6px}
+input,select{width:100%;font:inherit;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink)}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.chk{display:flex;align-items:center;gap:8px;font-weight:400;margin-top:8px}.chk input{width:auto}
+button{font:inherit;font-weight:700;border:0;border-radius:12px;padding:14px;width:100%;background:var(--red);color:#fff;margin-top:16px;cursor:pointer}
+.note{font-size:13px;color:var(--mute);margin-top:10px}
+#out{display:none;margin-top:28px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:14px 0}
+.ilju{text-align:center}
+.ilju b{display:block;font-family:"Noto Serif KR",serif;font-size:44px;line-height:1.1;color:var(--red)}
+.ilju span{font-size:20px;font-weight:700}
+table{width:100%;border-collapse:collapse;text-align:center}
+th{font-size:12px;color:var(--mute);font-weight:600;padding:4px 0}
+td{padding:6px 0;border-top:1px solid var(--line)}
+td .hz{font-family:"Noto Serif KR",serif;font-size:30px;font-weight:700;line-height:1.1}
+td .g{font-size:11px;color:var(--mute)}
+.me{background:rgba(192,67,45,.08)}
+.bar{height:12px;border-radius:6px;background:linear-gradient(90deg,var(--수),var(--토) 50%,var(--red));position:relative;margin:10px 0 6px}
+.bar i{position:absolute;top:-6px;width:6px;height:24px;background:var(--ink);border-radius:3px;transform:translateX(-50%)}
+.pills span{display:inline-block;font-size:13px;padding:3px 10px;border-radius:20px;margin:3px 4px 0 0;background:rgba(179,143,85,.15)}
+h2{font-size:20px;margin:0 0 8px}
+svg{width:100%;height:auto;display:block}
+.win{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.win div{border-radius:12px;padding:12px;text-align:center}
+.win small{display:block;font-size:12px;font-weight:700}
+.win b{font-family:"Noto Serif KR",serif;font-size:20px}
+.up{background:rgba(192,67,45,.12);color:var(--red)}.dn{background:rgba(36,54,92,.12)}
+.mlist div{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding:8px 2px;font-size:14px}
+.dots i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-left:3px;background:var(--line)}
+.dots i.on{background:var(--red)}
+.cta{background:var(--ink);color:#F7F1E5;border-radius:14px;padding:20px;margin:18px 0}
+.cta h2{color:#F7F1E5}.cta p{color:#D9C9A8;margin:6px 0 14px}
+.cta a{display:block;text-align:center;background:var(--red);color:#fff;text-decoration:none;font-weight:700;border-radius:12px;padding:14px}
+.share{background:transparent;border:1px solid var(--line);color:var(--ink)}
+.faq h3{font-size:16px;margin:16px 0 4px}.faq p{margin:0;color:var(--ink2);font-size:15px}
+footer{font-size:12px;color:var(--mute);margin-top:30px}
+.pp{border-top:1px solid var(--line);padding-top:6px;margin-top:6px}.pp:first-child{border:0;margin:0;padding:0}.pp h2{margin:8px 0 0;font-size:17px}
+.duo{display:flex;align-items:center;justify-content:space-around;text-align:center}.duo small{display:block;font-size:12px;color:var(--mute);font-weight:700}.duo b{display:block;font-family:"Noto Serif KR",serif;font-size:38px;color:var(--red);line-height:1.15}.duo span{font-size:14px;font-weight:700}.amp{font-size:28px;color:var(--gold)}
+.tag{display:inline-block;font-size:13px;background:var(--red);color:#fff;border-radius:20px;padding:1px 10px;margin-right:6px}
+#see p,#rel p,#fill p{margin:8px 0}
+.mrow{display:grid;grid-template-columns:1fr 44px 44px;border-top:1px solid var(--line);padding:7px 2px;font-size:14px;align-items:center}.mrow span:not(:first-child){text-align:center}.mrow.head{font-size:12px;color:var(--mute);border:0}.mrow.bo{background:rgba(192,67,45,.08)}
+.mrow i{font-style:normal}.mrow i.g{color:var(--red)}.mrow i.c{color:var(--수)}.mrow i.p{color:var(--gold)}
+
+.pick{display:flex;gap:14px;border:1.5px solid var(--gold);border-radius:14px;padding:16px;margin:12px 0;background:var(--card)}
+.pick .dd{flex:none;width:96px;text-align:center;border-right:1px solid var(--line);padding-right:12px}
+.pick .dd small{display:block;font-size:12px;color:var(--red);font-weight:700;letter-spacing:.12em}
+.pick .dd b{display:block;font-family:"Noto Serif KR",serif;font-size:34px;line-height:1.15}
+.pick .dd span{display:block;font-size:13px;color:var(--ink2)}
+.pick .dd i{display:inline-block;font-style:normal;font-size:12px;background:var(--red);color:#fff;border-radius:20px;padding:0 8px;margin-top:4px}
+.pick h3{font-size:16px;margin:0 0 6px}
+.pick ul{margin:0;padding-left:18px;font-size:14px;color:var(--ink2)}.pick li{margin:2px 0}.pick li.m{color:var(--mute)}
+.bk{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.bk div{text-align:center;border:1px solid var(--line);border-radius:10px;padding:8px 2px;font-size:12px;color:var(--mute)}
+.bk b{display:block;font-size:17px;color:var(--ink)}
+.sum{font-size:14px;color:var(--ink2);margin:0}.hl,.ilju .sum span.hl{font-weight:700;color:var(--ink);font-size:inherit}
+.err{color:var(--red);font-weight:700;margin-top:10px}
+.goods{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.goods a{display:block;border:1px solid var(--line);border-radius:12px;padding:12px;text-decoration:none;color:var(--ink);background:var(--paper);font-size:14px}
+.goods a b{display:block;font-size:15px}.goods a span{font-size:12px;color:var(--mute)}
+.ad{font-size:12px;color:var(--mute);margin:0 0 6px}
+@media (max-width:420px){.bk{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body><main>
+<nav class="note" style="margin:0 0 6px"><a href="../">2027 운 그래프</a> › <a href="../손없는날/">손없는날</a> › 이사 날짜 계산기</nav>
+<div class="k">FREE · 이사 날짜 계산기</div>
+<h1>내 사주로 고르는<br><em>이사 날짜</em></h1>
+<p class="lead">손없는날은 모두에게 같은 날이에요. 생년월일시와 이사할 수 있는 기간을 넣으면, <b>내 사주와 충하는 날을 빼고</b> 남은 날 가운데 후보 3개와 예비 날짜 5개를 골라 드려요. 무료이고, 입력한 정보는 저장하지 않아요.</p>
+<form id="f">
+  <label for="b">생년월일 (양력)</label><input id="b" type="date" min="1940-01-01" max="2015-12-31" value="1990-06-15" required>
+  <div class="row"><div><label for="t">태어난 시간</label><input id="t" type="time" value="09:30"></div><div><label for="s">성별</label><select id="s"><option value="M">남</option><option value="F">여</option></select></div></div>
+  <label class="chk"><input id="n" type="checkbox"> 시간을 몰라요</label>
+  <div class="row"><div><label for="fr">이사 가능 시작일</label><input id="fr" type="date" min="2026-11-01" max="2028-01-31" required></div><div><label for="to">마지막 날</label><input id="to" type="date" min="2026-11-01" max="2028-01-31" required></div></div>
+  <label class="chk"><input id="we" type="checkbox"> 토·일요일만</label>
+  <label class="chk"><input id="so" type="checkbox"> 손없는날만</label>
+  <button type="submit">이사 날짜 골라 보기</button>
+  <div class="err" id="er"></div>
+  <div class="note">계산은 이 화면 안에서만 이뤄지고 어디에도 보내지 않아요. 음력 생일은 양력으로 바꿔서 넣어 주세요. 기간은 2026년 11월부터 2028년 1월까지 고를 수 있어요.</div>
+</form>
+
+<section id="out">
+  <div class="card ilju"><small class="note" style="margin:0">내 일주</small><b id="il"></b><span id="ilk"></span>
+    <p class="sum" id="sm" style="margin-top:10px"></p></div>
+  <h2 style="margin-top:22px">날짜 후보</h2>
+  <div id="picks"></div>
+  <div class="card"><h2>예비 날짜</h2><p class="sum" style="margin-bottom:8px">후보 날짜에 예약이 안 될 때 쓰는 다음 순위예요.</p><div class="bk" id="bk"></div></div>
+  <div class="cta"><h2>두 사람, 가족 날짜를 같이 맞춰야 한다면</h2><p>부부나 가족이 함께 움직일 때는 두 사람 모두와 충하지 않는 날을 골라야 해요. 두 사람 사주를 같이 넣고, 날짜마다 근거 글자와 준비 순서를 붙인 택일 리포트를 만들어 드려요.</p><a id="cta" href="https://kmong.com/@%EA%B3%84%EC%82%B0%EA%B3%B5%EB%B0%A9" rel="noopener">두 사람 택일 리포트 보기 (크몽)</a></div>
+  <button class="share" id="sh" type="button">결과 링크 공유 (링크에 생년월일이 담겨요)</button>
+</section>
+
+<section class="card" id="goods">
+  <h2>이사 준비물 챙기기</h2>
+  <p class="ad">이 영역의 링크는 쿠팡 파트너스 활동의 하나로, 이를 통해 구매하면 일정액의 수수료를 받아요. 사는 분이 내는 값은 같아요.</p>
+  <p class="sum">날짜가 정해지면 짐 싸기는 보통 2주 전부터 시작해요. 상자와 완충재는 이사업체가 주는지 먼저 물어보고, 모자란 것만 사면 돼요.</p>
+  <div class="goods">
+    <a href="https://link.coupang.com/a/iiqyRQJnxs" rel="sponsored noopener" target="_blank"><b>이사박스</b><span>책·주방용은 작은 상자로</span></a>
+    <a href="https://link.coupang.com/a/iiqySAIoBU" rel="sponsored noopener" target="_blank"><b>에어캡(뽁뽁이)</b><span>그릇·액자 감싸기</span></a>
+    <a href="https://link.coupang.com/a/iiqyTluGDl" rel="sponsored noopener" target="_blank"><b>박스테이프·커터</b><span>상자 바닥은 십자로</span></a>
+    <a href="https://link.coupang.com/a/iiqyT8EOzI" rel="sponsored noopener" target="_blank"><b>이불 압축팩</b><span>겨울 이불 부피 줄이기</span></a>
+    <a href="https://link.coupang.com/a/iiqyVxv4ns" rel="sponsored noopener" target="_blank"><b>네임펜·라벨</b><span>방 이름과 내용물 적기</span></a>
+    <a href="https://link.coupang.com/a/iiqyULgggu" rel="sponsored noopener" target="_blank"><b>이사 청소용품</b><span>입주 전날 새집 닦기</span></a>
+  </div>
+</section>
+
+<section class="faq">
+  <h2 style="margin-top:36px">이렇게 골라요</h2>
+  <h3>1. 충하는 날부터 빼요</h3><p>그날의 일진(날 글자) 아래 글자가 내 일지나 띠와 정면으로 부딪히는(충) 날은 손없는날이어도 후보에서 빼요. 12일에 한 번씩 돌아와서 한 달에 4~6일쯤 빠져요.</p>
+  <h3>2. 남은 날에 점수를 매겨요</h3><p>그날이 속한 달(절기 기준)의 내 운 점수에서 시작해, 일진 오행이 내가 반기는 기운이면 더하고, 피하는 기운이면 조금 빼요. 일지와 합하는 날, 천을귀인 자리 날은 더하고, 형·원진·해가 걸리면 빼요.</p>
+  <h3>3. 손없는날은 조금 더 쳐 줘요</h3><p>음력 끝자리가 9·0인 날이에요. 음력은 한국천문연구원 기준으로 미리 계산해 넣었어요. 아예 손없는날만 보고 싶으면 위에서 체크하면 돼요.</p>
+  <h3>4. 후보끼리는 7일 이상 떨어뜨려요</h3><p>입주일과 업체 일정이 안 맞을 때 고를 수 있게, 후보 3개는 서로 일주일 이상 떨어진 날로 골라요.</p>
+  <h3>참고로만 써 주세요</h3><p>잔금일, 입주 가능일, 업체 일정이 먼저예요. 그 안에서 고르는 데 쓰세요. 사주 계산은 절기 기준 만세력과 서울 경도 30분 보정을 써요.</p>
+</section>
+<p style="margin-top:24px"><a href="../손없는날/">2026·2027 손없는날 달력 전체 →</a><br><a href="../">내 2027 운 그래프 보기 →</a><br><a href="../궁합/">두 사람 궁합·함께 좋은 달 →</a></p>
+<footer>계산: 만세력 오픈소스(lunar-javascript, MIT), 음력은 한국천문연구원 기준 데이터 · 만든 곳: 계산공방 · 결과는 저장되지 않아요.</footer>
+</main>
+<script src="../lunar.js"></script>
+<script src="../engine.js"></script>
+<script>
+const SON={"2026-11-08":"9.29","2026-11-17":"10.9","2026-11-18":"10.10","2026-11-27":"10.19","2026-11-28":"10.20","2026-12-07":"10.29","2026-12-08":"10.30","2026-12-17":"11.9","2026-12-18":"11.10","2026-12-27":"11.19","2026-12-28":"11.20","2027-01-06":"11.29","2027-01-07":"11.30","2027-01-16":"12.9","2027-01-17":"12.10","2027-01-26":"12.19","2027-01-27":"12.20","2027-02-05":"12.29","2027-02-06":"12.30","2027-02-15":"1.9","2027-02-16":"1.10","2027-02-25":"1.19","2027-02-26":"1.20","2027-03-07":"1.29","2027-03-16":"2.9","2027-03-17":"2.10","2027-03-26":"2.19","2027-03-27":"2.20","2027-04-05":"2.29","2027-04-06":"2.30","2027-04-15":"3.9","2027-04-16":"3.10","2027-04-25":"3.19","2027-04-26":"3.20","2027-05-05":"3.29","2027-05-14":"4.9","2027-05-15":"4.10","2027-05-24":"4.19","2027-05-25":"4.20","2027-06-03":"4.29","2027-06-04":"4.30","2027-06-13":"5.9","2027-06-14":"5.10","2027-06-23":"5.19","2027-06-24":"5.20","2027-07-03":"5.29","2027-07-12":"6.9","2027-07-13":"6.10","2027-07-22":"6.19","2027-07-23":"6.20","2027-08-01":"6.29","2027-08-10":"7.9","2027-08-11":"7.10","2027-08-20":"7.19","2027-08-21":"7.20","2027-08-30":"7.29","2027-08-31":"7.30","2027-09-09":"8.9","2027-09-10":"8.10","2027-09-19":"8.19","2027-09-20":"8.20","2027-09-29":"8.29","2027-10-08":"9.9","2027-10-09":"9.10","2027-10-18":"9.19","2027-10-19":"9.20","2027-10-28":"9.29","2027-11-06":"10.9","2027-11-07":"10.10","2027-11-16":"10.19","2027-11-17":"10.20","2027-11-26":"10.29","2027-11-27":"10.30","2027-12-06":"11.9","2027-12-07":"11.10","2027-12-16":"11.19","2027-12-17":"11.20","2027-12-26":"11.29","2027-12-27":"11.30","2028-01-05":"12.9","2028-01-06":"12.10","2028-01-15":"12.19","2028-01-16":"12.20","2028-01-25":"12.29","2028-01-26":"12.30","2028-02-04":"1.9","2028-02-05":"1.10"};
+const $=id=>document.getElementById(id),E=SajuEngine,ELH={목:'木',화:'火',토:'土',금:'金',수:'水'};
+const ANI={子:'쥐',丑:'소',寅:'호랑이',卯:'토끼',辰:'용',巳:'뱀',午:'말',未:'양',申:'원숭이',酉:'닭',戌:'개',亥:'돼지'};
+const CH={子:'午',丑:'未',寅:'申',卯:'酉',辰:'戌',巳:'亥',午:'子',未:'丑',申:'寅',酉:'卯',戌:'辰',亥:'巳'};
+const TIANYI={甲:'丑未',戊:'丑未',庚:'丑未',乙:'子申',己:'子申',丙:'亥酉',丁:'亥酉',辛:'寅午',壬:'巳卯',癸:'巳卯'};
+const WD='일월화수목금토';
+const p2=n=>String(n).padStart(2,'0');
+const ymdU=d=>d.getUTCFullYear()+'-'+p2(d.getUTCMonth()+1)+'-'+p2(d.getUTCDate());
+const isoLocal=d=>d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate());
+const plus=(s,k)=>{const d=new Date(s+'T00:00:00Z');d.setUTCDate(d.getUTCDate()+k);return ymdU(d)};
+const jb=c=>{const k=E.ko(c).slice(-1).charCodeAt(0)-0xAC00;return k>=0&&k%28>0};const wa=c=>c+(jb(c)?'과':'와'),ga=c=>c+(jb(c)?'이':'가');
+function rels(z,x){const r=E.brel(z,x).slice();if(z===x&&'辰午酉亥'.includes(z))r.push('자형');return r}
+function dayEval(A,months,ds){
+  const [y,m,d]=ds.split('-').map(Number);const gz=Solar.fromYmd(y,m,d).getLunar().getDayInGanZhi(),g=gz[0],z=gz[1];
+  const mo=months.find(x=>ymdU(x.start)<=ds&&ds<=ymdU(x.end));if(!mo)return null;
+  const dz=A.cols[2].zhi.c,yz=A.cols[0].zhi.c,dm=A.dm;let s=mo.score;const plusF=[],minusF=[];
+  plusF.push(`이 날이 속한 달(${mo.label}) 내 운 ${mo.score}점`);
+  for(const [who,x] of [['일지',dz],['띠',yz]]){const r=rels(z,x);
+    if(r.includes('충'))return {ds,gz,ex:`${z}일은 ${who} ${wa(x)} 충`};
+    for(const k of ['형','원진','해','자형'])if(r.includes(k)){s-=.5;minusF.push(`일진 ${wa(z)} ${who} ${x} ${k}`)}
+    if(who==='일지'&&r.includes('합')){s+=.5;plusF.push(`일진 ${wa(z)} 내 일지 ${ga(x)} 합`)}}
+  if(E.GANCHONG.includes(E.pair(g+dm))){s-=1;minusF.push(`일진 ${wa(g)} 일간 ${dm} 충`)}
+  for(const c of [g,z]){const e=E.EL[c];if(e===A.yong||e===A.hee){s+=.5;plusF.push(`일진 ${c}(${ELH[e]}) 반기는 기운`)}else if(A.gi.includes(e))s-=.3}
+  if(TIANYI[dm].includes(z)){s+=.75;plusF.push(`일진 ${z} 천을귀인 자리`)}
+  const lu=SON[ds];if(lu){s+=.3;plusF.push(`손없는날(음력 ${lu})`)}
+  return {ds,gz,score:Math.round(s*100)/100,son:!!lu,lunar:lu,plusF,minusF,wd:WD[new Date(ds+'T00:00:00Z').getUTCDay()]};
+}
+function run(b,t,sx,tk,fr,to,we,so){
+  const [y,m,d]=b.split('-').map(Number),[h,mi]=(t||'12:00').split(':').map(Number);
+  const A=E.analyze(y,m,d,h,mi,sx==='M',tk,2027),A6=E.analyze(y,m,d,h,mi,sx==='M',tk,2026);
+  const months=A6.months.concat(A.months);
+  let total=0,ex=0;const rows=[];
+  for(let ds=fr;ds<=to;ds=plus(ds,1)){
+    const wdN=new Date(ds+'T00:00:00Z').getUTCDay();if(we&&wdN!==0&&wdN!==6)continue;
+    if(so&&!SON[ds]){continue}
+    total++;const r=dayEval(A,months,ds);if(!r)continue;if(r.ex){ex++;continue}rows.push(r)}
+  const best=[];for(const r of rows.slice().sort((a,b)=>b.score-a.score||(a.ds<b.ds?-1:1))){
+    if(best.every(x=>Math.abs((new Date(x.ds)-new Date(r.ds))/864e5)>=7))best.push(r);if(best.length===3)break}
+  best.sort((a,b)=>a.ds<b.ds?-1:1);const taken=new Set(best.map(r=>r.ds));
+  const backups=rows.filter(r=>!taken.has(r.ds)).sort((a,b)=>b.score-a.score||(a.ds<b.ds?-1:1)).slice(0,5).sort((a,b)=>a.ds<b.ds?-1:1);
+  return {A,rows,best,backups,total,ex};
+}
+let LAST=null;
+function go(push){
+  $('er').textContent='';
+  const b=$('b').value,t=$('n').checked?'':$('t').value,sx=$('s').value,fr=$('fr').value,to=$('to').value,we=$('we').checked,so=$('so').checked;
+  if(!b||!fr||!to){$('er').textContent='생년월일과 기간을 넣어 주세요.';return}
+  if(fr>to){$('er').textContent='시작일이 마지막 날보다 늦어요.';return}
+  if(fr<'2026-11-01'||to>'2028-01-31'){$('er').textContent='기간은 2026년 11월 1일부터 2028년 1월 31일 사이로 골라 주세요.';return}
+  const R=run(b,t,sx,!!t,fr,to,we,so);LAST=R;const A=R.A,dz=A.cols[2].zhi.c,yz=A.cols[0].zhi.c;
+  $('il').textContent=A.dayGz;$('ilk').textContent=E.ko(A.dayGz)+'일주 · '+ANI[yz]+'띠';
+  const av=[...new Set([CH[dz],CH[yz]])].join('·');
+  const cond=(we?'토·일요일 ':'')+(so?'손없는날 ':'');
+  $('sm').innerHTML=`기간 안 ${cond}<span class="hl">${R.total}일</span> 가운데 내 일지 ${dz}·띠 ${wa(yz)} 충하는 <span class="hl">${av}일 ${R.ex}일</span>을 빼고, 남은 <span class="hl">${R.rows.length}일</span>에서 골랐어요.`;
+  const P=$('picks');P.innerHTML='';
+  if(!R.best.length){P.innerHTML='<div class="card"><p class="sum">조건에 맞는 날이 없어요. 기간을 넓히거나 조건을 하나 풀어 보세요.</p></div>'}
+  R.best.forEach((r,i)=>{const [Y,M,D]=r.ds.split('-').map(Number);
+    const el=document.createElement('div');el.className='pick';
+    el.innerHTML=`<div class="dd"><small>${['첫째','둘째','셋째'][i]}</small><b>${M}/${D}</b><span>${Y} · ${r.wd}요일</span><span>${r.gz}일 · ${E.ko(r.gz)}</span>${r.son?'<i>손없는날</i>':''}</div><div><h3>이 날을 고른 이유</h3><ul>${r.plusF.map(f=>`<li>${f}</li>`).join('')}${r.minusF.map(f=>`<li class="m">조금 아쉬운 점: ${f}</li>`).join('')}</ul></div>`;
+    P.appendChild(el)});
+  $('bk').innerHTML=R.backups.map(r=>{const [Y,M,D]=r.ds.split('-').map(Number);return `<div><b>${M}/${D}</b>${r.wd} · ${r.gz}${r.son?'<br>손없음':''}</div>`}).join('')||'<p class="sum">예비 날짜가 없어요.</p>';
+  $('out').style.display='block';
+  if(push){const q=new URLSearchParams({b,s:sx,fr,to});if(t)q.set('t',t);if(we)q.set('we','1');if(so)q.set('so','1');history.replaceState(null,'','?'+q);$('out').scrollIntoView({behavior:'smooth'})}
+}
+window.__move={run};
+(function(){const now=new Date();let f=isoLocal(new Date(now.getTime()+7*864e5)),t=isoLocal(new Date(now.getTime()+90*864e5));
+  if(f<'2026-11-01')f='2026-11-01';if(t>'2028-01-31')t='2028-01-31';if(f>t)f=t;$('fr').value=f;$('to').value=t;
+  const p=new URLSearchParams(location.search);if(!p.get('b'))return;
+  $('b').value=p.get('b');if(p.get('t'))$('t').value=p.get('t');else $('n').checked=true;if(p.get('s'))$('s').value=p.get('s');
+  if(p.get('fr'))$('fr').value=p.get('fr');if(p.get('to'))$('to').value=p.get('to');$('we').checked=p.get('we')==='1';$('so').checked=p.get('so')==='1';go(false)})();
+$('f').addEventListener('submit',e=>{e.preventDefault();go(true)});
+$('sh').addEventListener('click',async()=>{const u=location.href;try{if(navigator.share){await navigator.share({title:'내 사주로 고른 이사 날짜',url:u})}else{await navigator.clipboard.writeText(u);$('sh').textContent='링크를 복사했어요'}}catch(e){}});
+</script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d4b593fd49874cf195851b41cd0caed4"}'></script>
+</body></html>
