@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de orçamento pessoal: parcelas do cartão e regra 50/30/20</title>
+<meta name="description" content="Calculadora grátis de orçamento pessoal. Digite sua renda, seus gastos fixos e suas compras parceladas no cartão: veja quanto paga de parcelas por mês, como fica sua regra 50/30/20 e quanto sobra de verdade.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/pt/planilha/">
+<meta property="og:title" content="Calculadora de orçamento: quanto sobra depois das parcelas?">
+<meta property="og:description" content="Renda, gastos fixos e compras parceladas. Regra 50/30/20 e o que sobra por mês. Grátis, nada fica salvo.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/pt/planilha/">
+<meta property="og:image" content="https://whistlewhistle311-web.github.io/pt/planilha/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"pt-BR","mainEntity":[{"@type":"Question","name":"O que é a regra 50/30/20?","acceptedAnswer":{"@type":"Answer","text":"É um guia para dividir a renda: 50% para necessidades (aluguel, contas, mercado, transporte), 30% para desejos e 20% para poupar ou quitar dívidas. É um ponto de partida, não uma regra fixa."}},{"@type":"Question","name":"Como calculo quanto pago por mês de parcelas?","acceptedAnswer":{"@type":"Answer","text":"Divida o valor de cada compra pelo número de parcelas e some as parcelas das compras que ainda estão ativas. Uma compra de 1.200 em 6x são 200 por mês durante seis meses."}}]}</script>
+<style>
+:root{--bg:#F5F7FA;--card:#fff;--ink:#16202E;--ink2:#4A5568;--mute:#7A8597;--acc:#1F3A5F;--grn:#1E8E5A;--line:#DFE5EE;--soft:#E8F4EF}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#11161d;--card:#18202a;--ink:#eef2f6;--ink2:#c3ccd8;--mute:#8b96a6;--line:#2a3441;--soft:#1c2a26;--acc:#8fb7e6;--grn:#6fd1a2}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:700px;margin:0 auto;padding:26px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--grn);font-weight:700}
+h1{font-size:30px;line-height:1.25;margin:8px 0 10px}h1 em{font-style:normal;color:var(--grn)}
+h2{font-size:18px;margin:0 0 8px}
+.lead{color:var(--ink2);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+label{font-size:12px;color:var(--mute);display:block}
+input{width:100%;font:inherit;font-size:15px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.m{display:grid;grid-template-columns:1.5fr 1fr .7fr 1fr auto;gap:6px;align-items:end;padding:6px 0;border-bottom:1px solid var(--line);font-size:14px}
+.m b{text-align:right;font-variant-numeric:tabular-nums;padding-bottom:8px}
+.x{border:0;background:none;color:var(--mute);font-size:20px;cursor:pointer}
+.add{font:inherit;font-weight:700;border:1px dashed var(--acc);color:var(--acc);background:none;border-radius:10px;padding:8px 14px;margin-top:10px;cursor:pointer}
+.big{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.big div{border-radius:12px;padding:12px 6px;background:var(--soft)}.big small{display:block;font-size:12px;color:var(--mute)}.big b{font-size:20px}
+table{width:100%;border-collapse:collapse;font-size:14px}th{font-size:11px;color:var(--mute);text-align:right;padding:6px 4px;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left}
+td{padding:7px 4px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}
+.cta{background:var(--acc);color:#fff;border-radius:14px;padding:18px;margin:18px 0}.cta a{color:#fff;font-weight:800}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .cta{background:#1F3A5F}}
+.faq h3{font-size:16px;margin:16px 0 4px}.faq p{margin:0;color:var(--ink2);font-size:15px}
+footer{font-size:12px;color:var(--mute);margin-top:30px}
+.r{color:#C0392B;font-weight:700}.g{color:var(--grn);font-weight:700}
+@media (max-width:520px){.m{grid-template-columns:1.3fr .6fr 1.4fr}.m .n{grid-column:1/-1}.m b{grid-column:1/3;text-align:left;padding:0}.x{justify-self:end}}
+</style>
+</head>
+<body><main>
+<div class="k">GRÁTIS · ORÇAMENTO PESSOAL</div>
+<h1>Calculadora de orçamento:<br><em>quanto sobra de verdade?</em></h1>
+<p class="lead">Digite sua renda, seus gastos fixos e suas compras parceladas no cartão. Veja quanto paga de parcelas por mês, como fica a regra 50/30/20 e o que sobra. Funciona no seu navegador; nada fica salvo.</p>
+<div class="card two">
+  <div><label>Renda mensal líquida</label><input id="inc" type="number" min="0" step="500" value="4800" inputmode="decimal"></div>
+  <div><label>Gastos fixos (aluguel, contas, mercado, transporte)</label><input id="fix" type="number" min="0" step="500" value="2700" inputmode="decimal"></div>
+  <div><label>Quanto já guarda por mês</label><input id="sav" type="number" min="0" step="100" value="400" inputmode="decimal"></div>
+</div>
+<div class="card"><h2>Compras parceladas no cartão</h2>
+  <div id="msi"></div><button class="add" id="add">+ Adicionar compra</button>
+</div>
+<div class="card big">
+  <div><small>Parcelas neste mês</small><b id="tm"></b></div>
+  <div><small>Sobra para desejos</small><b id="left"></b></div>
+  <div><small>Parcelas vs renda</small><b id="pct"></b></div>
+</div>
+<div class="card"><h2>Sua regra 50/30/20</h2>
+  <table><tr><th>Grupo</th><th>Meta</th><th>Você</th><th>Diferença</th></tr>
+  <tr><td>Necessidades (50%)</td><td id="n1"></td><td id="n2"></td><td id="n3"></td></tr>
+  <tr><td>Desejos (30%)</td><td id="w1"></td><td id="w2"></td><td id="w3"></td></tr>
+  <tr><td>Poupança (20%)</td><td id="s1"></td><td id="s2"></td><td id="s3"></td></tr></table>
+  <p style="font-size:13px;color:var(--mute);margin:8px 0 0">Aqui as parcelas contam como necessidade porque já são um pagamento obrigatório. "Desejos" é o que sobra depois de fixos, parcelas e poupança.</p>
+</div>
+<div class="cta">Quer acompanhar o ano todo? A <a href="https://whistledown8.gumroad.com/l/planilha-de-gastos-2027" target="_blank" rel="noopener">Planilha de Gastos 2027 para Google Sheets e Excel</a> divide cada compra parcelada nos meses em que você paga, com resumo mensal, 12 meses por categoria e lista de contas fixas. 5 USD, feita pela mesma pessoa que fez esta calculadora.</div>
+<section class="faq">
+  <h2 style="font-size:20px;margin-top:30px">Perguntas frequentes</h2>
+  <h3>Por que as parcelas parecem "invisíveis"?</h3><p>Cada parcela parece pequena, mas elas se somam. Se você tem quatro compras ativas, paga as quatro parcelas ao mesmo tempo, e tudo sai da mesma renda.</p>
+  <h3>O que é a regra 50/30/20?</h3><p>Um guia: 50% para necessidades, 30% para desejos e 20% para poupança ou dívidas. Use como referência e ajuste à sua cidade e situação.</p>
+  <h3>Como a parcela é calculada?</h3><p>Valor ÷ parcelas. Uma compra de 2.400 em 10x são 240 por mês durante dez meses. A calculadora só soma as compras que ainda estão ativas neste mês.</p>
+</section>
+<footer>Feito por uma pessoa com ajuda de ferramentas de IA · Os cálculos rodam no seu navegador e não ficam salvos · Não é consultoria financeira</footer>
+</main>
+<script>
+const now=new Date(),ym=now.getFullYear()*12+now.getMonth(),pad=n=>String(n).padStart(2,'0');
+const mon=k=>{const y=Math.floor(k/12),m=k%12+1;return `${y}-${pad(m)}`;};
+let M=[['Celular',2400,10,mon(ym-1)],['Geladeira',3000,12,mon(ym-4)],['Notebook',3600,10,mon(ym)],['Tênis',450,3,mon(ym-3)]];
+const $=id=>document.getElementById(id),f=n=>isFinite(n)?n.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}):'–';
+function draw(){$('msi').innerHTML=M.map((r,i)=>`<div class="m" data-i="${i}"><div class="n"><label>Compra</label><input data-k="0" value="${String(r[0]).replace(/"/g,'&quot;')}"></div><div><label>Valor</label><input data-k="1" type="number" min="0" step="100" inputmode="decimal" value="${r[1]}"></div><div><label>Parcelas</label><input data-k="2" type="number" min="1" max="48" step="1" inputmode="numeric" value="${r[2]}"></div><div><label>1ª parcela</label><input data-k="3" type="month" value="${r[3]}"></div><b id="p${i}"></b><button class="x" aria-label="Remover">×</button></div>`).join('');calc();}
+function calc(){let t=0;M.forEach((r,i)=>{const a=+r[1]||0,n=Math.max(1,+r[2]||1);let act=true,note='';if(r[3]){const [y,m]=r[3].split('-').map(Number);const s=y*12+m-1,k=ym-s;act=k>=0&&k<n;note=k<0?'ainda não':(k>=n?'já paga':`parcela ${k+1} de ${n}`);}const p=a/n;if(act)t+=p;$('p'+i).innerHTML=act?`${f(p)}<br><small style="font-weight:400;color:var(--mute)">${note}</small>`:`<span style="color:var(--mute)">${note}</span>`;});
+ const I=+$('inc').value||0,F=+$('fix').value||0,S=+$('sav').value||0,need=F+t,want=I-need-S;
+ $('tm').textContent=f(t);$('left').innerHTML=want<0?`<span class="r">${f(want)}</span>`:f(want);$('pct').textContent=I?(t/I*100).toLocaleString('pt-BR',{maximumFractionDigits:1})+'%':'–';
+ const row=(a,b,c,goal,you,good)=>{$(a).textContent=f(goal);$(b).textContent=f(you);const d=you-goal;$(c).innerHTML=`<span class="${good(d)?'g':'r'}">${d>0?'+':''}${f(d)}</span>`;};
+ row('n1','n2','n3',I*.5,need,d=>d<=0);row('w1','w2','w3',I*.3,Math.max(0,want),d=>d<=0||true);row('s1','s2','s3',I*.2,S,d=>d>=0);}
+$('msi').addEventListener('input',e=>{const r=e.target.closest('.m');if(!r)return;M[+r.dataset.i][+e.target.dataset.k]=e.target.value;calc();});
+$('msi').addEventListener('click',e=>{if(e.target.classList.contains('x')){M.splice(+e.target.closest('.m').dataset.i,1);draw();}});
+$('add').onclick=()=>{M.push(['Nova compra',600,3,mon(ym)]);draw();};
+document.querySelectorAll('#inc,#fix,#sav').forEach(x=>x.addEventListener('input',calc));draw();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d4b593fd49874cf195851b41cd0caed4"}'></script>
+</body></html>
