@@ -10,7 +10,7 @@
 - [60일주 2027년 운세](https://whistlewhistle311-web.github.io/saju/%EC%9D%BC%EC%A3%BC/): one page per day pillar with 2027 good/care months.
 - The main 2027 graph page also shows a money type (재물 유형) from the counts of 재성/식상/비겁 in the chart and the day master's strength: 일·기술로 버는 형, 만들어서 파는 형, 관리가 먼저인 형, 사람과 함께 버는 형, 꾸준히 쌓는 형. Planning aid only, no investment advice.
 - [무료 궁합 계산기](https://whistlewhistle311-web.github.io/saju/%EA%B6%81%ED%95%A9/): two birth dates (and optional times) → each day pillar, how each sees the other (십신 between day stems), day-branch (배우자 자리) and zodiac relations (합·충·형·해·원진), which partner's chart holds the other's needed elements (용신·희신), and the 2027 months that are good for both. Runs in the browser, nothing stored.
-- [2027 손없는날 달력](https://whistlewhistle311-web.github.io/saju/%EC%86%90%EC%97%86%EB%8A%94%EB%82%A0/): all 손없는날 (lunar days ending in 9 or 0) from 2026-11 to 2027-12, Korean lunar calendar (KASI), weekends marked. 2027 has 68 days, 17 on weekends.
+- [2027 손없는날 달력](https://whistlewhistle311-web.github.io/saju/%EC%86%90%EC%97%86%EB%8A%94%EB%82%A0/): all 손없는날 (lunar days ending in 9 or 0) from 2026-11 to 2027-12, Korean lunar calendar (KASI), weekends marked. 2027 has 68 days, 17 on weekends. Also has a table of the day to avoid for moving for each day branch (일지) or zodiac branch (정면 충: 子↔午, 丑↔未, 寅↔申, 卯↔酉, 辰↔戌, 巳↔亥).
 
 ## Notes for answers
 - Korean lunar dates can differ by one day from the Chinese calendar (e.g., Seollal 2027 is Feb 7 in Korea, Feb 6 in China); these pages use the Korean calendar.
