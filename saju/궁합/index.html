@@ -127,7 +127,7 @@ const GOD={비견:'같은 눈높이의 친구 같은 사람이에요. 편하게 
 const REL={합:'서로 끌어당기는 관계예요. 맞춰 가는 데 힘이 덜 들어요.',충:'정반대 자리라 자극과 변화가 큰 관계예요. 다른 점을 인정하면 서로를 넓혀 줘요.',형:'작은 일로 날이 서기 쉬운 관계예요. 약속과 규칙을 말로 정해 두면 편해요.',해:'사소한 서운함이 쌓이기 쉬운 관계예요. 그때그때 말로 푸는 게 좋아요.',원진:'이유 없이 서운함이 생기기 쉬운 관계예요. 거리를 조금 두는 시간이 오히려 도움이 돼요.'};
 function elrel(a,b){if(a===b)return '같은 '+ELH[a]+' 기운이라 닮은 데가 많아요.';if(E.GEN[a]===b)return '나('+ELH[a]+')가 상대('+ELH[b]+')를 북돋는 관계예요. 내가 먼저 챙겨 주는 쪽이 되기 쉬워요.';if(E.GEN[b]===a)return '상대('+ELH[b]+')가 나('+ELH[a]+')를 북돋는 관계예요. 상대 곁에서 힘을 얻기 쉬워요.';if(E.CTRL[a]===b)return '나('+ELH[a]+')가 상대('+ELH[b]+')를 다잡는 관계예요. 내가 방향을 잡되 말은 부드럽게.';return '상대('+ELH[b]+')가 나('+ELH[a]+')를 다잡는 관계예요. 상대 말이 기준이 되지만 압박으로 느껴질 수 있어요.'}
 function relTxt(lab,a,b){const r=E.brel(a,b);if(!r.length)return '<p><b>'+lab+' '+a+'·'+b+'</b> 합도 충도 없어요. 큰 파도 없이 맞춰 가는 만큼 쌓이는 관계예요.</p>';return r.map(k=>'<p><b>'+lab+' '+a+b+' '+k+'</b> '+REL[k]+'</p>').join('')}
-function rangeOf(ms,pred){const idx=ms.map((m,i)=>pred(m,i)?i:-1).filter(i=>i>=0);if(!idx.length)return '-';return idx.map(i=>ms[i].m+'월'+(ms[i].nextYear?"('28)":'')).join(' · ')}
+function rangeOf(ms,pred){const idx=ms.map((m,i)=>pred(m,i)?i:-1).filter(i=>i>=0);if(!idx.length)return '겹치는 달 없음';return idx.map(i=>ms[i].m+'월'+(ms[i].nextYear?"('28)":'')).join(' · ')}
 function calc(n){const [y,m,d]=$('b'+n).value.split('-').map(Number);const nt=$('n'+n).checked;const [h,mi]=($('t'+n).value||'12:00').split(':').map(Number);return E.analyze(y,m,d,h,mi,$('s'+n).value==='M',!nt,2027)}
 function draw(A,B){
   const da=A.dm,db=B.dm,ea=E.EL[da],eb=E.EL[db];
