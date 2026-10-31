@@ -3,7 +3,7 @@
 Small, free tools that run in the browser. Nothing you type is stored or sent anywhere.
 
 ## Free download
-- [Free 2027 budget spreadsheet (Excel + Google Sheets)](https://whistlewhistle311-web.github.io/free-budget-spreadsheet/)
+- [Free 2027 budget spreadsheet (Excel + Google Sheets)](https://whistlewhistle311-web.github.io/free-budget-spreadsheet/) · [Español](https://whistlewhistle311-web.github.io/es/plantilla-presupuesto-gratis/) · [Português](https://whistlewhistle311-web.github.io/pt/planilha-gratis/) · [日本語](https://whistlewhistle311-web.github.io/ja/kakeibo-2027/)
 
 ## Calculators (English)
 - [50/30/20 budget calculator](https://whistlewhistle311-web.github.io/tools/50-30-20/) — counts BNPL and installment payments as needs
