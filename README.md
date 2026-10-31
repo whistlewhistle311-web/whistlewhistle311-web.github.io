@@ -2,6 +2,9 @@
 
 Small, free tools that run in the browser. Nothing you type is stored or sent anywhere.
 
+## Free download
+- [Free 2027 budget spreadsheet (Excel + Google Sheets)](https://whistlewhistle311-web.github.io/free-budget-spreadsheet/)
+
 ## Calculators (English)
 - [50/30/20 budget calculator](https://whistlewhistle311-web.github.io/tools/50-30-20/) — counts BNPL and installment payments as needs
 - [Paycheck budget calculator](https://whistlewhistle311-web.github.io/tools/paycheck-budget/) — weekly, biweekly, semi-monthly or monthly pay; assigns each bill to a paycheck
