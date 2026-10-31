@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>50/30/20 Budget Calculator (With BNPL and Installments)</title>
+<meta name="description" content="Free 50/30/20 budget calculator. Enter your take-home pay and what you actually spend on needs, wants and savings, including buy now pay later and card installments. See your targets, your real split and where to adjust.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/tools/50-30-20/">
+<meta property="og:title" content="50/30/20 budget calculator: how does your split really look?">
+<meta property="og:description" content="Targets vs your real numbers, with BNPL and installments counted. Free, nothing saved.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/tools/50-30-20/">
+<meta property="og:image" content="https://whistlewhistle311-web.github.io/tools/50-30-20/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the 50/30/20 rule?","acceptedAnswer":{"@type":"Answer","text":"A simple way to split take-home pay: about 50% for needs (housing, utilities, groceries, transport, minimum debt payments), 30% for wants and 20% for savings and extra debt payments. It is a starting point to adjust, not a fixed rule."}},{"@type":"Question","name":"Do buy now pay later payments count as needs or wants?","acceptedAnswer":{"@type":"Answer","text":"Once a BNPL or installment plan is running, the payment is required, so this calculator counts it with needs. The purchase itself was usually a want, which is why several plans at once can push needs well over 50%."}}]}</script>
+<style>
+:root{--bg:#F5F7FA;--card:#fff;--ink:#16202E;--ink2:#4A5568;--mute:#7A8597;--acc:#1F3A5F;--grn:#1E8E5A;--line:#DFE5EE;--soft:#E8F4EF}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#11161d;--card:#18202a;--ink:#eef2f6;--ink2:#c3ccd8;--mute:#8b96a6;--line:#2a3441;--soft:#1c2a26;--acc:#8fb7e6;--grn:#6fd1a2}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:700px;margin:0 auto;padding:26px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--grn);font-weight:700}
+h1{font-size:30px;line-height:1.25;margin:8px 0 10px}h1 em{font-style:normal;color:var(--grn)}h2{font-size:18px;margin:0 0 8px}
+.lead{color:var(--ink2);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+label{font-size:12px;color:var(--mute);display:block;margin-top:6px}
+input{width:100%;font:inherit;font-size:15px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bars{margin-top:8px}.bar{display:grid;grid-template-columns:90px 1fr 56px;gap:8px;align-items:center;font-size:14px;margin:8px 0}
+.track{height:14px;background:var(--line);border-radius:7px;position:relative;overflow:hidden}.fill{height:100%;border-radius:7px}.mark{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink)}
+table{width:100%;border-collapse:collapse;font-size:14px}th{font-size:11px;color:var(--mute);text-align:right;padding:6px 4px;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left}td{padding:7px 4px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}
+.msg{margin-top:10px;padding:10px 14px;border-radius:8px;background:var(--soft);font-size:15px}
+.cta{background:#1F3A5F;color:#fff;border-radius:14px;padding:18px;margin:18px 0}.cta a{color:#fff;font-weight:800}
+.faq h3{font-size:16px;margin:16px 0 4px}.faq p{margin:0;color:var(--ink2);font-size:15px}
+footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
+.r{color:#C0392B;font-weight:700}.g{color:var(--grn);font-weight:700}
+@media (max-width:520px){.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body><main>
+<div class="k">FREE · 50/30/20 BUDGET</div>
+<h1>50/30/20 budget calculator:<br><em>how does your split really look?</em></h1>
+<p class="lead">Enter your monthly take-home pay and what you spend. Buy now pay later and card installments count as needs once they are running. You see your targets, your real split and what to move. Runs in your browser; nothing is saved.</p>
+<div class="card">
+  <label>Monthly take-home pay</label><input id="inc" type="number" min="0" step="50" value="4200" inputmode="decimal">
+  <div class="two">
+    <div><h2 style="margin-top:12px">Needs</h2>
+      <label>Rent or mortgage</label><input class="n" type="number" min="0" step="10" value="1450" inputmode="decimal">
+      <label>Utilities, phone, internet</label><input class="n" type="number" min="0" step="10" value="260" inputmode="decimal">
+      <label>Groceries</label><input class="n" type="number" min="0" step="10" value="480" inputmode="decimal">
+      <label>Transport and insurance</label><input class="n" type="number" min="0" step="10" value="390" inputmode="decimal">
+      <label>Minimum debt payments</label><input class="n" type="number" min="0" step="10" value="150" inputmode="decimal">
+      <label>BNPL and installment payments</label><input class="n" id="bnpl" type="number" min="0" step="10" value="180" inputmode="decimal">
+    </div>
+    <div><h2 style="margin-top:12px">Wants and savings</h2>
+      <label>Eating out and coffee</label><input class="w" type="number" min="0" step="10" value="220" inputmode="decimal">
+      <label>Shopping and fun</label><input class="w" type="number" min="0" step="10" value="260" inputmode="decimal">
+      <label>Subscriptions</label><input class="w" type="number" min="0" step="5" value="45" inputmode="decimal">
+      <label>Savings and investing</label><input class="s" type="number" min="0" step="10" value="400" inputmode="decimal">
+      <label>Extra debt payments</label><input class="s" type="number" min="0" step="10" value="0" inputmode="decimal">
+    </div>
+  </div>
+</div>
+<div class="card">
+  <h2>Your split</h2>
+  <div class="bars" id="bars"></div>
+  <table><tr><th>Group</th><th>Target</th><th>You</th><th>Difference</th></tr>
+  <tr><td>Needs (50%)</td><td id="t1"></td><td id="y1"></td><td id="d1"></td></tr>
+  <tr><td>Wants (30%)</td><td id="t2"></td><td id="y2"></td><td id="d2"></td></tr>
+  <tr><td>Savings (20%)</td><td id="t3"></td><td id="y3"></td><td id="d3"></td></tr>
+  <tr><td>Unassigned</td><td></td><td id="y4"></td><td></td></tr></table>
+  <div class="msg" id="msg"></div>
+</div>
+<div class="cta">Want to keep this going all year? The <a href="https://whistledown8.gumroad.com/l/2027-budget-planner" target="_blank" rel="noopener">2027 Budget Planner for Google Sheets and Excel</a> splits card installments and BNPL plans across the months you pay them, so each month shows what is really left. $7, made by the same person who built this calculator.</div>
+<section class="faq">
+  <h2 style="font-size:20px;margin-top:30px">About the 50/30/20 rule</h2>
+  <h3>What counts as a need?</h3><p>Things you would still have to pay if you cut everything else: housing, utilities, groceries, getting to work, insurance and minimum debt payments.</p>
+  <h3>Why are BNPL payments a need here?</h3><p>Once a plan is running, skipping a payment means fees or damage to your credit, so it behaves like a bill. The purchase was usually a want; several plans at once is a common reason needs go over 50%.</p>
+  <h3>What if my needs are over 50%?</h3><p>Very common with high rent. Treat the rule as a direction: keep savings above zero, avoid opening new installment plans until current ones finish, and move toward the targets over time.</p>
+</section>
+<footer><a href="../">All free calculators</a> · <a href="../../guides/pay-off-credit-card-debt/">Pay off credit card debt</a> · <a href="../sinking-funds/">Sinking funds calculator</a> · Made by a solo maker with help from AI tools · Not financial advice</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id),f=n=>isFinite(n)?n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):'–';
+const sum=c=>[...document.querySelectorAll(c)].reduce((a,x)=>a+(+x.value||0),0);
+function run(){const I=+$('inc').value||0,N=sum('.n'),W=sum('.w'),S=sum('.s'),U=I-N-W-S;
+ const T=[I*.5,I*.3,I*.2],Y=[N,W,S];
+ [1,2,3].forEach(k=>{$('t'+k).textContent=f(T[k-1]);$('y'+k).textContent=f(Y[k-1]);const d=Y[k-1]-T[k-1];const good=k===3?d>=0:d<=0;$('d'+k).innerHTML=`<span class="${good?'g':'r'}">${d>0?'+':''}${f(d)}</span>`;});
+ $('y4').innerHTML=U<0?`<span class="r">${f(U)}</span>`:f(U);
+ const p=v=>I?v/I*100:0,cols=['#1F3A5F','#E07A5F','#1E8E5A'],names=['Needs','Wants','Savings'],tg=[50,30,20];
+ $('bars').innerHTML=Y.map((v,i)=>`<div class="bar"><span>${names[i]}</span><div class="track"><div class="fill" style="width:${Math.min(100,p(v))}%;background:${cols[i]}"></div><div class="mark" style="left:${tg[i]}%"></div></div><b>${p(v).toFixed(0)}%</b></div>`).join('');
+ const b=+$('bnpl').value||0;const m=[];
+ if(U<0)m.push(`You are spending ${f(-U)} more than you take home.`);
+ if(p(N)>50)m.push(`Needs are ${p(N).toFixed(0)}% of pay${b?`, and ${f(b)} of that is BNPL or installments (${p(b).toFixed(1)}% of pay)`:''}.`);
+ if(p(S)<20)m.push(`Savings are ${p(S).toFixed(0)}%; ${f(T[2]-S)} more a month reaches 20%.`);
+ if(!m.length)m.push('Your split meets the 50/30/20 targets.');
+ $('msg').textContent=m.join(' ');}
+document.addEventListener('input',run);run();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d4b593fd49874cf195851b41cd0caed4"}'></script>
+</body></html>
