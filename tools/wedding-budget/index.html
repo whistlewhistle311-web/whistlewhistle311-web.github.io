@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Wedding Budget Calculator: Split Your Total by Category and Cost per Guest</title>
+<meta name="description" content="Free wedding budget calculator. Enter your total budget and guest count to get a category-by-category breakdown (venue, catering, photography and more), cost per guest, and what is left after what you have already booked.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/tools/wedding-budget/">
+<meta property="og:title" content="Wedding budget calculator: where does the money go?">
+<meta property="og:description" content="Split your total by category, see cost per guest and adjust the shares. Free, nothing saved.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/tools/wedding-budget/">
+<meta property="og:image" content="https://whistlewhistle311-web.github.io/tools/wedding-budget/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How should I split a wedding budget by category?","acceptedAnswer":{"@type":"Answer","text":"A common starting point puts the largest shares on catering and the venue, then photography, attire, flowers and music, with a small contingency. Treat any split as a starting point and move money toward what matters most to you."}},{"@type":"Question","name":"How do I work out cost per guest?","acceptedAnswer":{"@type":"Answer","text":"Divide the total budget by the number of guests. Catering and drinks per guest is the catering share divided by the guest count, which is the number to compare against caterer quotes."}}]}</script>
+<style>
+:root{--bg:#FBF5F6;--card:#fff;--ink:#2B1D21;--ink2:#5C4A4F;--mute:#8E7D82;--acc:#8E4B5A;--acc2:#2E7D5B;--line:#EADDE0;--soft:#F6ECEE}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#171214;--card:#211a1c;--ink:#f4eef0;--ink2:#d2c4c8;--mute:#9b8b90;--line:#3a2d31;--soft:#2a2124;--acc:#d48ea0}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:680px;margin:0 auto;padding:26px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--acc);font-weight:700}
+h1{font-size:30px;line-height:1.25;margin:8px 0 10px}h1 em{font-style:normal;color:var(--acc)}
+.lead{color:var(--ink2);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:14px 0}
+label{display:block;font-size:13px;font-weight:600;margin:8px 0 4px;color:var(--ink2)}
+input{width:100%;font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.big{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.big div{border-radius:12px;padding:12px 6px;background:var(--soft)}.big small{display:block;font-size:12px;color:var(--mute)}.big b{font-size:20px}
+table{width:100%;border-collapse:collapse;font-size:14px}th{font-size:11px;color:var(--mute);text-align:right;padding:6px 4px;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left}
+td{padding:7px 4px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}
+td input{width:64px;padding:5px;text-align:right;font-size:14px}td input.bk{width:90px}
+.bar{height:6px;border-radius:3px;background:var(--acc);opacity:.75}
+.warn{border-left:5px solid var(--acc);background:var(--soft);padding:10px 14px;border-radius:6px;margin:12px 0}
+.cta{background:var(--acc);color:#fff;border-radius:14px;padding:18px;margin:18px 0}.cta a{color:#fff;font-weight:800}
+.faq h3{font-size:16px;margin:16px 0 4px}.faq p{margin:0;color:var(--ink2);font-size:15px}
+footer{font-size:12px;color:var(--mute);margin-top:30px}
+.r{color:#C0392B;font-weight:700}
+@media (max-width:480px){td input{width:44px;padding:4px}td input.bk{width:62px}table{font-size:13px}th,td{padding:6px 2px}}
+</style>
+</head>
+<body><main>
+<div class="k">FREE · WEDDING BUDGET</div>
+<h1>Wedding budget calculator:<br><em>where does the money go?</em></h1>
+<p class="lead">Type your total budget and guest count. You get a category-by-category split you can adjust, the cost per guest, and what is left once you add what you have already booked. Runs in your browser; nothing is saved.</p>
+<div class="card">
+  <div class="row"><div><label>Total budget</label><input id="tot" type="number" min="0" step="100" value="30000" inputmode="decimal"></div><div><label>Guests</label><input id="gst" type="number" min="1" step="1" value="100" inputmode="numeric"></div></div>
+  <div class="big" style="margin-top:14px">
+    <div><small>Cost per guest</small><b id="cpg"></b></div>
+    <div><small>Catering per guest</small><b id="cat"></b></div>
+    <div><small>Left after booked</small><b id="left"></b></div>
+  </div>
+  <div id="warn" class="warn" style="display:none"></div>
+</div>
+<div class="card">
+  <h2 style="font-size:18px;margin:0 0 6px">Your split</h2>
+  <p style="font-size:13px;color:var(--mute);margin:0 0 8px">Edit any % to move money between categories. Add amounts you have already booked to see what is left in each.</p>
+  <div style="overflow-x:auto"><table id="t"></table></div>
+</div>
+<div class="cta">Planning for real? The <a href="https://whistledown8.gumroad.com/l/wedding-budget-planner" target="_blank" rel="noopener">Wedding Budget Planner for Google Sheets and Excel</a> keeps this split plus every vendor, deposit and due date, the next payments due, and your guest list with RSVPs and meals. $9, made by the same person who built this calculator.</div>
+<section class="faq">
+  <h2 style="font-size:20px;margin-top:30px">How to use the split</h2>
+  <h3>Start from the big three</h3><p>Catering, venue and photography usually take the largest shares. Decide those first; the rest adjusts around them.</p>
+  <h3>Cost per guest is the lever</h3><p>Each extra guest adds to catering, drinks, stationery, favors and often venue size. Cutting the guest list is usually the fastest way to bring the total down.</p>
+  <h3>Keep a contingency</h3><p>Fees, tips, overtime and last-minute changes show up late. A small contingency share keeps them from coming out of a category you care about.</p>
+  <h3>About the default split</h3><p>The starting percentages are a planning template, not survey data. Move them to match your priorities and local prices.</p>
+</section>
+<footer>Made by a solo maker with help from AI tools · Calculations run in your browser and are not stored · <a href="../debt-payoff/" style="color:inherit">Debt payoff calculator</a></footer>
+</main>
+<script>
+const C=[['Venue',20],['Catering & drinks',25],['Photography & video',12],['Attire & beauty',8],['Rings',6],['Flowers & decor',8],['Music & entertainment',5],['Stationery',2],['Cake & desserts',2],['Transport',2],['Officiant & license',1],['Favors & gifts',2],['Honeymoon',5],['Contingency',2]];
+const $=id=>document.getElementById(id);const f=n=>isFinite(n)?Math.round(n).toLocaleString('en-US'):'–';
+$('t').innerHTML='<tr><th>Category</th><th>%</th><th>Amount</th><th>Booked</th><th>Left</th></tr>'+C.map((c,i)=>`<tr><td>${c[0]}<div class="bar" id="b${i}"></div></td><td><input class="p" data-i="${i}" type="number" min="0" max="100" step="1" value="${c[1]}" inputmode="decimal"></td><td id="a${i}"></td><td><input class="bk" data-i="${i}" type="number" min="0" step="50" placeholder="0" inputmode="decimal"></td><td id="l${i}"></td></tr>`).join('')+'<tr><td><b>Total</b></td><td id="pt"></td><td id="at"></td><td id="bt"></td><td id="lt"></td></tr>';
+function run(){const T=+$('tot').value||0,G=Math.max(1,+$('gst').value||1);
+ const p=[...document.querySelectorAll('.p')].map(x=>+x.value||0),b=[...document.querySelectorAll('.bk')].map(x=>+x.value||0);
+ const ps=p.reduce((a,c)=>a+c,0),bs=b.reduce((a,c)=>a+c,0);let over=[];
+ p.forEach((v,i)=>{const a=T*v/100,l=a-b[i];$('a'+i).textContent=f(a);$('l'+i).innerHTML=b[i]?(l<0?`<span class="r">${f(l)}</span>`:f(l)):'';$('b'+i).style.width=Math.min(100,v*3)+'%';if(l<0&&b[i])over.push(C[i][0])});
+ $('pt').innerHTML=ps===100?'100%':`<span class="r">${ps}%</span>`;$('at').textContent=f(T*ps/100);$('bt').textContent=bs?f(bs):'';$('lt').textContent=bs?f(T-bs):'';
+ $('cpg').textContent=f(T/G);$('cat').textContent=f(T*p[1]/100/G);$('left').textContent=f(T-bs);
+ const w=[];if(ps!==100)w.push(`Your shares add up to ${ps}%, not 100%.`);if(over.length)w.push(`Booked amounts are over the split in: ${over.join(', ')}.`);
+ $('warn').style.display=w.length?'block':'none';$('warn').textContent=w.join(' ');}
+document.addEventListener('input',run);run();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d4b593fd49874cf195851b41cd0caed4"}'></script>
+</body></html>
