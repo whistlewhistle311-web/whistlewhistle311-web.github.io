@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>家計の割合 目安計算ツール|手取りから費目別の金額と貯金額がわかる</title>
+<meta name="description" content="手取り月収を入れるだけで、住居費・食費・通信費など費目ごとの目安額と、今の支出との差がわかる無料の家計簿計算ツール。分割払いの月額も合計できます。入力内容は保存されません。">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/ja/kakeibo/">
+
+<meta property="og:title" content="家計の割合 目安計算ツール:手取りから費目別の目安額">
+<meta property="og:description" content="手取りを入れると費目ごとの目安額と今の支出の差、貯蓄率がわかります。無料・保存なし。">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/ja/kakeibo/">
+<meta property="og:image" content="https://whistlewhistle311-web.github.io/ja/kakeibo/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"ja","mainEntity":[{"@type":"Question","name":"家計の理想の割合はどれくらいですか?","acceptedAnswer":{"@type":"Answer","text":"よく紹介される目安の一例は、手取りに対して住居費25%、食費15%、水道光熱費6%、通信費4%、貯蓄20%などです。住んでいる地域や家族構成で大きく変わるので、出発点として使い、自分の家計に合わせて調整します。"}},{"@type":"Question","name":"分割払いは家計簿にどう書けばいいですか?","acceptedAnswer":{"@type":"Answer","text":"買った月に全額を書くと、その月だけ赤字に見えて翌月以降は実際より余裕があるように見えます。金額を回数で割り、支払う月ごとに分けて書くと実態に近くなります。60,000円を3回払いなら、3か月間20,000円ずつです。"}}]}</script>
+<style>
+:root{--bg:#F6F5F1;--card:#fff;--ink:#1D2129;--ink2:#4A5160;--mute:#7C8494;--acc:#B5452E;--acc2:#24543F;--line:#E3E0D8;--soft:#F3EDE4;--bar:#24543F;--over:#B5452E}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#14161a;--card:#1c1f25;--ink:#eef0f3;--ink2:#c5cad3;--mute:#8d95a3;--line:#2c313a;--soft:#262a31;--acc:#f08a6f;--acc2:#7fcfa9;--bar:#7fcfa9;--over:#f08a6f}}
+:root[data-theme=dark]{--bg:#14161a;--card:#1c1f25;--ink:#eef0f3;--ink2:#c5cad3;--mute:#8d95a3;--line:#2c313a;--soft:#262a31;--acc:#f08a6f;--acc2:#7fcfa9;--bar:#7fcfa9;--over:#f08a6f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.75 "Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif}
+main{max-width:720px;margin:0 auto;padding:26px 16px 64px}
+.k{font-size:12px;letter-spacing:.18em;color:var(--acc);font-weight:700}
+h1{font-size:28px;line-height:1.35;margin:8px 0 10px;font-weight:900}h1 em{font-style:normal;color:var(--acc2)}
+h2{font-size:18px;margin:0 0 8px}
+.lead{color:var(--ink2);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+label{font-size:12px;color:var(--mute);display:block}
+input{width:100%;font:inherit;font-size:15px;padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);text-align:right}
+input.t{text-align:left}
+.top{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.row{display:grid;grid-template-columns:7.5em 1fr 7.5em;gap:10px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:14px}
+.row .nm b{display:block}.row .nm small{color:var(--mute);font-size:12px}
+.bar{position:relative;height:10px;background:var(--soft);border-radius:6px;overflow:hidden;margin-top:4px}
+.bar i{position:absolute;left:0;top:0;bottom:0;background:var(--bar);border-radius:6px}
+.bar u{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--ink)}
+.diff{font-size:12px;text-align:right;font-variant-numeric:tabular-nums}
+.big{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.big div{border-radius:12px;padding:12px 6px;background:var(--soft)}.big small{display:block;font-size:12px;color:var(--mute)}.big b{font-size:20px;font-variant-numeric:tabular-nums}
+.m{display:grid;grid-template-columns:1.6fr 1fr .7fr 1fr auto;gap:6px;align-items:end;padding:6px 0;border-bottom:1px solid var(--line);font-size:14px}
+.m b{text-align:right;padding-bottom:8px;font-variant-numeric:tabular-nums}
+.x{border:0;background:none;color:var(--mute);font-size:20px;cursor:pointer}
+.add{font:inherit;font-weight:700;border:1px dashed var(--acc2);color:var(--acc2);background:none;border-radius:10px;padding:7px 14px;margin-top:10px;cursor:pointer}
+.cta{background:#24543F;color:#fff;border-radius:14px;padding:18px;margin:18px 0}.cta a{color:#fff;font-weight:800}
+.note{font-size:13px;color:var(--mute);margin:8px 0 0}
+.faq h3{font-size:16px;margin:18px 0 4px}.faq p{margin:0;color:var(--ink2);font-size:15px}
+footer{font-size:12px;color:var(--mute);margin-top:30px}
+.r{color:var(--over);font-weight:700}.g{color:var(--acc2);font-weight:700}
+@media (max-width:520px){.big b{font-size:16px}.row{grid-template-columns:1fr 7em}.row .bw{grid-column:1/-1;order:3}.m{grid-template-columns:1.1fr .8fr 1.3fr}.m .n{grid-column:1/-1}.m b{grid-column:1/3;text-align:left;padding:0}.x{justify-self:end}h1{font-size:24px}}
+</style>
+</head>
+<body><main>
+<div class="k">無料 · 家計簿 · 保存なし</div>
+<h1>家計の割合 目安計算ツール<br><em>手取りから、費目ごとの目安がわかる</em></h1>
+<p class="lead">手取り月収と今の支出を入れると、費目ごとの目安額との差と、毎月いくら貯金に回せるかがわかります。分割払いの月額も合計できます。計算はブラウザの中だけで行い、入力内容は保存しません。</p>
+<div class="card top">
+  <div><label>手取り月収(円)</label><input id="inc" type="number" min="0" step="1000" value="250000" inputmode="numeric"></div>
+  <div><label>表示</label><select id="mode" style="width:100%;font:inherit;font-size:15px;padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)"><option value="1">一人暮らし向けの目安</option><option value="2">二人以上の世帯向けの目安</option></select></div>
+</div>
+<div class="card"><h2>費目ごとの目安と今の支出</h2>
+  <div id="rows"></div>
+  <p class="note">棒の縦線が目安の位置です。目安は家計の本や記事でよく紹介される割合をもとにした一例で、地域・家族構成・働き方で変わります。出発点として使ってください。</p>
+</div>
+<div class="card"><h2>分割払い・リボ(毎月の支払額)</h2>
+  <div id="msi"></div><button class="add" id="add">+ 分割払いを追加</button>
+  <p class="note">金額÷回数で月額を出し、まだ支払いが続いているものだけを合計します。合計は「その他」の外に別枠で引きます。</p>
+</div>
+<div class="card big">
+  <div><small>支出の合計</small><b id="tot"></b></div>
+  <div><small>毎月の残り</small><b id="left"></b></div>
+  <div><small>貯蓄率</small><b id="rate"></b></div>
+</div>
+<div class="cta">1年分つけるなら、<a id="ctaa" href="https://whistledown8.gumroad.com/" target="_blank" rel="noopener">家計簿2027(Excel・Googleスプレッドシート)</a>。分割払いは回数を入れるだけで支払う月に自動で振り分け、月別集計・予算の消化率・固定費チェック表付き。このツールを作った本人が作っています。</div>
+<section class="faq">
+  <h2 style="font-size:20px;margin-top:30px">よくある質問</h2>
+  <h3>家計の理想の割合は?</h3><p>よく見かける一例は、手取りに対して住居費25%前後、食費15%前後、貯蓄20%前後です。都市部では住居費が30%を超えることも多く、そのぶん他の費目で調整します。割合を守ることより、毎月同じ物差しで見直すことのほうが大切です。</p>
+  <h3>手取り25万円だといくら貯金できる?</h3><p>貯蓄20%なら月5万円、年60万円です。このツールの初期値(家賃75,000円など)では、分割払いを除いた支出が197,000円、貯蓄30,000円で残りは23,000円。そこに分割払い2件(月16,000円)が入ると、残りは7,000円まで減ります。分割払いが続く間は、目に見えにくい固定費です。</p>
+  <h3>分割払いは家計簿にどう書く?</h3><p>買った月に全額を書くと、その月だけ赤字に見えます。金額を回数で割って、支払う月ごとに書くと実態に近くなります。60,000円の3回払いなら3か月間20,000円ずつです。</p>
+  <h3>先取り貯金とは?</h3><p>給料が入った日に、使う前に決めた額を別の口座に移す方法です。残ったら貯金、ではなく、先に貯金して残りで暮らします。</p>
+</section>
+<footer><a href="../../tools/" style="color:inherit">English tools</a> · 個人がAIツールを使って作成 · 計算はブラウザ内だけで行い保存しません · 金融アドバイスではありません</footer>
+</main>
+<script>
+const C=[['住居費','家賃・住宅ローン・管理費',25,22,75000],['食費','自炊・スーパー',15,15,40000],['水道光熱費','電気・ガス・水道',6,7,13000],['通信費','スマホ・ネット',4,4,8000],['保険料','生命・医療保険',4,5,12000],['日用品','消耗品',3,3,6000],['被服・美容','服・美容院',4,3,8000],['交際費','飲み会・贈り物',4,3,8000],['趣味・娯楽','外食・レジャー',5,5,10000],['交通費','定期外・車',3,4,6000],['医療','通院・薬',2,2,3000],['その他','サブスク・雑費',5,4,8000],['貯蓄','先取り貯金・積立',20,23,30000]];
+const now=new Date(),ym=now.getFullYear()*12+now.getMonth(),pad=n=>String(n).padStart(2,'0');
+const mon=k=>{const y=Math.floor(k/12),m=k%12+1;return `${y}-${pad(m)}`;};
+let M=[['スマホ本体',96000,24,mon(ym-5)],['冬のコート',36000,3,mon(ym-1)]];
+const $=id=>document.getElementById(id),yen=n=>isFinite(n)?Math.round(n).toLocaleString('ja-JP')+'円':'–';
+let V=C.map(c=>c[4]);
+function drawRows(){ $('rows').innerHTML=C.map((c,i)=>`<div class="row"><div class="nm"><b>${c[0]}</b><small>${c[1]}</small></div><div class="bw"><div class="diff" id="d${i}"></div><div class="bar"><i id="b${i}"></i><u id="u${i}"></u></div></div><div><input data-i="${i}" type="number" min="0" step="1000" value="${V[i]}" inputmode="numeric" aria-label="${c[0]}"></div></div>`).join('');
+  $('rows').querySelectorAll('input').forEach(el=>el.oninput=()=>{V[+el.dataset.i]=+el.value||0;calc();});}
+function drawM(){$('msi').innerHTML=M.map((r,i)=>`<div class="m" data-i="${i}"><div class="n"><label>品名</label><input class="t" data-k="0" value="${String(r[0]).replace(/"/g,'&quot;')}"></div><div><label>金額</label><input data-k="1" type="number" min="0" step="1000" value="${r[1]}"></div><div><label>回数</label><input data-k="2" type="number" min="1" step="1" value="${r[2]}"></div><div><label>初回の月</label><input class="t" data-k="3" type="month" value="${r[3]}"></div><b id="mm${i}"></b><button class="x" aria-label="削除" data-del="${i}">×</button></div>`).join('');
+  $('msi').querySelectorAll('input').forEach(el=>el.oninput=()=>{const i=+el.closest('.m').dataset.i,k=+el.dataset.k;M[i][k]=k==1||k==2?+el.value:el.value;calc();});
+  $('msi').querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{M.splice(+b.dataset.del,1);drawM();calc();});}
+function calc(){const inc=+$('inc').value||0,md=+$('mode').value;let tot=0,sav=0;
+  C.forEach((c,i)=>{const p=md==1?c[2]:c[3],goal=inc*p/100,v=V[i],sh=inc?v/inc*100:0;
+    if(c[0]=='貯蓄')sav=v;else tot+=v;
+    const d=v-goal,isS=c[0]=='貯蓄';const bad=isS?d<0:d>0;
+    $('d'+i).innerHTML=`目安 ${p}% = ${yen(goal)} · 今 ${sh.toFixed(1)}% <span class="${Math.abs(d)<500?'':bad?'r':'g'}">${d>=0?'+':'−'}${yen(Math.abs(d))}</span>`;
+    const sc=Math.max(p*1.8,sh,1);$('b'+i).style.width=Math.min(100,sh/sc*100)+'%';$('b'+i).style.background=bad&&Math.abs(d)>=500?'var(--over)':'var(--bar)';$('u'+i).style.left=(p/sc*100)+'%';});
+  let mt=0;M.forEach((r,i)=>{const s=r[3]?r[3].split('-'):null,st=s?(+s[0])*12+(+s[1]-1):ym,n=Math.max(1,r[2]||1),act=ym>=st&&ym<st+n,pm=(r[1]||0)/n;if(act)mt+=pm;const e=$('mm'+i);if(e)e.innerHTML=act?yen(pm)+'/月':'<span style="color:var(--mute)">今月なし</span>';});
+  tot+=mt;const left=inc-tot-sav;
+  $('tot').textContent=yen(tot);$('left').innerHTML=`<span class="${left<0?'r':'g'}">${yen(left)}</span>`;$('rate').textContent=inc?((sav/inc)*100).toFixed(1)+'%':'–';}
+$('add').onclick=()=>{M.push(['',30000,3,mon(ym)]);drawM();calc();};
+$('inc').oninput=calc;$('mode').onchange=calc;
+drawRows();drawM();calc();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d4b593fd49874cf195851b41cd0caed4"}'></script>
+</body></html>
