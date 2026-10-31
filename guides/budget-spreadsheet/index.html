@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Build a Monthly Budget Spreadsheet (Google Sheets and Excel Formulas)</title>
+<meta name="description" content="Build your own monthly budget spreadsheet in Google Sheets or Excel: the three tabs you need, the SUMIFS formulas for monthly totals by category, a formula that splits installments and BNPL across months, and conditional formatting for overspending.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/guides/budget-spreadsheet/">
+<meta property="og:title" content="How to build a monthly budget spreadsheet, with the formulas">
+<meta property="og:description" content="Three tabs, SUMIFS by month and category, an installment-splitting formula and red-when-over formatting.">
+<meta property="og:type" content="article"><meta property="og:url" content="https://whistlewhistle311-web.github.io/guides/budget-spreadsheet/">
+<meta property="og:image" content="https://whistlewhistle311-web.github.io/tpl/fix/budget-cover.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to build a monthly budget spreadsheet","tool":[{"@type":"HowToTool","name":"Google Sheets or Excel"}],"step":[{"@type":"HowToStep","name":"Make a Categories tab","text":"List each category with its type and monthly budget."},{"@type":"HowToStep","name":"Make an Entries tab","text":"One row per transaction: date, type, category, amount, months."},{"@type":"HowToStep","name":"Add helper columns","text":"Month number, months, and amount per month for installments."},{"@type":"HowToStep","name":"Build the Monthly tab","text":"Use SUMIFS or SUMPRODUCT to total each category per month."},{"@type":"HowToStep","name":"Add formatting","text":"Turn cells red when spending passes the budget."}]}</script>
+<style>
+:root{--bg:#F6F8F7;--card:#fff;--ink:#16292E;--ink2:#47646A;--mute:#7C9095;--acc:#1F3A5F;--line:#D7E4E3;--soft:#E6F2F1}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#101a1c;--card:#172427;--ink:#eef5f4;--ink2:#c3d4d2;--mute:#8aa0a3;--line:#29393c;--soft:#1d2f32;--acc:#7cc4bd}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:28px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--acc);font-weight:700}
+h1{font-size:32px;line-height:1.2;margin:8px 0 12px}h2{font-size:22px;margin:34px 0 8px}h3{font-size:17px;margin:18px 0 4px}
+p,li{color:var(--ink2)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:14px 0}
+.g{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}.g b{color:var(--ink);display:block;margin-bottom:4px}.g ul{margin:0;padding-left:18px;font-size:15px}
+.ex{background:var(--soft);border-radius:12px;padding:14px 16px;font-variant-numeric:tabular-nums}
+.cta{background:var(--acc);color:#fff;border-radius:14px;padding:18px;margin:24px 0}.cta a{color:#fff;font-weight:800}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .cta{background:#1F3A5F}}
+footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
+</style>
+<style>code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px}pre{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow-x:auto;white-space:pre;color:var(--ink)}table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0}th,td{padding:6px 6px;border-bottom:1px solid var(--line);text-align:left;color:var(--ink2)}th{font-size:12px;color:var(--mute)}.tw{overflow-x:auto}</style>
+</head>
+<body><main>
+<div class="k">GUIDE · BUDGET SPREADSHEET</div>
+<h1>How to build a monthly budget spreadsheet (Google Sheets and Excel)</h1>
+<p>You need three tabs and four formulas. This works the same in Google Sheets and Excel, without macros. At the end there is one extra formula most templates skip: splitting installments and buy now pay later purchases across the months you actually pay them.</p>
+
+<h2>1. Categories tab</h2>
+<p>One row per category with its type and monthly budget. Name the tab <b>Categories</b>.</p>
+<div class="tw"><table><tr><th>A: Type</th><th>B: Category</th><th>C: Monthly budget</th></tr><tr><td>Income</td><td>Salary</td><td></td></tr><tr><td>Expense</td><td>Rent</td><td>1,450</td></tr><tr><td>Expense</td><td>Groceries</td><td>480</td></tr><tr><td>Saving</td><td>Savings</td><td></td></tr></table></div>
+
+<h2>2. Entries tab</h2>
+<p>One row per transaction. This is the only tab you type in day to day. Name it <b>Entries</b>, headers in row 1, data from row 2.</p>
+<div class="tw"><table><tr><th>A: Date</th><th>B: Type</th><th>C: Category</th><th>D: Amount</th><th>E: Months</th></tr><tr><td>2027-01-03</td><td>Expense</td><td>Groceries</td><td>96.40</td><td></td></tr><tr><td>2027-01-12</td><td>Expense</td><td>Shopping</td><td>240.00</td><td>4</td></tr></table></div>
+<p>Make B and C dropdowns so spelling always matches: Data → Data validation → list from <code>Categories!B2:B30</code>. Leave E empty for normal purchases; put the number of payments for installments or BNPL.</p>
+
+<h2>3. Helper columns (for installments)</h2>
+<p>Add three columns to Entries. They work out which month a row starts in and how much lands in each month.</p>
+<pre>F2  (start month)   =IF(A2="",0,MONTH(A2))
+G2  (months)        =MAX(1,N(E2))
+H2  (per month)     =IF(A2="",0,ROUND(D2/G2,2))</pre>
+<p>Fill them down as far as your entries go. A 240 purchase in January over 4 months gives F=1, G=4, H=60.</p>
+
+<h2>4. Monthly tab</h2>
+<p>Categories down column A (link them: <code>=Categories!B2</code>), month numbers 1 to 12 across row 1 from B1 to M1. For simple totals without installments, SUMIFS is enough:</p>
+<pre>=SUMIFS(Entries!$D:$D, Entries!$C:$C, $A2,
+        Entries!$A:$A, "&gt;="&amp;DATE(2027,B$1,1),
+        Entries!$A:$A, "&lt;"&amp;DATE(2027,B$1+1,1))</pre>
+<p>To spread installments across the months they are paid, use this instead. It counts a row in every month from its start month to start month + months − 1:</p>
+<pre>=SUMPRODUCT((Entries!$C$2:$C$2000=$A2)
+           *(Entries!$F$2:$F$2000&lt;=B$1)
+           *(Entries!$F$2:$F$2000+Entries!$G$2:$G$2000-1&gt;=B$1)
+           *Entries!$H$2:$H$2000)</pre>
+<p>With the example above, Shopping shows 60 in January, February, March and April instead of 240 in January. That is the number that tells you what is really left each month.</p>
+<p>Add a total row for income, spending and savings with <code>SUMIF</code> on the Type column, then "money left" = income − spending − savings.</p>
+
+<h2>5. Red when over budget</h2>
+<p>Add a column N with the yearly total (<code>=SUM(B2:M2)</code>) and O with the yearly budget (<code>=Categories!C2*12</code>). Select N2:N30 → Format → Conditional formatting → custom formula <code>=N2&gt;O2</code> → red text. Do the same on each month against the monthly budget if you want monthly warnings.</p>
+
+<h2>Common mistakes</h2>
+<p><b>Category spelling.</b> "Groceries" and "Grocery" are two categories to a formula; dropdowns prevent it. <b>Whole-column ranges in SUMPRODUCT.</b> They are slow; use a fixed range like rows 2 to 2000. <b>Year rollover.</b> The installment formula above uses month numbers within one year; an installment started in December needs its remaining payments entered again in the new year's file.</p>
+
+<div class="cta">Rather skip the building? The <a href="https://whistledown8.gumroad.com/l/2027-budget-planner" rel="noopener">2027 Budget Planner for Google Sheets and Excel</a> ($7) is this exact setup finished: dropdowns, the installment split, a dashboard with charts, a 12-month view and a bills checklist. Or check your numbers first with the <a href="../../tools/50-30-20/">free 50/30/20 calculator</a>.</div>
+<h2>Keep reading</h2>
+<p><a href="../how-to-budget/">How to budget your money</a> · <a href="../sinking-funds-list/">Sinking funds list</a> · <a href="../pay-off-credit-card-debt/">How to pay off credit card debt</a></p>
+<footer>Written with help from AI tools. Formulas tested in the 2027 Budget Planner workbook. · <a href="../../tools/">All free calculators</a></footer>
+</main>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d4b593fd49874cf195851b41cd0caed4"}'></script>
+</body></html>

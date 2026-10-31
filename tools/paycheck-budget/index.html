@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paycheck Budget Calculator: Which Bills Each Paycheck Covers (Biweekly, Weekly)</title>
+<meta name="description" content="Free paycheck budget calculator. Enter your pay schedule and bills with due dates; see which paycheck covers which bills, what is left from each check, and which months of 2027 have three biweekly paychecks.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/tools/paycheck-budget/">
+<meta property="og:title" content="Paycheck budget calculator: which bills each check covers">
+<meta property="og:description" content="Pay schedule + bills with due days = a plan for every paycheck, plus your three-paycheck months.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/tools/paycheck-budget/">
+<meta property="og:image" content="https://whistlewhistle311-web.github.io/tools/paycheck-budget/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I budget by paycheck?","acceptedAnswer":{"@type":"Answer","text":"List each bill with its due day and assign it to the last paycheck that arrives before the due date. Whatever is left from each check goes to groceries, savings and spending until the next payday."}},{"@type":"Question","name":"What is a three-paycheck month?","acceptedAnswer":{"@type":"Answer","text":"If you are paid every two weeks you get 26 paychecks a year, so two months have three paydays. Budgeting the month on two checks and treating the third as extra is a simple way to save or pay down debt."}}]}</script>
+<style>
+:root{--bg:#F5F7FA;--card:#fff;--ink:#16202E;--ink2:#4A5568;--mute:#7A8597;--acc:#1F3A5F;--grn:#1E8E5A;--line:#DFE5EE;--soft:#E8F4EF}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#11161d;--card:#18202a;--ink:#eef2f6;--ink2:#c3ccd8;--mute:#8b96a6;--line:#2a3441;--soft:#1c2a26;--acc:#8fb7e6;--grn:#6fd1a2}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:700px;margin:0 auto;padding:26px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--grn);font-weight:700}
+h1{font-size:30px;line-height:1.25;margin:8px 0 10px}h1 em{font-style:normal;color:var(--grn)}h2{font-size:18px;margin:0 0 8px}
+.lead{color:var(--ink2);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+label{font-size:12px;color:var(--mute);display:block}
+input,select{width:100%;font:inherit;font-size:15px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.b{display:grid;grid-template-columns:1.6fr 1fr .8fr auto;gap:6px;align-items:end;padding:5px 0;border-bottom:1px solid var(--line)}
+.x{border:0;background:none;color:var(--mute);font-size:20px;cursor:pointer}
+.add{font:inherit;font-weight:700;border:1px dashed var(--acc);color:var(--acc);background:none;border-radius:10px;padding:8px 14px;margin-top:10px;cursor:pointer}
+.chk{border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0}.chk h3{margin:0 0 4px;font-size:16px}.chk small{color:var(--mute)}
+.chk ul{margin:6px 0;padding-left:18px;font-size:14px;color:var(--ink2)}.left{font-weight:800;font-variant-numeric:tabular-nums}
+.months{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;text-align:center;font-size:13px}.months div{padding:8px 2px;border-radius:8px;background:var(--soft)}.months .t{background:#1F3A5F;color:#fff;font-weight:700}
+.cta{background:#1F3A5F;color:#fff;border-radius:14px;padding:18px;margin:18px 0}.cta a{color:#fff;font-weight:800}
+.faq h3{font-size:16px;margin:16px 0 4px}.faq p{margin:0;color:var(--ink2);font-size:15px}
+footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
+.r{color:#C0392B}.g{color:var(--grn)}
+@media (max-width:520px){.three{grid-template-columns:1fr 1fr}.months{grid-template-columns:repeat(4,1fr)}.b{grid-template-columns:1fr 1fr .7fr auto}.b .n{grid-column:1/-1}}
+</style>
+</head>
+<body><main>
+<div class="k">FREE · PAYCHECK BUDGET</div>
+<h1>Paycheck budget calculator:<br><em>which bills does each check cover?</em></h1>
+<p class="lead">Enter how much and how often you are paid, then your bills with the day they are due. Each bill is assigned to the last paycheck before its due date, so you see what is left from every check. Runs in your browser; nothing is saved.</p>
+<div class="card three">
+  <div><label>Paycheck amount</label><input id="amt" type="number" min="0" step="10" value="1650" inputmode="decimal"></div>
+  <div><label>How often</label><select id="freq"><option value="14" selected>Every 2 weeks</option><option value="7">Every week</option><option value="sm">Twice a month (1st and 15th)</option><option value="m">Monthly</option></select></div>
+  <div><label>A recent payday</label><input id="pd" type="date"></div>
+  <div><label>Month to plan</label><input id="mo" type="month"></div>
+</div>
+<div class="card"><h2>Bills</h2><div id="bills"></div><button class="add" id="add">+ Add a bill</button></div>
+<div class="card"><h2 id="mh">Your paychecks</h2><div id="plan"></div></div>
+<div class="card"><h2 id="yh">Paydays per month</h2><div class="months" id="yr"></div><p style="font-size:13px;color:var(--mute);margin:8px 0 0" id="yn"></p></div>
+<div class="cta">Planning a whole year? The <a href="https://whistledown8.gumroad.com/l/2027-budget-planner" target="_blank" rel="noopener">2027 Budget Planner for Google Sheets and Excel</a> tracks income and spending by month, splits installments and BNPL across the months you pay them, and keeps a bills checklist. $7, made by the same person who built this calculator.</div>
+<section class="faq">
+  <h2 style="font-size:20px;margin-top:30px">Budgeting by paycheck</h2>
+  <h3>Why budget per paycheck?</h3><p>Monthly budgets assume all the money arrives at once. If rent is due on the 1st and you are paid on the 7th and 21st, the first check of the month has to carry more. Planning per check shows that before it becomes an overdraft.</p>
+  <h3>Three-paycheck months</h3><p>Paid every two weeks? Two months a year have three paydays. Plan each month on two checks and use the third for savings, sinking funds or extra debt payments.</p>
+  <h3>How bills are assigned</h3><p>Each bill goes to the last payday on or before its due day in that month. A bill due before the month's first payday is assigned to the last paycheck of the previous month and shown at the top.</p>
+</section>
+<footer><a href="../">All free calculators</a> · <a href="../50-30-20/">50/30/20 calculator</a> · <a href="../../guides/how-to-budget/">How to budget</a> · Made by a solo maker with help from AI tools · Not financial advice</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id),f=n=>n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+let B=[['Rent',1450,1],['Car payment',320,10],['Phone',65,12],['Internet',60,18],['Car insurance',140,22],['Streaming',16,26]];
+const iso=d=>d.toISOString().slice(0,10),pad=n=>String(n).padStart(2,'0');
+const now=new Date();$('pd').value='2026-10-30';$('mo').value=`${now.getFullYear()}-${pad(now.getMonth()+2>12?1:now.getMonth()+2)}`;
+if(now.getMonth()==11)$('mo').value=`${now.getFullYear()+1}-01`;
+function draw(){$('bills').innerHTML=B.map((b,i)=>`<div class="b" data-i="${i}"><div class="n"><label>Bill</label><input data-k="0" value="${String(b[0]).replace(/"/g,'&quot;')}"></div><div><label>Amount</label><input data-k="1" type="number" min="0" step="1" inputmode="decimal" value="${b[1]}"></div><div><label>Due day</label><input data-k="2" type="number" min="1" max="31" step="1" inputmode="numeric" value="${b[2]}"></div><button class="x" aria-label="Remove">×</button></div>`).join('');run();}
+function paydays(y,m){const fr=$('freq').value;const out=[];const last=new Date(Date.UTC(y,m+1,0)).getUTCDate();
+ if(fr==='sm'){out.push(1,15);return out;} if(fr==='m'){out.push(1);return out;}
+ const step=+fr;const p=$('pd').value?new Date($('pd').value+'T00:00:00Z'):new Date(Date.UTC(2026,9,30));
+ const start=Date.UTC(y,m,1),end=Date.UTC(y,m,last);let t=p.getTime();const ms=step*864e5;
+ if(t>start){t-=Math.ceil((t-start)/ms)*ms;} else {t+=Math.floor((start-t)/ms)*ms;} if(t<start)t+=ms;
+ for(;t<=end;t+=ms)out.push(new Date(t).getUTCDate());return out;}
+function run(){const A=+$('amt').value||0;const [y,mm]=($('mo').value||'2027-01').split('-').map(Number);const m=mm-1;
+ const pds=paydays(y,m);const last=new Date(Date.UTC(y,m+1,0)).getUTCDate();
+ const groups=pds.map(d=>({d,bills:[]}));const before=[];
+ B.forEach(b=>{const due=Math.min(+b[2]||1,last);let g=null;for(const x of groups){if(x.d<=due)g=x;}if(g)g.bills.push(b);else before.push(b);});
+ const mn=new Date(Date.UTC(y,m,1)).toLocaleString('en-US',{month:'long',year:'numeric',timeZone:'UTC'});
+ $('mh').textContent=`Your paychecks in ${mn} (${pds.length})`;
+ let h='';if(before.length){const t=before.reduce((a,b)=>a+(+b[1]||0),0);h+=`<div class="chk"><h3>Due before the first payday</h3><small>Set aside from last month's final paycheck</small><ul>${before.map(b=>`<li>${b[0]} · day ${b[2]} · ${f(+b[1]||0)}</li>`).join('')}</ul><div class="left">Total ${f(t)}</div></div>`;}
+ groups.forEach((g,i)=>{const t=g.bills.reduce((a,b)=>a+(+b[1]||0),0),l=A-t;h+=`<div class="chk"><h3>Paycheck ${i+1} · ${mn.split(' ')[0]} ${g.d}</h3><small>${f(A)} in</small><ul>${g.bills.length?g.bills.map(b=>`<li>${b[0]} · day ${b[2]} · ${f(+b[1]||0)}</li>`).join(''):'<li>No bills due before the next payday</li>'}</ul><div class="left">Left from this check: <span class="${l<0?'r':'g'}">${f(l)}</span></div></div>`;});
+ $('plan').innerHTML=h;
+ const yy=y;$('yh').textContent=`Paydays per month in ${yy}`;let threes=[];
+ $('yr').innerHTML=Array.from({length:12},(_,k)=>{const n=paydays(yy,k).length;const nm=new Date(Date.UTC(yy,k,1)).toLocaleString('en-US',{month:'short',timeZone:'UTC'});if(n>=3&&$('freq').value==='14')threes.push(nm);return `<div class="${n>=3&&$('freq').value!=='7'?'t':''}">${nm}<br><b>${n}</b></div>`;}).join('');
+ $('yn').textContent=$('freq').value==='14'?(threes.length?`Three-paycheck months: ${threes.join(' and ')}. Plan on two checks and use the third for savings or debt.`:''):($('freq').value==='7'?'Weekly pay: four or five paydays a month.':'');}
+$('bills').addEventListener('input',e=>{const r=e.target.closest('.b');if(!r)return;B[+r.dataset.i][+e.target.dataset.k]=e.target.value;run();});
+$('bills').addEventListener('click',e=>{if(e.target.classList.contains('x')){B.splice(+e.target.closest('.b').dataset.i,1);draw();}});
+$('add').onclick=()=>{B.push(['New bill',50,15]);draw();};
+['amt','freq','pd','mo'].forEach(id=>$(id).addEventListener('input',run));$('freq').addEventListener('change',run);draw();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d4b593fd49874cf195851b41cd0caed4"}'></script>
+</body></html>
