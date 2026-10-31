@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>난방기 전기요금 계산기 | 전기장판·온풍기·히터 켜면 이번 달 얼마 더 나올까</title>
+<meta name="description" content="지금 한 달 사용량에 전기장판·온수매트·온풍기·히터·라디에이터를 더하면 누진 구간이 바뀌어 요금이 얼마 오르는지 계산해요. 2026년 주택용 저압 요금표(기후환경·연료비조정·부가세·전력기금 포함) 기준.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/%EC%A0%84%EA%B8%B0%EC%9A%94%EA%B8%88/">
+<meta property="og:title" content="난방기 켜면 이번 달 전기요금 얼마 더 나올까">
+<meta property="og:description" content="누진 구간까지 반영해 우리 집 기준으로 계산해요. 무료, 저장 안 함.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/%EC%A0%84%EA%B8%B0%EC%9A%94%EA%B8%88/">
+<meta property="og:image" content="https://whistlewhistle311-web.github.io/%EC%A0%84%EA%B8%B0%EC%9A%94%EA%B8%88/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"전기장판을 하루 8시간 켜면 전기요금이 얼마나 나오나요?","acceptedAnswer":{"@type":"Answer","text":"소비전력과 온도조절로 실제로 열을 내는 비율, 그리고 지금 한 달 사용량에 따라 달라요. 사용량이 200kWh·400kWh 경계 근처라면 누진 구간이 바뀌어 같은 전력도 더 비싸져요. 이 계산기에 지금 사용량을 넣으면 우리 집 기준 추가 요금을 볼 수 있어요."}},{"@type":"Question","name":"겨울 전기요금 누진 구간은 어떻게 되나요?","acceptedAnswer":{"@type":"Answer","text":"주택용 저압 기준으로 7~8월을 뺀 달은 200kWh까지 kWh당 120원, 201~400kWh 214.6원, 400kWh 초과 307.3원이에요. 12~2월에는 1,000kWh를 넘는 부분에 736.2원이 붙어요. 여기에 기후환경요금 9원, 연료비조정요금 5원(kWh당), 부가세 10%, 전력산업기반기금 2.7%가 더해져요."}},{"@type":"Question","name":"입력한 정보는 저장되나요?","acceptedAnswer":{"@type":"Answer","text":"계산은 브라우저 안에서만 이뤄지고 어디에도 보내거나 저장하지 않아요."}}]}</script>
+<style>
+:root{--bg:#F4F6F9;--card:#fff;--ink:#16213A;--ink2:#46526B;--mute:#8790A3;--acc:#E4572E;--blue:#2F5DA8;--line:#DFE4EC;--soft:#EEF3FB}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#11151d;--card:#1a202b;--ink:#eef1f6;--ink2:#c3cad6;--mute:#8e97a8;--line:#2d3544;--soft:#1f2836;--blue:#7fa6e8}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Pretendard,-apple-system,"Apple SD Gothic Neo",sans-serif;word-break:keep-all}
+main{max-width:640px;margin:0 auto;padding:26px 16px 64px}
+.k{font-size:12px;letter-spacing:.22em;color:var(--acc);font-weight:700}
+h1{font-size:29px;line-height:1.3;margin:8px 0 10px}h1 em{font-style:normal;color:var(--acc)}
+.lead{color:var(--ink2);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:14px 0}
+label{display:block;font-size:14px;font-weight:600;margin:10px 0 6px}
+input,select{width:100%;font:inherit;padding:11px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.note{font-size:13px;color:var(--mute);margin-top:8px}
+.ap{border:1px solid var(--line);border-radius:12px;padding:12px;margin:10px 0;background:var(--soft)}
+.ap .h{display:flex;justify-content:space-between;align-items:center;gap:8px}.ap .h select{flex:1}
+.ap .x{border:0;background:transparent;color:var(--mute);font-size:22px;cursor:pointer;width:auto;padding:0 6px;margin:0}
+.ap .g{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.ap .g label{font-size:12px;margin:8px 0 4px}
+button{font:inherit;font-weight:700;border:0;border-radius:12px;padding:13px;width:100%;background:var(--acc);color:#fff;margin-top:12px;cursor:pointer}
+button.ghost{background:transparent;border:1px dashed var(--blue);color:var(--blue)}
+.big{display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:center}
+.big div{border-radius:12px;padding:14px 6px;background:var(--soft)}
+.big small{display:block;font-size:12px;color:var(--mute);font-weight:600}
+.big b{display:block;font-size:24px}
+.plus{background:var(--acc)!important;color:#fff}.plus small{color:#ffe1d6!important}
+.warn{border-left:5px solid var(--acc);background:var(--soft);padding:10px 14px;border-radius:6px;margin:12px 0;font-size:15px}
+table{width:100%;border-collapse:collapse;font-size:14px}th{font-size:12px;color:var(--mute);text-align:left;padding:6px 4px;border-bottom:1px solid var(--line)}td{padding:7px 4px;border-bottom:1px solid var(--line)}td.n{text-align:right;white-space:nowrap}
+.bar{height:10px;border-radius:5px;background:var(--line);position:relative;margin:18px 0 26px}
+.bar i{position:absolute;top:0;bottom:0;left:0;border-radius:5px;background:var(--blue)}.bar i.add{background:var(--acc)}
+.bar span{position:absolute;top:14px;font-size:11px;color:var(--mute);transform:translateX(-50%)}
+.goods{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.goods a{display:block;border:1px solid var(--line);border-radius:12px;padding:11px;text-decoration:none;color:var(--ink);font-size:14px;background:var(--bg)}
+.goods a b{display:block;font-size:15px}.goods a span{font-size:12px;color:var(--mute)}
+.ad{font-size:12px;color:var(--mute);margin:0 0 6px}
+.links a{display:block;padding:9px 0;border-bottom:1px solid var(--line);color:var(--blue);text-decoration:none}
+.faq h3{font-size:16px;margin:16px 0 4px}.faq p{margin:0;color:var(--ink2);font-size:15px}
+footer{font-size:12px;color:var(--mute);margin-top:30px}
+#out{display:none}
+</style>
+</head>
+<body><main>
+<div class="k">FREE · 겨울 전기요금</div>
+<h1>난방기 켜면 이번 달<br><em>전기요금 얼마 더</em> 나올까</h1>
+<p class="lead">지금 한 달에 쓰는 전기에 난방기를 더하면, <b>누진 구간이 바뀌면서</b> 같은 전력도 더 비싸질 수 있어요. 우리 집 사용량으로 이번 달 요금이 얼마나 오르는지 계산해 보세요. 무료이고, 입력한 정보는 저장하지 않아요.</p>
+
+<form id="f" class="card">
+  <div class="row">
+    <div><label for="use">지금 한 달 사용량 (kWh)</label><input id="use" type="number" min="0" max="3000" value="250" inputmode="numeric"></div>
+    <div><label for="mon">계산할 달</label><select id="mon"></select></div>
+  </div>
+  <div class="note">고지서나 한전ON 앱의 '사용량'을 넣어 주세요. 모르면 1인 가구 150, 2~3인 250, 4인 330kWh쯤으로 넣고 보세요(난방기를 빼고 쓰던 양).</div>
+  <div id="aps"></div>
+  <button type="button" class="ghost" id="add">+ 난방기 하나 더</button>
+  <button type="submit">이번 달 요금 계산하기</button>
+  <div class="note">소비전력은 예시 값이에요. 제품 바닥·뒷면 명판이나 설명서의 소비전력(W)으로 바꿔 넣으면 정확해져요. '켜짐 비율'은 온도조절기가 실제로 열을 내는 시간의 비율이에요.</div>
+</form>
+
+<section id="out">
+  <div class="card">
+    <div class="big"><div><small>난방기 없이</small><b id="b0"></b></div><div class="plus"><small>난방기 켜면</small><b id="b1"></b></div></div>
+    <p style="text-align:center;margin:12px 0 0;font-size:18px">한 달에 <b id="diff" style="color:var(--acc)"></b> 더 나와요 <span class="note" id="kwh"></span></p>
+    <div class="bar" id="bar"></div>
+    <div id="warn"></div>
+    <table id="tb"></table>
+    <p class="note" id="tip"></p>
+  </div>
+  <div class="card">
+    <h2 style="font-size:18px;margin:0 0 6px">요금이 이렇게 계산돼요</h2>
+    <table id="det"></table>
+    <p class="note">10원 미만은 버려요. 복지·대가족·출산가구 할인, 에너지바우처, 아파트 단일계약은 반영하지 않았어요. 실제 고지서와 조금 다를 수 있어요.</p>
+  </div>
+</section>
+
+<section class="card">
+  <h2 style="font-size:18px;margin:0 0 4px">전기 덜 쓰고 덜 춥게</h2>
+  <p class="ad">이 영역의 링크는 쿠팡 파트너스 활동의 하나로, 이를 통해 구매하면 일정액의 수수료를 받아요. 사는 분이 내는 값은 같아요.</p>
+  <p style="margin:0;font-size:14px;color:var(--ink2)">난방기 켜는 시간을 줄이는 가장 쉬운 방법은 열이 덜 새게 하는 거예요. 창문 단열과 침대 위 난방텐트는 전기를 쓰지 않아요.</p>
+  <div class="goods">
+    <a href="https://link.coupang.com/a/ihmLc8pkFo" rel="sponsored noopener" target="_blank"><b>창문 뽁뽁이</b><span>창 유리 단열</span></a>
+    <a href="https://link.coupang.com/a/ihmKV9EDFk" rel="sponsored noopener" target="_blank"><b>문풍지</b><span>문틈 바람 막기</span></a>
+    <a href="https://link.coupang.com/a/igMw8AlPu8" rel="sponsored noopener" target="_blank"><b>난방텐트</b><span>침대 위 온기 가두기</span></a>
+    <a href="https://link.coupang.com/a/ihmKUbf0ai" rel="sponsored noopener" target="_blank"><b>디지털 온습도계</b><span>실내 온도 확인</span></a>
+  </div>
+  <div style="margin-top:12px;text-align:center;overflow:hidden"><script src="https://ads-partners.coupang.com/g.js"></script><script>new PartnersCoupang.G({"id":1045274,"template":"carousel","trackingCode":"AF3341064","width":"320","height":"130","tsource":""});</script></div>
+</section>
+
+<section class="card links">
+  <h2 style="font-size:18px;margin:0 0 4px">더 읽어 보기 (가전노트)</h2>
+  <a href="https://gajeonnote.tistory.com/6" target="_blank" rel="noopener">전기히터 종류별 차이: 팬히터·카본·라디에이터, 전기료까지 →</a><a href="https://gajeonnote.tistory.com/12" target="_blank" rel="noopener">겨울 난방비 아끼는 가전 조합 →</a>
+  <a href="https://gajeonnote.tistory.com/11" target="_blank" rel="noopener">전기요·온수매트 전기료 계산법 →</a>
+  <a href="https://gajeonnote.tistory.com/39" target="_blank" rel="noopener">에어컨 난방, 전기히터보다 전기료 덜 나올까 →</a>
+  <a href="https://gajeonnote.tistory.com/81" target="_blank" rel="noopener">멀티탭 용량 계산법, 히터·전기포트 같이 꽂아도 될까 →</a>
+</section>
+
+<section class="faq">
+  <h2 style="font-size:20px;margin-top:30px">이렇게 계산해요</h2>
+  <h3>난방기가 쓰는 전기</h3><p>소비전력(W) × 하루 사용 시간 × 켜짐 비율 × 일수 ÷ 1,000 = 한 달 kWh예요. 전기장판처럼 온도조절이 있는 제품은 켜 둔 시간 내내 최대 전력을 쓰지 않아서 켜짐 비율을 곱해요.</p>
+  <h3>누진 구간 (주택용 저압)</h3><p>7·8월을 뺀 달은 200kWh까지 kWh당 120원, 201~400kWh 214.6원, 400kWh 초과 307.3원이에요. 7·8월은 300kWh·450kWh가 경계예요. 12~2월과 7·8월에는 1,000kWh를 넘는 부분에 736.2원이 붙어요. 기본요금은 구간에 따라 910원, 1,600원, 7,300원이에요.</p>
+  <h3>그 밖에 붙는 것</h3><p>기후환경요금 kWh당 9원, 연료비조정요금 kWh당 5원(2026년 4분기 기준), 그 합계에 부가세 10%와 전력산업기반기금 2.7%가 더해져요. 요금은 분기마다 바뀔 수 있어요.</p>
+  <h3>왜 같은 히터도 집마다 요금이 다를까</h3><p>평소 사용량이 190kWh인 집과 390kWh인 집은 같은 100kWh를 더해도 늘어나는 단가가 달라요. 경계 바로 아래에 있는 집일수록 난방기 하나가 기본요금까지 끌어올려요.</p>
+</section>
+<footer>요금 기준: 한국전력 주택용 저압 요금(2026년 4분기 동결 발표 기준) · 만든 곳: 가전노트 · 결과는 저장되지 않아요.</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const P=[['전기장판·전기요 2인용',180,8,50],['전기요 1인용',100,8,50],['온수매트 2인용',350,8,40],['전기히터(할로겐·카본)',1000,3,100],['온풍기(팬히터)',2000,3,60],['라디에이터',2000,5,50],['전기방석',50,6,70],['직접 입력',1000,2,100]];
+const won=n=>Math.round(n).toLocaleString('ko-KR')+'원';
+function bill(kwh,m){
+  const summer=m===7||m===8,peak=summer||m===12||m===1||m===2;
+  const [t1,t2]=summer?[300,450]:[200,400];
+  const basic=kwh<=t1?910:kwh<=t2?1600:7300;
+  let e=Math.min(kwh,t1)*120+Math.min(Math.max(kwh-t1,0),t2-t1)*214.6;
+  const over=Math.max(kwh-t2,0);
+  if(peak&&kwh>1000){e+=(1000-t2)*307.3+(kwh-1000)*736.2}else e+=over*307.3;
+  const climate=kwh*9,fuel=kwh*5;
+  const base=Math.floor(basic+e+climate+fuel);
+  const vat=Math.round(base*0.1),fund=Math.floor(base*0.027/10)*10;
+  return {kwh,basic,e,climate,fuel,base,vat,fund,total:Math.floor((base+vat+fund)/10)*10,t1,t2};
+}
+window.__bill=bill;
+function apRow(i){
+  const d=document.createElement('div');d.className='ap';
+  d.innerHTML=`<div class="h"><select class="pr">${P.map((p,k)=>`<option value="${k}">${p[0]}</option>`).join('')}</select><button type="button" class="x" aria-label="빼기">×</button></div>
+  <div class="g"><div><label>소비전력 W</label><input class="w" type="number" min="1" max="5000" inputmode="numeric"></div><div><label>하루 시간</label><input class="h1" type="number" min="0" max="24" step="0.5" inputmode="decimal"></div><div><label>켜짐 비율 %</label><input class="dt" type="number" min="1" max="100" inputmode="numeric"></div></div>
+  <label>사용 일수</label><input class="dy" type="number" min="1" max="31" value="30" inputmode="numeric">`;
+  const set=k=>{d.querySelector('.w').value=P[k][1];d.querySelector('.h1').value=P[k][2];d.querySelector('.dt').value=P[k][3]};
+  d.querySelector('.pr').value=i;set(i);
+  d.querySelector('.pr').addEventListener('change',e=>set(+e.target.value));
+  d.querySelector('.x').addEventListener('click',()=>{if(document.querySelectorAll('.ap').length>1)d.remove()});
+  $('aps').appendChild(d);
+}
+function go(){
+  const use=Math.max(0,+$('use').value||0),m=+$('mon').value;
+  const items=[...document.querySelectorAll('.ap')].map(d=>{const name=P[+d.querySelector('.pr').value][0],w=+d.querySelector('.w').value||0,h=+d.querySelector('.h1').value||0,dt=(+d.querySelector('.dt').value||0)/100,dy=+d.querySelector('.dy').value||0;return {name,w,h,dt,dy,kwh:w*h*dt*dy/1000}});
+  const add=items.reduce((a,x)=>a+x.kwh,0),addR=Math.round(add);
+  const A=bill(use,m),B=bill(use+addR,m),diff=B.total-A.total;
+  $('b0').textContent=won(A.total);$('b1').textContent=won(B.total);$('diff').textContent=won(diff);$('kwh').textContent=`(+${addR}kWh)`;
+  const max=Math.max(B.t2+100,use+addR+50),pct=v=>Math.min(100,v/max*100);
+  $('bar').innerHTML=`<i class="add" style="width:${pct(use+addR)}%"></i><i style="width:${pct(use)}%"></i><span style="left:${pct(B.t1)}%">${B.t1}</span><span style="left:${pct(B.t2)}%">${B.t2}</span>`;
+  const tier=k=>k<=A.t1?1:k<=A.t2?2:3;
+  let w='';
+  if(tier(use+addR)>tier(use))w=`<div class="warn">난방기를 더하면 <b>${tier(use)}단계 → ${tier(use+addR)}단계</b>로 넘어가요. 기본요금이 ${won(A.basic)}에서 ${won(B.basic)}으로 오르고, 경계를 넘은 전력은 kWh당 ${tier(use+addR)===2?'214.6':'307.3'}원이 붙어요.</div>`;
+  else if(tier(use)<3&&use+addR>[0,A.t1,A.t2][tier(use)]-30)w=`<div class="warn">다음 구간 경계(${[0,A.t1,A.t2][tier(use)]}kWh)까지 ${[0,A.t1,A.t2][tier(use)]-use-addR}kWh 남았어요. 조금만 더 쓰면 단가가 올라가요.</div>`;
+  if(B.kwh>1000&&(m===12||m===1||m===2||m===7||m===8))w+=`<div class="warn">1,000kWh를 넘은 부분에는 kWh당 736.2원(슈퍼유저 요금)이 붙어요.</div>`;
+  $('warn').innerHTML=w;
+  const per=add>0?diff/add:0;
+  $('tb').innerHTML='<tr><th>난방기</th><th style="text-align:right">한 달 kWh</th><th style="text-align:right">대략 요금</th></tr>'+items.map(x=>`<tr><td>${x.name}<br><span class="note">${x.w}W · 하루 ${x.h}시간 · ${Math.round(x.dt*100)}% · ${x.dy}일</span></td><td class="n">${x.kwh.toFixed(1)}</td><td class="n">${won(x.kwh*per)}</td></tr>`).join('');
+  const top=items.slice().sort((a,b)=>b.kwh-a.kwh)[0];
+  if(top&&top.h>=1){const k2=top.w*(top.h-1)*top.dt*top.dy/1000,C=bill(use+Math.round(add-top.kwh+k2),m);const jb=c=>{const k=c.charCodeAt(0)-0xAC00;return k>=0&&k<11172&&k%28>0},lc=top.name.replace(/[^가-힣]/g,'').slice(-1);$('tip').textContent=`${top.name}${jb(lc)?'을':'를'} 하루 1시간만 줄이면 한 달 ${won(B.total-C.total)} 덜 나와요.`}else $('tip').textContent='';
+  const r=(l,a,b)=>`<tr><td>${l}</td><td class="n">${a}</td><td class="n"><b>${b}</b></td></tr>`;
+  $('det').innerHTML='<tr><th></th><th style="text-align:right">난방기 없이</th><th style="text-align:right">켜면</th></tr>'+r('사용량',A.kwh+'kWh',B.kwh+'kWh')+r('기본요금',won(A.basic),won(B.basic))+r('전력량요금',won(A.e),won(B.e))+r('기후환경 + 연료비조정',won(A.climate+A.fuel),won(B.climate+B.fuel))+r('부가세',won(A.vat),won(B.vat))+r('전력산업기반기금',won(A.fund),won(B.fund))+r('청구 금액',won(A.total),won(B.total));
+  $('out').style.display='block';
+}
+(function(){const now=new Date(),cm=now.getMonth()+1,s=$('mon');for(let i=1;i<=12;i++){const o=document.createElement('option');o.value=i;o.textContent=i+'월'+(i===7||i===8?' (여름 구간)':'');s.appendChild(o)}s.value=[11,12,1,2,3].includes(cm)?cm:12;apRow(0);
+  const p=new URLSearchParams(location.search);if(p.get('use'))$('use').value=p.get('use')})();
+$('add').addEventListener('click',()=>apRow(4));
+$('f').addEventListener('submit',e=>{e.preventDefault();go();$('out').scrollIntoView({behavior:'smooth'})});
+</script>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "d4b593fd49874cf195851b41cd0caed4"}'></script>
+</body></html>
