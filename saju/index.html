@@ -106,7 +106,8 @@ footer{font-size:12px;color:var(--mute);margin-top:30px}
     <p>이직, 연애, 시험처럼 고민 하나를 보내 주시면, 같은 계산으로 13쪽 리포트(지난 3년 검증, 대운, 분야별 2027, 질문 답과 움직일 날짜 3개)를 만들어 드려요.</p>
     <a id="ctaA" href="https://kmong.com/@%EA%B3%84%EC%82%B0%EA%B3%B5%EB%B0%A9" rel="noopener">13쪽 리포트 보기 (크몽)</a>
   </div>
-  <button class="share" id="sh" type="button">내 결과 링크 복사하기</button>
+  <button id="img" type="button">인스타 스토리용 이미지 저장</button>
+  <button class="share" id="sh" type="button" style="margin-top:8px">결과 링크 공유 (링크에 생년월일이 담겨요)</button>
 </section>
 
 <section class="faq">
@@ -154,6 +155,7 @@ function draw(r){
   $('mlist').innerHTML=r.months.map(m=>'<div><span><b>'+m.m+'월</b> '+m.label+(m.nextYear?" ('28)":'')+'</span><span>'+m.gz+' · '+m.stem+'·'+m.branch+' <span class="dots">'+[1,2,3,4,5].map(k=>'<i class="'+(k<=m.score?'on':'')+'"></i>').join('')+'</span></span></div>').join('');
   $('flags').textContent=r.flags.join(' ');
   $('out').style.display='block';
+  LAST=r;
 }
 function go(push){
   const [y,m,d]=$('b').value.split('-').map(Number); if(!y)return;
@@ -163,6 +165,39 @@ function go(push){
   if(push)history.replaceState(null,'',q);
   $('out').scrollIntoView({behavior:'smooth'});
 }
+
+let LAST=null;
+async function storyCard(r){
+  await document.fonts.ready;
+  const W=1080,H=1920,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');
+  const SANS='Pretendard,"Apple SD Gothic Neo",sans-serif',SERIF='"Noto Serif KR",serif';
+  x.fillStyle='#1C2A47';x.fillRect(0,0,W,H);
+  x.fillStyle='#D9C9A8';x.font='700 34px '+SANS;x.letterSpacing='8px';x.fillText('2027 丁未年 · 나의 운 그래프',90,190);x.letterSpacing='0px';
+  x.fillStyle='#C0432D';x.font='900 230px '+SERIF;x.fillText(r.dayGz,80,470);
+  x.fillStyle='#F7F1E5';x.font='800 76px '+SANS;x.fillText(SajuEngine.ko(r.dayGz)+'일주',90,600);
+  x.fillStyle='#D9C9A8';x.font='500 38px '+SANS;
+  const line=ZI[r.dayGz[1]]+'의 '+IMG[r.dm];x.fillText(line,90,670);
+  // graph
+  const gx0=90,gx1=W-90,gy0=820,gy1=1240,gx=i=>gx0+i*(gx1-gx0)/11,gy=v=>gy1-(v-1)*(gy1-gy0)/4;
+  x.strokeStyle='rgba(217,201,168,.25)';x.lineWidth=2;x.setLineDash([10,12]);
+  for(const v of [1,3,5]){x.beginPath();x.moveTo(gx0,gy(v));x.lineTo(gx1,gy(v));x.stroke()}x.setLineDash([]);
+  x.beginPath();r.months.forEach((m,i)=>{i?x.lineTo(gx(i),gy(m.score)):x.moveTo(gx(i),gy(m.score))});
+  const path=new Path2D();r.months.forEach((m,i)=>{i?path.lineTo(gx(i),gy(m.score)):path.moveTo(gx(i),gy(m.score))});
+  const area=new Path2D(path);area.lineTo(gx(11),gy1+40);area.lineTo(gx(0),gy1+40);area.closePath();x.fillStyle='rgba(192,67,45,.22)';x.fill(area);
+  x.strokeStyle='#E0563F';x.lineWidth=9;x.lineJoin='round';x.stroke(path);
+  r.months.forEach((m,i)=>{x.beginPath();x.arc(gx(i),gy(m.score),14,0,7);x.fillStyle=m.score>=4?'#E0563F':m.score<=2?'#7f9bd6':'#1C2A47';x.fill();x.lineWidth=5;x.strokeStyle=m.score<=2?'#7f9bd6':'#E0563F';x.stroke();
+    x.fillStyle='#D9C9A8';x.font='600 30px '+SANS;x.textAlign='center';x.fillText(m.m+'월',gx(i),gy1+95);x.textAlign='left'});
+  const best=rangeTxt(r.months,run(r.months,m=>m.score>=4)),worst=rangeTxt(r.months,run(r.months,m=>m.score<=2));
+  function box(y,lab,val,col){x.fillStyle='rgba(247,241,229,.08)';x.beginPath();x.roundRect(90,y,W-180,150,28);x.fill();x.fillStyle=col;x.font='700 34px '+SANS;x.fillText(lab,130,y+60);x.fillStyle='#F7F1E5';x.font='800 52px '+SANS;x.fillText(val,130,y+122)}
+  box(1420,'차오르는 때',best,'#E0563F');box(1600,'숨 고를 때',worst,'#9fb4e6');
+  x.fillStyle='#D9C9A8';x.font='600 34px '+SANS;x.fillText('내 그래프도 30초면 나와요 · 무료',90,1830);
+  x.fillStyle='#8f9ab3';x.font='500 30px '+SANS;x.fillText('whistlewhistle311-web.github.io/saju · 계산공방',90,1880);
+  return new Promise(res=>c.toBlob(res,'image/png'));
+}
+$('img').addEventListener('click',async()=>{if(!LAST)return;const b=await storyCard(LAST);const f=new File([b],'2027-운그래프.png',{type:'image/png'});
+  try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:'내 2027 운 그래프'});return}}catch(e){if(e.name==='AbortError')return}
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=f.name;document.body.appendChild(a);a.click();a.remove();$('img').textContent='이미지를 저장했어요'});
+
 $('f').addEventListener('submit',e=>{e.preventDefault();go(true)});
 $('nt').addEventListener('change',()=>{$('t').disabled=$('nt').checked});
 $('sh').addEventListener('click',async()=>{const u=location.href;try{if(navigator.share){await navigator.share({title:'내 2027 운 그래프',url:u})}else{await navigator.clipboard.writeText(u);$('sh').textContent='링크를 복사했어요'}}catch(e){}});
