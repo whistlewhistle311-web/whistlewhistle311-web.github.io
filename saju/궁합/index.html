@@ -96,7 +96,8 @@ footer{font-size:12px;color:var(--mute);margin-top:30px}
     <div class="win" style="margin-top:12px"><div class="up"><small>둘 다 좋은 달</small><b id="both"></b></div><div class="dn"><small>한 사람이 쉬어 갈 달</small><b id="rest"></b></div></div>
     <p class="note">● 차오르는 달 · ○ 보통 · ▼ 숨 고를 달. 달은 절기 기준이에요(예: 2월 = 2/4~3/5).</p></div>
   <div class="cta"><h2>둘이 같이 정할 일이 있다면</h2><p>결혼, 이사, 동거처럼 두 사람이 함께 날짜를 정해야 한다면, 같은 계산에 근거 글자와 질문 답(날짜 포함)을 붙인 8쪽 궁합 리포트를 만들어 드려요.</p><a id="cta" href="https://kmong.com/@%EA%B3%84%EC%82%B0%EA%B3%B5%EB%B0%A9" rel="noopener">두 사람 궁합 리포트 보기 (크몽)</a></div>
-  <button class="share" id="sh" type="button">결과 링크 공유 (링크에 두 사람 생년월일이 담겨요)</button>
+  <button id="img" type="button">인스타 스토리용 이미지 저장</button>
+  <button class="share" id="sh" type="button" style="margin-top:8px">결과 링크 공유 (링크에 두 사람 생년월일이 담겨요)</button>
 </section>
 
 <section class="faq">
@@ -147,7 +148,41 @@ function draw(A,B){
   $('rest').textContent=rangeOf(A.months,(m,i)=>m.score<=2||B.months[i].score<=2);
   $('out').style.display='block';
 }
-function go(push){const A=calc(1),B=calc(2);draw(A,B);if(push){const q=n=>'b'+n+'='+$('b'+n).value+($('n'+n).checked?'':'&t'+n+'='+$('t'+n).value)+'&s'+n+'='+$('s'+n).value;history.replaceState(null,'','?'+q(1)+'&'+q(2))}$('out').scrollIntoView({behavior:'smooth'})}
+function go(push){const A=calc(1),B=calc(2);draw(A,B);LAST={A,B};if(push){const q=n=>'b'+n+'='+$('b'+n).value+($('n'+n).checked?'':'&t'+n+'='+$('t'+n).value)+'&s'+n+'='+$('s'+n).value;history.replaceState(null,'','?'+q(1)+'&'+q(2))}$('out').scrollIntoView({behavior:'smooth'})}
+
+let LAST=null;
+async function storyCard(A,B){
+  await document.fonts.ready;
+  const W=1080,H=1920,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');
+  const SANS='Pretendard,"Apple SD Gothic Neo",sans-serif',SERIF='"Noto Serif KR",serif';
+  x.fillStyle='#1C2A47';x.fillRect(0,0,W,H);
+  x.fillStyle='#D9C9A8';x.font='700 34px '+SANS;x.fillText('두 사람 궁합 · 2027 丁未年',90,170);
+  x.textAlign='center';
+  x.fillStyle='#E0563F';x.font='900 170px '+SERIF;x.fillText(A.dayGz,290,400);
+  x.fillStyle='#9fb4e6';x.fillText(B.dayGz,790,400);
+  x.fillStyle='#D9C9A8';x.font='700 70px '+SANS;x.fillText('×',540,370);
+  x.fillStyle='#F7F1E5';x.font='800 44px '+SANS;x.fillText(E.ko(A.dayGz)+'일주',290,480);x.fillText(E.ko(B.dayGz)+'일주',790,480);
+  const ab=E.god(A.dm,B.dm),ba=E.god(B.dm,A.dm);
+  x.fillStyle='#D9C9A8';x.font='500 34px '+SANS;x.fillText('나에게 상대는 '+ab+' · 상대에게 나는 '+ba,540,580);
+  x.textAlign='left';
+  // 12 months two rows
+  const x0=110,x1=W-110,gx=i=>x0+i*(x1-x0)/11;
+  x.fillStyle='#D9C9A8';x.font='600 30px '+SANS;x.fillText('2027 열두 달',90,700);
+  A.months.forEach((m,i)=>{const s2=B.months[i].score,bo=m.score>=4&&s2>=4;
+    if(bo){x.fillStyle='rgba(224,86,63,.22)';x.beginPath();x.roundRect(gx(i)-34,730,68,250,20);x.fill()}
+    for(const [sc,y,col] of [[m.score,790,'#E0563F'],[s2,900,'#9fb4e6']]){x.beginPath();x.arc(gx(i),y,sc>=4?20:13,0,7);x.fillStyle=sc>=4?col:sc<=2?'#3a4766':'rgba(247,241,229,.35)';x.fill()}
+    x.fillStyle='#D9C9A8';x.font='600 28px '+SANS;x.textAlign='center';x.fillText(m.m+'월',gx(i),1030);x.textAlign='left'});
+  x.fillStyle='#E0563F';x.font='700 26px '+SANS;x.fillText('● 나',90,1090);x.fillStyle='#9fb4e6';x.fillText('● 상대',190,1090);x.fillStyle='#D9C9A8';x.fillText('큰 점 = 차오르는 달 · 칠한 칸 = 둘 다 좋은 달',330,1090);
+  function box(y,lab,val,col){x.fillStyle='rgba(247,241,229,.08)';x.beginPath();x.roundRect(90,y,W-180,170,28);x.fill();x.fillStyle=col;x.font='700 34px '+SANS;x.fillText(lab,130,y+62);x.fillStyle='#F7F1E5';x.font='800 50px '+SANS;x.fillText(val,130,y+132)}
+  box(1200,'둘 다 좋은 달',$('both').textContent,'#E0563F');box(1400,'한 사람이 쉬어 갈 달',$('rest').textContent,'#9fb4e6');
+  x.fillStyle='#D9C9A8';x.font='600 34px '+SANS;x.fillText('우리 궁합도 생년월일로 바로 · 무료',90,1820);
+  x.fillStyle='#8f9ab3';x.font='500 30px '+SANS;x.fillText('whistlewhistle311-web.github.io/saju/궁합 · 계산공방',90,1870);
+  return new Promise(res=>c.toBlob(res,'image/png'));
+}
+$('img').addEventListener('click',async()=>{if(!LAST)return;const b=await storyCard(LAST.A,LAST.B);const f=new File([b],'2027-궁합.png',{type:'image/png'});
+  try{if(navigator.canShare&&navigator.canShare({files:[f]})){await navigator.share({files:[f],title:'두 사람 궁합'});return}}catch(e){if(e.name==='AbortError')return}
+  const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=f.name;document.body.appendChild(a);a.click();a.remove();$('img').textContent='이미지를 저장했어요'});
+
 $('f').addEventListener('submit',e=>{e.preventDefault();go(true)});
 $('sh').addEventListener('click',async()=>{const u=location.href;try{if(navigator.share){await navigator.share({title:'두 사람 궁합',url:u})}else{await navigator.clipboard.writeText(u);$('sh').textContent='링크를 복사했어요'}}catch(e){}});
 (function(){const p=new URLSearchParams(location.search);if(!p.get('b1')||!p.get('b2'))return;for(const n of [1,2]){$('b'+n).value=p.get('b'+n);if(p.get('t'+n))$('t'+n).value=p.get('t'+n);else $('n'+n).checked=true;if(p.get('s'+n))$('s'+n).value=p.get('s'+n)}go(false)})();
