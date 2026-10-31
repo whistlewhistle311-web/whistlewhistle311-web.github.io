@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora para salir de deudas: bola de nieve vs avalancha</title>
+<meta name="description" content="Calculadora gratis para salir de deudas. Escribe tus deudas y cuánto puedes pagar de más al mes: compara el método bola de nieve y el método avalancha con fecha de fin, interés total y plan mes a mes.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/es/deudas/">
+<meta property="og:title" content="Bola de nieve vs avalancha: ¿cuál te ahorra más?">
+<meta property="og:description" content="Compara los dos planes con tus propias deudas. Gratis, en tu navegador, no se guarda nada.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/es/deudas/">
+<meta property="og:image" content="https://whistlewhistle311-web.github.io/es/deudas/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"es","mainEntity":[{"@type":"Question","name":"¿Qué diferencia hay entre el método bola de nieve y el método avalancha?","acceptedAnswer":{"@type":"Answer","text":"Los dos pagan el mínimo de todas las deudas y ponen el dinero extra en una sola. Bola de nieve ataca primero el saldo más chico; avalancha ataca primero la tasa más alta. Avalancha suele pagar menos interés; bola de nieve suele terminar la primera deuda antes."}},{"@type":"Question","name":"¿Qué pasa cuando termino una deuda?","acceptedAnswer":{"@type":"Answer","text":"Su pago mínimo se suma al dinero extra y va a la siguiente deuda. Pagas lo mismo cada mes, pero cada deuda baja más rápido."}},{"@type":"Question","name":"¿Qué tan exacta es la calculadora?","acceptedAnswer":{"@type":"Answer","text":"Estima el interés cada mes como tasa anual entre 12 sobre el saldo. Los bancos calculan por día y pueden sumar IVA o comisiones, así que tus estados de cuenta cambiarán un poco. Úsala para comparar planes, no como cifra exacta."}}]}</script>
+<style>
+:root{--bg:#F4F6F5;--card:#fff;--ink:#14231F;--ink2:#435650;--mute:#7E8C87;--acc:#2E7D5B;--acc2:#E07A5F;--line:#DCE4E0;--soft:#EDF4F0}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1513;--card:#17201d;--ink:#eef3f1;--ink2:#c2cfca;--mute:#8d9a95;--line:#2b3733;--soft:#1d2925}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:680px;margin:0 auto;padding:26px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--acc);font-weight:700}
+h1{font-size:30px;line-height:1.25;margin:8px 0 10px}h1 em{font-style:normal;color:var(--acc)}
+.lead{color:var(--ink2);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:14px 0}
+label{display:block;font-size:13px;font-weight:600;margin:8px 0 4px;color:var(--ink2)}
+input{width:100%;font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+.d{display:grid;grid-template-columns:1.5fr 1fr .8fr 1fr auto;gap:8px;align-items:end;margin-bottom:6px}
+@media(max-width:560px){.d{grid-template-columns:1fr 1fr 1fr auto}.d>div:first-child{grid-column:1/-1}}
+.d .x{border:0;background:transparent;color:var(--mute);font-size:22px;cursor:pointer;padding:6px;margin:0;width:auto}
+button{font:inherit;font-weight:700;border:0;border-radius:12px;padding:13px;width:100%;background:var(--acc);color:#fff;margin-top:12px;cursor:pointer}
+button.ghost{background:transparent;border:1px dashed var(--acc);color:var(--acc)}
+.row{display:flex;gap:10px}.row>*{flex:1}
+.big{display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:center}
+.big div{border-radius:12px;padding:14px 8px;background:var(--soft)}
+.big h3{margin:0 0 6px;font-size:15px}.big small{display:block;font-size:12px;color:var(--mute)}.big b{display:block;font-size:22px;margin-bottom:4px}
+.win{border-left:5px solid var(--acc);background:var(--soft);padding:10px 14px;border-radius:6px;margin:12px 0}
+table{width:100%;border-collapse:collapse;font-size:13px}th{font-size:11px;color:var(--mute);text-align:right;padding:6px 4px;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left}td{padding:6px 4px;border-bottom:1px solid var(--line);text-align:right;font-variant-numeric:tabular-nums}
+.tw{overflow-x:auto}
+svg{width:100%;height:auto}
+.cta{background:var(--ink);color:#fff;border-radius:14px;padding:18px;margin:18px 0}.cta a{color:#9BE0C2;font-weight:700}
+.faq h3{font-size:16px;margin:16px 0 4px}.faq p{margin:0;color:var(--ink2);font-size:15px}
+footer{font-size:12px;color:var(--mute);margin-top:30px}
+#out{display:none}
+.seg{display:flex;gap:6px;margin-top:10px}.seg button{margin:0;padding:8px;background:var(--soft);color:var(--ink);font-size:14px}.seg button.on{background:var(--acc);color:#fff}
+</style>
+</head>
+<body><main>
+<div class="k">GRATIS · SALIR DE DEUDAS</div>
+<h1>Bola de nieve vs avalancha:<br><em>¿cuál te ahorra más?</em></h1>
+<p class="lead">Escribe tus deudas y cuánto puedes pagar de más cada mes. Ves cuándo terminas, el interés total y un plan mes a mes con los dos métodos. Funciona en tu navegador; no se guarda nada.</p>
+<form id="f" class="card">
+  <div id="debts"></div>
+  <button type="button" class="ghost" id="add">+ Agregar deuda</button>
+  <div class="row"><div><label>Extra al mes (además de los mínimos)</label><input id="extra" type="number" min="0" step="10" value="2000" inputmode="decimal"></div></div>
+  <button type="submit">Comparar planes</button>
+</form>
+<section id="out">
+  <div class="card">
+    <div class="big">
+      <div><h3>Bola de nieve</h3><small>primero el saldo más chico</small><b id="sM"></b><small id="sI"></small></div>
+      <div><h3>Avalancha</h3><small>primero la tasa más alta</small><b id="aM"></b><small id="aI"></small></div>
+    </div>
+    <div class="win" id="verdict"></div>
+    <svg id="chart" viewBox="0 0 640 220" role="img" aria-label="Saldo total en el tiempo con los dos métodos"></svg>
+    <p style="font-size:12px;color:var(--mute);margin:4px 0 0"><span style="color:var(--acc)">━</span> Bola de nieve &nbsp; <span style="color:var(--acc2)">━</span> Avalancha</p>
+  </div>
+  <div class="card">
+    <h2 style="font-size:18px;margin:0 0 4px">Plan mes a mes</h2>
+    <div class="seg"><button type="button" id="tS" class="on">Bola de nieve</button><button type="button" id="tA">Avalancha</button></div>
+    <div class="tw" style="margin-top:10px"><table id="plan"></table></div>
+  </div>
+  <div class="cta">¿Quieres llevarlo en una hoja que puedas actualizar? El <a href="https://whistledown8.gumroad.com/l/plan-deudas" target="_blank" rel="noopener">Plan para salir de deudas para Google Sheets y Excel</a> hace los mismos dos planes para hasta 10 deudas y 30 años, con resumen y gráfica. 5 USD, hecho por la misma persona que hizo esta calculadora.</div>
+</section>
+<section class="faq">
+  <h2 style="font-size:20px;margin-top:30px">Cómo funciona</h2>
+  <h3>Bola de nieve vs avalancha</h3><p>Los dos métodos pagan el mínimo de todas las deudas y ponen el extra en una sola. Bola de nieve va primero por el saldo más chico, así terminas una deuda pronto. Avalancha va primero por la tasa más alta, y casi siempre pagas menos interés.</p>
+  <h3>El efecto bola de nieve</h3><p>Cuando terminas una deuda, su mínimo se suma al extra y va a la siguiente. Pagas lo mismo cada mes, pero cada deuda baja más rápido.</p>
+  <h3>Qué tan exacta es</h3><p>El interés se estima cada mes como tasa anual ÷ 12 sobre el saldo. Los bancos calculan por día y pueden sumar IVA o comisiones, así que tus estados de cuenta cambiarán un poco. Úsala para comparar planes. No es asesoría financiera.</p>
+</section>
+<footer><a href="../presupuesto/" style="color:inherit">Calculadora de presupuesto</a> · Hecho por una persona con ayuda de herramientas de IA · Los cálculos se hacen en tu navegador y no se guardan</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const SAMPLE=[['Tarjeta tienda',6500,58,450],['Tarjeta banco',32000,45,1600],['Crédito auto',120000,13.5,3800],['Préstamo',25000,32,1500],['Préstamo familiar',5000,0,500]];
+function row(v){const d=document.createElement('div');d.className='d';d.innerHTML=`<div><label>Deuda</label><input class="n" value="${v?v[0]:''}" placeholder="Nombre"></div><div><label>Saldo</label><input class="b" type="number" min="0" step="0.01" value="${v?v[1]:''}" inputmode="decimal"></div><div><label>Tasa anual %</label><input class="r" type="number" min="0" step="0.01" value="${v?v[2]:''}" inputmode="decimal"></div><div><label>Mínimo</label><input class="m" type="number" min="0" step="0.01" value="${v?v[3]:''}" inputmode="decimal"></div><button type="button" class="x" aria-label="Quitar">×</button>`;d.querySelector('.x').onclick=()=>{if(document.querySelectorAll('.d').length>1)d.remove()};$('debts').appendChild(d)}
+SAMPLE.forEach(row);$('add').onclick=()=>row();
+const fmt=n=>n.toLocaleString('es-MX',{minimumFractionDigits:2,maximumFractionDigits:2});
+function sim(D,extra,key){
+  const ord=D.map((d,i)=>i).sort((a,b)=>key==='s'?(D[a].b-D[b].b||a-b):(D[b].r-D[a].r||a-b));
+  const prio=[];ord.forEach((i,k)=>prio[i]=k);
+  let bal=D.map(d=>d.b),paid=0,m=0;const tot=[bal.reduce((a,b)=>a+b,0)],rows=[];
+  while(bal.reduce((a,b)=>a+b,0)>0.005&&m<600){m++;const prev=bal.slice();
+    const pool=extra+D.reduce((s,d,i)=>s+(prev[i]<=0?d.m:0),0);
+    const need=D.map((d,i)=>prev[i]<=0?0:Math.max(0,prev[i]*(1+d.r/1200)-d.m));
+    const pay=[];D.forEach((d,i)=>{if(prev[i]<=0){pay[i]=0;return}
+      const ahead=D.reduce((s,_,j)=>s+(prio[j]<prio[i]?need[j]:0),0);
+      const ex=Math.max(0,Math.min(need[i],pool-ahead));
+      pay[i]=Math.round((Math.min(prev[i]*(1+d.r/1200),d.m)+ex)*100)/100;
+      bal[i]=Math.max(0,Math.round((prev[i]*(1+d.r/1200)-pay[i])*100)/100);paid+=pay[i];});
+    tot.push(bal.reduce((a,b)=>a+b,0));rows.push({pay,bal:bal.slice()});}
+  const start=D.reduce((a,d)=>a+d.b,0);
+  const first=ord.find(i=>D[i].b>0);let firstM=rows.findIndex(r=>r.bal[first]<=0)+1;
+  return {m,interest:paid-start,tot,rows,ok:m<600,first,firstM};
+}
+function chart(a,b){const W=640,H=220,P=34,n=Math.max(a.tot.length,b.tot.length),mx=Math.max(...a.tot,...b.tot)||1;
+  const pt=t=>t.map((v,i)=>`${P+(i/(n-1||1))*(W-P-8)},${H-24-(v/mx)*(H-40)}`).join(' ');
+  let g='';for(let k=0;k<=4;k++){const y=H-24-k*(H-40)/4;g+=`<line x1="${P}" x2="${W-8}" y1="${y}" y2="${y}" stroke="currentColor" opacity=".08"/><text x="${P-4}" y="${y+4}" font-size="10" text-anchor="end" fill="currentColor" opacity=".5">${Math.round(mx*k/4/1000)}k</text>`}
+  $('chart').innerHTML=g+`<polyline fill="none" stroke="var(--acc)" stroke-width="3" points="${pt(a.tot)}"/><polyline fill="none" stroke="var(--acc2)" stroke-width="3" stroke-dasharray="6 4" points="${pt(b.tot)}"/><text x="${W-8}" y="${H-6}" font-size="10" text-anchor="end" fill="currentColor" opacity=".5">${n-1} meses</text>`}
+let last=null;
+function plan(r,D){const h='<tr><th>Mes</th>'+D.map(d=>`<th>${d.n.replace(/</g,'')}</th>`).join('')+'<th>Queda</th></tr>';
+  $('plan').innerHTML=h+r.rows.map((x,i)=>`<tr><td>${i+1}</td>${x.pay.map(p=>`<td>${p?fmt(p):'–'}</td>`).join('')}<td>${fmt(x.bal.reduce((a,b)=>a+b,0))}</td></tr>`).join('')}
+$('f').addEventListener('submit',e=>{e.preventDefault();
+  const D=[...document.querySelectorAll('.d')].map(d=>({n:d.querySelector('.n').value||'Deuda',b:+d.querySelector('.b').value||0,r:+d.querySelector('.r').value||0,m:+d.querySelector('.m').value||0})).filter(d=>d.b>0);
+  if(!D.length)return;const ex=Math.max(0,+$('extra').value||0);
+  const s=sim(D,ex,'s'),a=sim(D,ex,'a');last={s,a,D};
+  const ym=m=>m>=600?'más de 50 años':`${m} meses`;
+  $('sM').textContent=ym(s.m);$('aM').textContent=ym(a.m);$('sI').textContent='Interés '+fmt(s.interest);$('aI').textContent='Interés '+fmt(a.interest);
+  const diff=s.interest-a.interest;
+  $('verdict').innerHTML=(!s.ok||!a.ok)?'Tus pagos no cubren el interés de al menos una deuda. Sube el extra o los mínimos.':
+   `Avalancha te ahorra <b>${fmt(Math.max(0,diff))}</b> de interés${s.m!==a.m?` y termina ${Math.abs(s.m-a.m)} mes${Math.abs(s.m-a.m)>1?'es':''} ${a.m<s.m?'antes':'después'}`:''}. Bola de nieve termina primero <b>${D[s.first].n.replace(/</g,'')}</b>, en el mes ${s.firstM}.`;
+  chart(s,a);plan(s,D);$('tS').className='on';$('tA').className='';$('out').style.display='block';$('out').scrollIntoView({behavior:'smooth'});});
+$('tS').onclick=()=>{if(last){plan(last.s,last.D);$('tS').className='on';$('tA').className=''}};
+$('tA').onclick=()=>{if(last){plan(last.a,last.D);$('tA').className='on';$('tS').className=''}};
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d4b593fd49874cf195851b41cd0caed4"}'></script>
+</body></html>
