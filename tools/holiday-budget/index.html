@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Holiday Budget Calculator: Gifts, Food and Travel vs What You Can Spend</title>
+<meta name="description" content="Free holiday budget calculator. Add gift groups (people × amount each), food, decorations, travel and other costs. See the season total, how it compares with what you can spend, and how much to set aside each week until the holiday.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/tools/holiday-budget/">
+<meta property="og:title" content="Holiday budget calculator: what will the season cost?">
+<meta property="og:description" content="Gifts by group plus food, travel and decor. Total, over or under your limit, and per week until the holiday. Free, nothing saved.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/tools/holiday-budget/">
+<meta property="og:image" content="https://whistlewhistle311-web.github.io/tools/holiday-budget/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do I make a holiday budget?","acceptedAnswer":{"@type":"Answer","text":"Start with the most you can spend without debt. List gift groups with the number of people and an amount per person, then add food and hosting, decorations, travel, cards and events. Compare the total with your limit and trim the largest lines first."}},{"@type":"Question","name":"How much should I save each week for Christmas?","acceptedAnswer":{"@type":"Answer","text":"Take the season total, subtract what you have already set aside, and divide by the weeks left until the holiday. 900 still to cover with 8 weeks left is 112.50 a week."}}]}</script>
+<style>
+:root{--bg:#FBF6F0;--card:#fff;--ink:#2A1F1A;--ink2:#5E4E46;--mute:#8C7A70;--acc:#8B1E2D;--grn:#1E5631;--line:#EADFD3;--soft:#F6EDE3}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#171211;--card:#211a18;--ink:#f5eee8;--ink2:#d4c6bd;--mute:#9e8d84;--line:#3a2e2a;--soft:#2a211e;--acc:#e3828f;--grn:#7cc49a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:700px;margin:0 auto;padding:26px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--acc);font-weight:700}
+h1{font-size:30px;line-height:1.25;margin:8px 0 10px}h1 em{font-style:normal;color:var(--acc)}
+h2{font-size:18px;margin:0 0 8px}
+.lead{color:var(--ink2);margin:0 0 18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+label{font-size:12px;color:var(--mute);display:block}
+input{width:100%;font:inherit;font-size:15px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.g{display:grid;grid-template-columns:1.5fr .8fr 1fr 1fr;gap:6px;align-items:center;padding:6px 0;border-bottom:1px solid var(--line);font-size:14px}
+.g b{text-align:right;font-variant-numeric:tabular-nums}
+.o{display:grid;grid-template-columns:1.5fr 1fr;gap:6px;align-items:center;padding:5px 0;border-bottom:1px solid var(--line);font-size:14px}
+.big{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.big div{border-radius:12px;padding:12px 6px;background:var(--soft)}.big small{display:block;font-size:12px;color:var(--mute)}.big b{font-size:20px}
+.msg{margin-top:10px;padding:10px 14px;border-radius:8px;background:var(--soft);font-size:15px}
+.cta{background:var(--acc);color:#fff;border-radius:14px;padding:18px;margin:18px 0}.cta a{color:#fff;font-weight:800}
+.faq h3{font-size:16px;margin:16px 0 4px}.faq p{margin:0;color:var(--ink2);font-size:15px}
+footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
+.over{color:#C0392B}.ok{color:var(--grn)}
+</style>
+</head>
+<body><main>
+<div class="k">FREE · HOLIDAY BUDGET</div>
+<h1>Holiday budget calculator:<br><em>what will the season cost?</em></h1>
+<p class="lead">Add gift groups and the other costs of the season. See the total, how it compares with what you can spend, and what to set aside each week until the holiday. Runs in your browser; nothing is saved.</p>
+<div class="card two">
+  <div><label>Most you can spend</label><input id="lim" type="number" min="0" step="50" value="1500" inputmode="decimal"></div>
+  <div><label>Already set aside</label><input id="have" type="number" min="0" step="50" value="300" inputmode="decimal"></div>
+  <div><label>Holiday date</label><input id="day" type="date"></div>
+</div>
+<div class="card big">
+  <div><small>Season total</small><b id="tot"></b></div>
+  <div><small>vs your limit</small><b id="diff"></b></div>
+  <div><small>Set aside per week</small><b id="wk"></b></div>
+  <div class="msg" id="msg" style="grid-column:1/-1;text-align:left"></div>
+</div>
+<div class="card"><h2>Gifts</h2>
+  <div class="g" style="font-size:11px;color:var(--mute);border:0"><span>Group</span><span>People</span><span>Each</span><span style="text-align:right">Subtotal</span></div>
+  <div id="gifts"></div>
+</div>
+<div class="card"><h2>Everything else</h2><div id="other"></div></div>
+<div class="cta">Keeping track as you shop? The <a href="https://whistledown8.gumroad.com/l/holiday-budget-tracker" target="_blank" rel="noopener">Holiday Budget &amp; Gift Tracker for Google Sheets and Excel</a> has a row per person with gift idea, status and actual cost, logs every other cost, and shows planned vs spent, gifts still to buy and days to go. $5, made by the same person who built this calculator.</div>
+<section class="faq">
+  <h2 style="font-size:20px;margin-top:30px">Making the season fit</h2>
+  <h3>Start from the limit, not the list</h3><p>Decide the most you can spend without carrying a balance into January, then fit the gifts and the rest inside it.</p>
+  <h3>Gifts are people × amount</h3><p>Lowering the amount for one big group, or switching a group to a gift swap, usually moves the total more than cutting single gifts.</p>
+  <h3>The weekly number</h3><p>Season total minus what you have already set aside, spread over the weeks left. Starting a week later makes each week bigger.</p>
+</section>
+<footer>Made by a solo maker with help from AI tools · Calculations run in your browser and are not stored · <a href="../sinking-funds/">Sinking funds calculator</a> · <a href="../debt-payoff/">Debt payoff calculator</a></footer>
+</main>
+<script>
+const G=[['Family',6,60],['Kids',4,40],['Friends',5,25],['Work & teachers',3,15],['Partner',1,120]];
+const O=[['Food & hosting',250],['Decorations',60],['Travel',150],['Cards & postage',30],['Events & outings',50],['Wrapping',20],['Donations',40]];
+const $=id=>document.getElementById(id),f2=n=>isFinite(n)?n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}):'–';
+const y=new Date().getFullYear(),xm=new Date(y,11,25);$('day').value=(new Date()>xm?y+1:y)+'-12-25';
+$('gifts').innerHTML=G.map((g,i)=>`<div class="g"><input data-g="${i}" data-k="0" value="${g[0]}"><input data-g="${i}" data-k="1" type="number" min="0" step="1" inputmode="numeric" value="${g[1]}"><input data-g="${i}" data-k="2" type="number" min="0" step="5" inputmode="decimal" value="${g[2]}"><b id="gs${i}"></b></div>`).join('');
+$('other').innerHTML=O.map((o,i)=>`<div class="o"><span>${o[0]}</span><input data-o="${i}" type="number" min="0" step="10" inputmode="decimal" value="${o[1]}"></div>`).join('');
+function run(){let gt=0;G.forEach((g,i)=>{const s=(+document.querySelector(`[data-g="${i}"][data-k="1"]`).value||0)*(+document.querySelector(`[data-g="${i}"][data-k="2"]`).value||0);gt+=s;$('gs'+i).textContent=f2(s);});
+ let ot=0;document.querySelectorAll('[data-o]').forEach(x=>ot+=+x.value||0);const T=gt+ot,L=+$('lim').value||0,H=+$('have').value||0;
+ const d=$('day').value?new Date($('day').value+'T00:00'):xm,days=Math.max(0,Math.ceil((d-new Date())/864e5)),weeks=Math.max(1,days/7);
+ const per=Math.max(0,T-H)/weeks;$('tot').textContent=f2(T);$('diff').innerHTML=L?(T>L?`<span class="over">${f2(T-L)} over</span>`:`<span class="ok">${f2(L-T)} under</span>`):'–';$('wk').textContent=days?f2(per):'–';
+ $('msg').innerHTML=`Gifts ${f2(gt)} (${(T?gt/T*100:0).toFixed(0)}%), everything else ${f2(ot)}. ${days} days (${(days/7).toFixed(1)} weeks) to go.`+(T>L&&L?` To fit your limit, trim ${f2(T-L)}: the largest lines are usually the place to start.`:'');}
+document.addEventListener('input',run);run();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d4b593fd49874cf195851b41cd0caed4"}'></script>
+</body></html>
