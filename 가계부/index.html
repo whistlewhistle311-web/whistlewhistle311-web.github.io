@@ -63,10 +63,18 @@ footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
 </table>
 <p style="margin-top:16px"><img class="shot" src="dashboard.png" alt="유료판 대시보드: 달을 고르면 수입, 지출, 저축, 남은 돈과 카테고리별 남은 예산, 그래프가 나온다" width="1650" height="1160" loading="lazy"></p>
 <p>유료판은 판매 승인 절차를 밟고 있어요. 열리면 이 페이지에 바로 연결할게요.</p>
+<h2>새해 저축 목표, 한 달에 얼마씩?</h2>
+<div class="goal" style="background:var(--card,#fff);border:1px solid var(--line,#E8DCCF);border-radius:14px;padding:14px;margin:12px 0">
+<label style="display:block;font-size:13px;margin-bottom:4px" for="gGoal">모으고 싶은 돈 (만 원)</label><input id="gGoal" inputmode="numeric" value="1000" style="width:100%;font:inherit;padding:9px;border:1px solid #ccc;border-radius:8px">
+<label style="display:block;font-size:13px;margin:10px 0 4px" for="gMon">기간 (개월)</label><input id="gMon" inputmode="numeric" value="12" style="width:100%;font:inherit;padding:9px;border:1px solid #ccc;border-radius:8px">
+<p id="gOut" style="font-size:19px;font-weight:800;margin:12px 0 0"></p>
+</div>
+<p>이자까지 넣어 만기 금액을 보고 싶으면 <a href="../%EC%9D%B4%EC%9E%90%EA%B3%84%EC%82%B0%EA%B8%B0/">이자 계산기 (예금·적금 세후)</a>에서 확인하세요. 가계부 무료판의 저축 칸에 이 금액을 예산으로 적어 두면 달마다 얼마나 모였는지 바로 보여요.</p>
+<script>(function(){const g=document.getElementById('gGoal'),m=document.getElementById('gMon'),o=document.getElementById('gOut');function f(){const a=Number(g.value.replace(/[^0-9.]/g,''))*10000,n=Math.round(Number(m.value.replace(/[^0-9]/g,'')));if(!a||!n){o.textContent='금액과 기간을 넣어 주세요.';return;}const per=Math.ceil(a/n/1000)*1000;o.textContent='한 달에 '+per.toLocaleString('ko-KR')+'원, 하루로 치면 약 '+(Math.ceil(per/30/100)*100).toLocaleString('ko-KR')+'원';}g.oninput=m.oninput=f;f();})();</script>
 <h2>같이 보면 좋은 것</h2>
 <ul>
 <li><a href="../%EB%A7%88%EB%8B%88%EB%98%90/">연말 모임 마니또 뽑기 (비밀 링크)</a> · <a href="../%EC%A0%9C%EB%B9%84%EB%BD%91%EA%B8%B0/">제비뽑기</a></li>
-<li><a href="../%EC%A0%84%EA%B8%B0%EC%9A%94%EA%B8%88/">전기요금 계산기 (누진 구간 자동 계산)</a></li>
+<li><a href="../%EC%9D%B4%EC%9E%90%EA%B3%84%EC%82%B0%EA%B8%B0/">이자 계산기 (예금·적금 세후)</a> · <a href="../%EC%A0%84%EA%B8%B0%EC%9A%94%EA%B8%88/">전기요금 계산기 (누진 구간 자동 계산)</a></li>
 <li>English: <a href="../free-budget-spreadsheet/">free budget spreadsheet</a> · 日本語: <a href="../ja/kakeibo-2027/">家計簿 2027 無料テンプレート</a></li>
 </ul>
 <footer>개인 가계 관리에 자유롭게 쓰세요(재배포와 판매는 삼가 주세요) · 한 사람이 AI 도구의 도움을 받아 만들었어요 · 금융 조언이 아니에요</footer>

@@ -46,4 +46,5 @@
 - [Sorteio de amigo secreto grátis com link secreto](https://whistlewhistle311-web.github.io/pt/amigo-secreto/): Nomes entram, um link secreto por pessoa sai. Casais separados, valor e data. Sem cadastro.
 - [Sorteo de intercambio de regalos gratis con link privado](https://whistlewhistle311-web.github.io/es/intercambio-de-regalos/): Nombres entran, un link privado por persona sale. Parejas separadas, monto y fecha. Sin registro.
 - [마니또 뽑기 (한국어)](https://whistlewhistle311-web.github.io/%EB%A7%88%EB%8B%88%EB%98%90/): 이름·제외 쌍·선물 금액·공개 날짜 → 사람마다 비밀 링크.
+- [이자 계산기 (한국어)](https://whistlewhistle311-web.github.io/%EC%9D%B4%EC%9E%90%EA%B3%84%EC%82%B0%EA%B8%B0/): 예금·적금 세후 이자, 단리·월복리, 일반과세·세금우대·비과세.
 - [제비뽑기 (한국어)](https://whistlewhistle311-web.github.io/%EC%A0%9C%EB%B9%84%EB%BD%91%EA%B8%B0/): 당첨자 뽑기, 순서 정하기, 조 나누기.

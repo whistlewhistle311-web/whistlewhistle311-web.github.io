@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>이자 계산기: 예금·적금 세후 이자 (단리·월복리, 비과세·세금우대)</title>
+<meta name="description" content="예금·적금 이자를 세후 금액까지 바로 계산. 단리와 월복리, 일반과세 15.4%·세금우대 9.5%·비과세를 골라 만기 수령액을 확인하세요. 무료, 가입 없음.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/%EC%9D%B4%EC%9E%90%EA%B3%84%EC%82%B0%EA%B8%B0/">
+<meta property="og:title" content="이자 계산기: 예금·적금 세후 이자">
+<meta property="og:description" content="원금, 금리, 기간만 넣으면 세전 이자, 세금, 만기 수령액까지.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/%EC%9D%B4%EC%9E%90%EA%B3%84%EC%82%B0%EA%B8%B0/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{--bg:#FBF6F0;--card:#fff;--ink:#2A1F1A;--ink2:#5B4A42;--mute:#8A7B72;--red:#8B1E2D;--grn:#1E5631;--line:#E8DCCF;--soft:#F5EBDF}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}}
+:root[data-theme=dark]{--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:28px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--red);font-weight:700}
+h1{font-size:32px;line-height:1.2;margin:8px 0 12px}h2{font-size:22px;margin:30px 0 8px}
+p,li{color:var(--ink2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+label{font-size:13px;color:var(--mute);display:block;margin:10px 0 4px}
+textarea,input{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+textarea{min-height:150px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;font-weight:800;border:0;border-radius:12px;padding:13px 18px;cursor:pointer}
+.go{background:var(--red);color:#fff;width:100%;margin-top:14px;font-size:18px}
+.sm{background:var(--soft);color:var(--ink);padding:8px 12px;font-size:14px}
+.row{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.row b{min-width:7em}.row input{font-size:12px;padding:6px}
+.err{color:#C0392B;font-weight:700}
+.reveal{text-align:center;padding:34px 18px}.reveal .big{font-size:40px;font-weight:900;color:var(--red);margin:10px 0}
+a{color:var(--red)}footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
+@media (max-width:520px){h1{font-size:26px}.two{grid-template-columns:1fr}.row{flex-wrap:wrap}.row b{min-width:100%}}
+body{word-break:keep-all}
+</style>
+<style>.seg{display:flex;gap:6px;margin:12px 0}table{width:100%;border-collapse:collapse;font-size:15px}td,th{padding:8px 6px;border-bottom:1px solid var(--line);text-align:right}td:first-child,th:first-child{text-align:left;color:var(--mute)}tr.tot td{font-weight:900;color:var(--red);font-size:18px}select{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}.seg button{flex:1;background:var(--soft);color:var(--ink);padding:10px}.seg button.on{background:var(--red);color:#fff}.res{font-size:20px;line-height:1.9}.res b{color:var(--red)}</style>
+</head>
+<body><main>
+<div class="k">무료 · 가입 없음</div>
+<h1>이자 계산기: 예금·적금 세후 이자</h1>
+<p>금액, 연 금리, 기간을 넣으면 세전 이자와 세금, 만기에 받는 돈을 바로 보여 줘요. 입력한 값은 이 화면에서만 계산되고 어디에도 저장되지 않아요.</p>
+<div class="card">
+<div class="seg" id="kind"><button class="on" data-k="sav">적금 (매달 넣기)</button><button data-k="dep">예금 (한 번에 넣기)</button></div>
+<div class="two">
+<div><label for="amt" id="amtL">매달 넣는 돈 (원)</label><input id="amt" inputmode="numeric" value="500,000"></div>
+<div><label for="rate">연 금리 (%)</label><input id="rate" inputmode="decimal" value="3.5"></div>
+<div><label for="mon">기간 (개월)</label><input id="mon" inputmode="numeric" value="12"></div>
+<div><label for="way">이자 방식</label><select id="way"><option value="s">단리</option><option value="c">월복리</option></select></div>
+</div>
+<label for="tax">세금</label>
+<select id="tax"><option value="0.154">일반과세 15.4%</option><option value="0.095">세금우대 9.5%</option><option value="0">비과세 0%</option></select>
+<p id="msg" class="err"></p>
+</div>
+<div class="card"><table id="out"></table></div>
+<h2>계산 방법</h2>
+<ul>
+<li><b>적금 단리</b>: 첫 달에 넣은 돈은 n개월, 마지막 달에 넣은 돈은 1개월 동안 이자가 붙어요. 그래서 이자 = 월 납입액 × 연 금리 ÷ 12 × n(n+1)/2 예요. 금리가 같으면 적금 이자는 같은 총액을 예금에 넣었을 때의 절반 정도예요.</li>
+<li><b>예금 단리</b>: 이자 = 원금 × 연 금리 × 개월 ÷ 12.</li>
+<li><b>월복리</b>: 매달 붙은 이자에 다시 이자가 붙는 방식으로 계산해요.</li>
+<li><b>세금</b>: 일반과세는 이자의 15.4%(소득세 14% + 지방소득세 1.4%), 세금우대는 9.5%예요. 10원 아래는 버렸어요.</li>
+</ul>
+<p>실제 은행 금액은 일수 계산, 우대금리 조건, 중도해지 여부에 따라 몇십 원에서 몇천 원 달라질 수 있어요. 가입 전에는 은행 상품 설명서의 금액을 확인하세요.</p>
+<h2>같이 쓰면 좋은 것</h2>
+<ul>
+<li><a href="../%EA%B0%80%EA%B3%84%EB%B6%80/">2027 가계부 무료판 (엑셀)</a>: 한 달 저축액을 정할 때 지출부터 정리해 보세요.</li>
+<li><a href="../%EC%A0%84%EA%B8%B0%EC%9A%94%EA%B8%88/">전기요금 계산기</a></li>
+<li><a href="../%EC%A0%9C%EB%B9%84%EB%BD%91%EA%B8%B0/">제비뽑기</a>, <a href="../%EB%A7%88%EB%8B%88%EB%98%90/">마니또 뽑기</a></li>
+</ul>
+<footer>이 계산기는 참고용이고 금융 상품 추천이 아니에요. AI의 도움을 받아 만들었어요. · <a href="../">사이트 홈</a></footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);let kind='sav';
+const num=s=>Number(String(s).replace(/[^0-9.]/g,''));
+const won=x=>Math.round(x).toLocaleString('ko-KR')+'원';
+document.querySelectorAll('#kind button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#kind button').forEach(x=>x.classList.toggle('on',x===b));kind=b.dataset.k;$('amtL').textContent=kind==='sav'?'매달 넣는 돈 (원)':'맡기는 돈 (원)';if(kind==='dep'&&num($('amt').value)<2000000)$('amt').value='10,000,000';if(kind==='sav'&&num($('amt').value)>=2000000)$('amt').value='500,000';calc();});
+$('amt').addEventListener('blur',()=>{const v=num($('amt').value);if(v)$('amt').value=v.toLocaleString('ko-KR');});
+function calc(){
+ const a=num($('amt').value),r=num($('rate').value)/100,n=Math.round(num($('mon').value)),way=$('way').value,t=Number($('tax').value);
+ $('msg').textContent='';
+ if(!a||!n||n>600||r<0||r>0.5){$('out').innerHTML='';$('msg').textContent='금액, 금리(0~50%), 기간(1~600개월)을 확인해 주세요.';return;}
+ const i=r/12;let p,int;
+ if(kind==='sav'){p=a*n;int=way==='s'?a*i*n*(n+1)/2:(i===0?0:a*((1+i)*(Math.pow(1+i,n)-1)/i-n));}
+ else{p=a;int=way==='s'?a*r*n/12:a*(Math.pow(1+i,n)-1);}
+ int=Math.floor(int);const tax=Math.floor(int*t/10)*10;
+ $('out').innerHTML=`<tr><td>넣은 돈 합계</td><td>${won(p)}</td></tr><tr><td>세전 이자</td><td>${won(int)}</td></tr><tr><td>세금 (${(t*100).toFixed(1)}%)</td><td>-${won(tax)}</td></tr><tr><td>세후 이자</td><td>${won(int-tax)}</td></tr><tr class="tot"><td>만기 수령액</td><td>${won(p+int-tax)}</td></tr>`;
+}
+['amt','rate','mon','way','tax'].forEach(id=>$(id).addEventListener('input',calc));calc();
+</script>
+</body></html>
