@@ -46,6 +46,7 @@
 - [Sorteio de amigo secreto grátis com link secreto](https://paybonuscalc.com/pt/amigo-secreto/): Nomes entram, um link secreto por pessoa sai. Casais separados, valor e data. Sem cadastro.
 - [Sorteo de intercambio de regalos gratis con link privado](https://paybonuscalc.com/es/intercambio-de-regalos/): Nombres entran, un link privado por persona sale. Parejas separadas, monto y fecha. Sin registro.
 - [마니또 뽑기 (한국어)](https://paybonuscalc.com/%EB%A7%88%EB%8B%88%EB%98%90/): 이름·제외 쌍·선물 금액·공개 날짜 → 사람마다 비밀 링크.
+- [Calcular regalía pascual 2026, República Dominicana (Español)](https://paybonuscalc.com/es/regalia-pascual/): doceava parte del salario ordinario del año, exenta de ISR (Ley 30-26) y sin TSS, pago hasta el 20 de diciembre.
 - [Calcular décimo tercer sueldo 2026, Ecuador (Español)](https://paybonuscalc.com/es/decimo-tercero-ecuador/): doceava parte de lo ganado dic 2025 a nov 2026, y décimo cuarto con SBU $482.
 - [Calcular gratificación diciembre 2026, Perú (Español)](https://paybonuscalc.com/es/gratificacion-peru/): gratificación proporcional por meses completos + bonificación extraordinaria 9% o 6.75%.
 - [Calcular CTS noviembre 2026, Perú (Español)](https://paybonuscalc.com/es/cts-peru/): remuneración computable con asignación familiar S/ 123 y 1/6 de gratificación, meses y días, régimen general o pequeña empresa.
