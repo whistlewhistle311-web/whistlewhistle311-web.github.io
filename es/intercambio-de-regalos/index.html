@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sorteo de intercambio de regalos (amigo secreto) gratis: link privado para cada persona</title>
+<meta name="description" content="Sorteo gratis para el intercambio de regalos o amigo secreto. Escribe los nombres, evita que las parejas se toquen, pon el monto y recibe un link privado para cada persona que muestra solo a quién le regala. Sin correo, sin registro, nada se guarda en un servidor.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/es/intercambio-de-regalos/">
+<link rel="alternate" hreflang="en" href="https://whistlewhistle311-web.github.io/secret-santa/"><link rel="alternate" hreflang="pt-BR" href="https://whistlewhistle311-web.github.io/pt/amigo-secreto/"><link rel="alternate" hreflang="es" href="https://whistlewhistle311-web.github.io/es/intercambio-de-regalos/">
+<meta property="og:title" content="Sorteo de intercambio de regalos gratis con link privado">
+<meta property="og:description" content="Nombres entran, un link privado por persona sale. Parejas separadas, monto y fecha. Sin registro.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/es/intercambio-de-regalos/">
+<meta property="og:image" content="https://whistlewhistle311-web.github.io/es/intercambio-de-regalos/og.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "es", "mainEntity": [{"@type": "Question", "name": "¿Cómo se mantiene en secreto el sorteo?", "acceptedAnswer": {"@type": "Answer", "text": "Cada persona recibe su propio link. Al abrirlo ve solo a quién le regala. El sorteo se hace en tu navegador y va dentro de los links, así que nada se guarda en un servidor. Si organizas y también participas, manda los links sin abrirlos."}}, {"@type": "Question", "name": "¿Puedo evitar que las parejas se toquen?", "acceptedAnswer": {"@type": "Answer", "text": "Sí. Pon los pares en el cuadro de restricciones, uno por línea, como Ana - Beto. El sorteo se repite hasta que nadie se toque a sí mismo ni a su pareja."}}]}</script>
+<style>
+:root{--bg:#FBF6F0;--card:#fff;--ink:#2A1F1A;--ink2:#5B4A42;--mute:#8A7B72;--red:#8B1E2D;--grn:#1E5631;--line:#E8DCCF;--soft:#F5EBDF}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}}
+:root[data-theme=dark]{--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:28px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--red);font-weight:700}
+h1{font-size:32px;line-height:1.2;margin:8px 0 12px}h2{font-size:22px;margin:30px 0 8px}
+p,li{color:var(--ink2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+label{font-size:13px;color:var(--mute);display:block;margin:10px 0 4px}
+textarea,input{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+textarea{min-height:150px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;font-weight:800;border:0;border-radius:12px;padding:13px 18px;cursor:pointer}
+.go{background:var(--red);color:#fff;width:100%;margin-top:14px;font-size:18px}
+.sm{background:var(--soft);color:var(--ink);padding:8px 12px;font-size:14px}
+.row{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.row b{min-width:7em}.row input{font-size:12px;padding:6px}
+.err{color:#C0392B;font-weight:700}
+.reveal{text-align:center;padding:34px 18px}.reveal .big{font-size:40px;font-weight:900;color:var(--red);margin:10px 0}
+a{color:var(--red)}footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
+@media (max-width:520px){h1{font-size:26px}.two{grid-template-columns:1fr}.row{flex-wrap:wrap}.row b{min-width:100%}}
+</style>
+</head>
+<body><main>
+<div id="app">
+<div class="k">GRATIS · SIN REGISTRO · LINK PRIVADO</div>
+<h1>Sorteo de intercambio de regalos con un link privado para cada persona</h1>
+<p>Escribe los nombres, pon las parejas que no se pueden tocar y dale a sortear. Recibes un link por persona. Cada link muestra solo a quién le regala esa persona. El sorteo corre en tu navegador y nada se guarda en un servidor.</p>
+<div class="card">
+<label for="names">Nombres (uno por línea, mínimo 3)</label>
+<textarea id="names">Ana
+Beto
+Carla
+Diego
+Elena
+Fer</textarea>
+<label for="ex">Quién no se puede tocar (opcional, un par por línea, como "Ana - Beto")</label>
+<textarea id="ex" style="min-height:70px">Ana - Beto</textarea>
+<div class="two">
+<div><label for="budget">Monto del regalo (opcional)</label><input id="budget" value="$300"></div>
+<div><label for="date">Fecha del intercambio (opcional)</label><input id="date" type="date"></div>
+</div>
+<button class="go" id="draw">Sortear</button>
+<p id="msg" class="err"></p>
+</div>
+<div id="out"></div>
+<h2>Cómo hacerlo</h2>
+<ol><li>Escribe los nombres y los pares que no se pueden tocar, como parejas o quienes viven juntos.</li><li>Dale a <b>Sortear</b>. Copia el link de cada persona y mándaselo en privado (WhatsApp, mensaje o correo).</li><li>Cada quien abre su link y ve solo a quién le regala, el monto y la fecha.</li></ol>
+<p>Si organizas y también participas, manda los links sin abrir los de los demás. Puedes sortear otra vez cuando quieras; los links viejos siguen mostrando el sorteo viejo, así que manda los nuevos.</p>
+<h2>Planea tus regalos también</h2>
+<p>Para el resto de tus regalos usa la <a href="../navidad/">lista de regalos de Navidad gratis y presupuesto navideño</a>.</p>
+<footer>Hecho por una persona con ayuda de herramientas de IA · El sorteo corre en tu navegador; los nombres van dentro de los links, no se guardan · <a href="../presupuesto/">Calculadora de presupuesto</a></footer>
+</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const enc=o=>{const s=unescape(encodeURIComponent(JSON.stringify(o)));let x='';for(let i=0;i<s.length;i++)x+=String.fromCharCode(s.charCodeAt(i)^(73+i%7));return btoa(x).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');};
+const dec=t=>{let b=atob(t.replace(/-/g,'+').replace(/_/g,'/'));let x='';for(let i=0;i<b.length;i++)x+=String.fromCharCode(b.charCodeAt(i)^(73+i%7));return JSON.parse(decodeURIComponent(escape(x)));};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function draw(names,ex){const bad=new Set();ex.forEach(([a,b])=>{bad.add(a+'\u0000'+b);bad.add(b+'\u0000'+a);});
+ for(let t=0;t<20000;t++){const p=names.slice();for(let i=p.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[p[i],p[j]]=[p[j],p[i]];}
+  if(names.every((n,i)=>n!==p[i]&&!bad.has(n+'\u0000'+p[i])))return p;}return null;}
+function run(){$('msg').textContent='';$('out').innerHTML='';
+ const names=[...new Set($('names').value.split('\n').map(s=>s.trim()).filter(Boolean))];
+ if(names.length<3){$('msg').textContent='Escribe al menos 3 nombres diferentes.';return;}
+ const ex=$('ex').value.split('\n').map(l=>l.split(/\s+-\s+|\s*,\s*/).map(s=>s.trim())).filter(p=>p.length===2&&p[0]&&p[1]);
+ const miss=ex.flat().filter(n=>!names.includes(n));if(miss.length){$('msg').textContent='No está en la lista de nombres: '+[...new Set(miss)].join(', ');return;}
+ const res=draw(names,ex);if(!res){$('msg').textContent='No se puede sortear con esas restricciones. Quita un par e intenta otra vez.';return;}
+ const base=location.origin+location.pathname,b=$('budget').value.trim(),d=$('date').value;
+ const links=names.map((n,i)=>({n,url:base+'#'+enc({g:n,t:res[i],b,d})}));
+ $('out').innerHTML='<div class="card"><b>Manda a cada persona su propio link</b><p style="font-size:14px;margin:4px 0 8px">Si también participas, no abras los links.</p>'+links.map((l,i)=>`<div class="row"><b>${esc(l.n)}</b><input readonly value="${esc(l.url)}" id="l${i}"><button class="sm" data-i="${i}">Copiar</button></div>`).join('')+'<button class="sm" id="all" style="margin-top:10px">Copiar todos en lista</button></div>';
+ $('out').querySelectorAll('button[data-i]').forEach(bt=>bt.onclick=()=>{navigator.clipboard.writeText($('l'+bt.dataset.i).value);bt.textContent='Copiado';});
+ $('all').onclick=()=>{navigator.clipboard.writeText(links.map(l=>l.n+': '+l.url).join('\n'));$('all').textContent='Copiado';};}
+if(location.hash.length>2){try{const o=dec(location.hash.slice(1));
+ $('app').innerHTML=`<div class="card reveal"><div class="k">INTERCAMBIO DE REGALOS</div><p>Hola ${esc(o.g)}, te tocó regalarle a</p><div class="big">${esc(o.t)}</div>${o.b?`<p>Monto: <b>${esc(o.b)}</b></p>`:''}${o.d?`<p>Intercambio: <b>${esc(new Date(o.d+'T12:00').toLocaleDateString('es-MX',{weekday:'long',month:'long',day:'numeric'}))}</b></p>`:''}<p style="font-size:14px">Guárdalo en secreto. Solo tú ves esto.</p></div><p>¿Planeas el resto de tus regalos? Usa la <a href="../navidad/">lista de regalos de Navidad gratis</a>.</p><p><a href="./">Hacer tu propio sorteo</a></p>`;
+ document.title='Tu intercambio de regalos';}catch(e){}}
+else{$('draw').onclick=run;}
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d4b593fd49874cf195851b41cd0caed4"}'></script>
+</body></html>
