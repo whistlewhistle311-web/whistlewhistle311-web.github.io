@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de finiquito y liquidación 2026 (México)</title>
+<meta name="description" content="Calcula tu finiquito o liquidación 2026 en México: días pendientes, aguinaldo y vacaciones proporcionales con prima vacacional, y en despido injustificado 3 meses, 20 días por año y prima de antigüedad. Gratis, sin registro.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/es/finiquito/">
+<meta property="og:title" content="Calculadora de finiquito y liquidación 2026">
+<meta property="og:description" content="Finiquito por renuncia o liquidación por despido, con las tablas de vacaciones vigentes y el salario mínimo 2026.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/es/finiquito/"><meta property="og:image" content="https://whistlewhistle311-web.github.io/es/finiquito/og.png"><meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#FBF6F0;--card:#fff;--ink:#2A1F1A;--ink2:#5B4A42;--mute:#8A7B72;--red:#8B1E2D;--grn:#1E5631;--line:#E8DCCF;--soft:#F5EBDF}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}}
+:root[data-theme=dark]{--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:28px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--red);font-weight:700}
+h1{font-size:32px;line-height:1.2;margin:8px 0 12px}h2{font-size:22px;margin:30px 0 8px}
+p,li{color:var(--ink2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+label{font-size:13px;color:var(--mute);display:block;margin:10px 0 4px}
+textarea,input{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+textarea{min-height:150px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;font-weight:800;border:0;border-radius:12px;padding:13px 18px;cursor:pointer}
+.go{background:var(--red);color:#fff;width:100%;margin-top:14px;font-size:18px}
+.sm{background:var(--soft);color:var(--ink);padding:8px 12px;font-size:14px}
+.row{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.row b{min-width:7em}.row input{font-size:12px;padding:6px}
+.err{color:#C0392B;font-weight:700}
+.reveal{text-align:center;padding:34px 18px}.reveal .big{font-size:40px;font-weight:900;color:var(--red);margin:10px 0}
+a{color:var(--red)}footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
+@media (max-width:520px){h1{font-size:26px}.two{grid-template-columns:1fr}.row{flex-wrap:wrap}.row b{min-width:100%}}
+body{word-break:keep-all}
+select{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}</style>
+<style>.seg{display:flex;gap:6px;margin:12px 0}table{width:100%;border-collapse:collapse;font-size:15px}td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:right}td:first-child{text-align:left;color:var(--mute)}tr.tot td{font-weight:900;color:var(--red);font-size:18px}tr.sub td{font-weight:800;color:var(--ink)}.cta{display:block;text-align:center;background:var(--grn);color:#fff;text-decoration:none;font-weight:800;border-radius:12px;padding:13px;margin-top:10px}.seg button{flex:1;background:var(--soft);color:var(--ink);padding:10px}.seg button.on{background:var(--red);color:#fff}.res{font-size:20px;line-height:1.9}.res b{color:var(--red)}select{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}</style>
+</head>
+<body><main>
+<div class="k">GRATIS · SIN REGISTRO</div>
+<h1>Calculadora de finiquito y liquidación 2026 (México)</h1>
+<p>Pon tu sueldo, la fecha en que entraste y la fecha de salida. Te mostramos cada concepto por separado para que lo compares con lo que te ofrece la empresa. Nada de lo que escribes se guarda.</p>
+<div class="card">
+<div class="seg" id="mot"><button class="on" data-m="ren">Renuncia (finiquito)</button><button data-m="desp">Despido injustificado</button></div>
+<div class="two">
+<div><label for="sal">Sueldo mensual bruto ($)</label><input id="sal" inputmode="decimal" value="12,000"></div>
+<div><label for="agd">Días de aguinaldo al año</label><input id="agd" type="number" min="15" max="90" value="15"></div>
+<div><label for="ing">Fecha de ingreso</label><input id="ing" type="date" value="2023-03-01"></div>
+<div><label for="sal2">Fecha de salida</label><input id="sal2" type="date" value="2026-11-15"></div>
+<div><label for="pend">Días trabajados sin pagar</label><input id="pend" type="number" min="0" max="31" value="0"></div>
+<div><label for="vacp">Días de vacaciones no tomadas de años anteriores</label><input id="vacp" type="number" min="0" max="120" value="0"></div>
+</div>
+<label for="zona">Zona del salario mínimo</label><select id="zona"><option value="315.04">General ($315.04 diarios)</option><option value="440.87">Zona Libre de la Frontera Norte ($440.87)</option></select>
+<label id="v20w" style="display:none;margin-top:12px"><input type="checkbox" id="v20" style="width:auto"> Incluir 20 días por año (cuando el patrón se niega a reinstalar, art. 50 LFT)</label>
+<p id="msg" class="err"></p>
+</div>
+<div class="card"><table id="out"></table></div>
+<h2>Qué incluye cada concepto</h2>
+<ul>
+<li><b>Salario diario</b>: sueldo mensual ÷ 30. Para la indemnización la ley usa el salario integrado (con prestaciones), que suele ser un poco mayor; aquí usamos el salario diario como base mínima.</li>
+<li><b>Aguinaldo proporcional</b>: días de aguinaldo × días trabajados en el año ÷ 365.</li>
+<li><b>Vacaciones proporcionales</b>: desde 2023 son 12 días el primer año, 14 el segundo, 16 el tercero, 18 el cuarto, 20 el quinto y luego +2 cada cinco años. Se paga la parte del año de servicio en curso más las no tomadas, con prima vacacional del 25%.</li>
+<li><b>Despido injustificado</b>: 3 meses de salario (90 días), prima de antigüedad de 12 días por año con un tope de 2 salarios mínimos diarios y, si aplica, 20 días por año.</li>
+<li><b>Prima de antigüedad en renuncia</b>: solo si tienes 15 años o más.</li>
+</ul>
+<p>Es una estimación antes de impuestos. Para un despido conviene revisar tu caso con la Procuraduría Federal de la Defensa del Trabajo (PROFEDET), que asesora gratis.</p>
+<h2>Organiza lo que viene</h2>
+<p>Si vas a vivir un tiempo con el finiquito, la <a href="../plantilla-presupuesto-gratis/">plantilla de presupuesto 2027 gratis</a> te ayuda a ver cuántos meses te alcanza. Y si cobras en diciembre, revisa también tu <a href="../aguinaldo/">aguinaldo</a>.</p>
+<a class="cta" href="../plantilla-presupuesto-gratis/">Descargar la plantilla gratis</a>
+<footer>Herramienta informativa, no es asesoría legal ni fiscal. Hecha por una persona con ayuda de herramientas de IA. Fuentes: Ley Federal del Trabajo arts. 48, 50, 76, 80, 87 y 162; salarios mínimos 2026 de CONASAMI. · <a href="../../">Inicio</a></footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);let mot='ren';
+const num=s=>Number(String(s).replace(/[^0-9.]/g,''))||0;
+const mxn=x=>'$'+x.toLocaleString('es-MX',{minimumFractionDigits:2,maximumFractionDigits:2});
+const r2=x=>Math.round((x+1e-9)*100)/100;
+const D=s=>new Date(s+'T00:00:00');const DAY=864e5;
+function vacDias(y){if(y<=1)return 12;if(y<=5)return 12+2*(y-1);return 20+2*Math.ceil((y-5)/5);}
+document.querySelectorAll('#mot button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#mot button').forEach(x=>x.classList.toggle('on',x===b));mot=b.dataset.m;$('v20w').style.display=mot==='desp'?'block':'none';calc();});
+function calc(){
+ $('msg').textContent='';const s=num($('sal').value),agd=num($('agd').value),i=$('ing').value,f=$('sal2').value;
+ if(!s||!i||!f||D(f)<D(i)){$('out').innerHTML='';$('msg').textContent='Revisa el sueldo y las fechas (la salida debe ser después del ingreso).';return;}
+ const sd=s/30,fi=D(i),ff=D(f);
+ const totalDias=(ff-fi)/DAY+1,anios=totalDias/365;
+ const completos=Math.floor(anios);let aniv=new Date(fi);aniv.setFullYear(fi.getFullYear()+completos);
+ const enCurso=Math.max(0,(ff-aniv)/DAY+1);const vacAnio=vacDias(completos+1);
+ const vacProp=vacAnio*Math.min(enCurso,365)/365, vacTot=vacProp+num($('vacp').value);
+ const ini=new Date(Math.max(fi,new Date(ff.getFullYear(),0,1)));const diasAnio=(ff-ini)/DAY+1;
+ const ag=r2(sd*agd*diasAnio/365),pend=r2(sd*num($('pend').value)),vac=r2(sd*vacTot),pv=r2(vac*0.25);
+ let rows=[['Salario diario',mxn(r2(sd))],['Antigüedad',anios.toFixed(2)+' años'],['Salario pendiente',mxn(pend)],['Aguinaldo proporcional ('+(agd*diasAnio/365).toFixed(2)+' días)',mxn(ag)],['Vacaciones ('+vacTot.toFixed(2)+' días)',mxn(vac)],['Prima vacacional 25%',mxn(pv)]];
+ let fin=r2(pend+ag+vac+pv),ind=0;
+ const tope=Math.min(sd,2*Number($('zona').value));
+ if(mot==='desp'){const m3=r2(sd*90),pa=r2(12*anios*tope),v20=$('v20').checked?r2(20*anios*sd):0;ind=r2(m3+pa+v20);rows.push(['<b>Finiquito</b>','<b>'+mxn(fin)+'</b>'],['3 meses de salario',mxn(m3)],['Prima de antigüedad (12 días/año, tope '+mxn(r2(tope))+')',mxn(pa)]);if(v20)rows.push(['20 días por año',mxn(v20)]);}
+ else if(anios>=15){const pa=r2(12*anios*tope);ind=pa;rows.push(['Prima de antigüedad (15 años o más)',mxn(pa)]);}
+ const tot=r2(fin+ind);
+ $('out').innerHTML=rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')+`<tr class="tot"><td>${mot==='desp'?'Liquidación total':'Finiquito total'}</td><td>${mxn(tot)}</td></tr>`;
+}
+['sal','agd','ing','sal2','pend','vacp','zona','v20'].forEach(id=>$(id).addEventListener('input',calc));calc();
+</script>
+</body></html>
