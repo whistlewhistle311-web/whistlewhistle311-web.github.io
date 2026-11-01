@@ -45,3 +45,5 @@
 - [Secret Santa generator](https://whistlewhistle311-web.github.io/secret-santa/): names, exclusion pairs, budget, date → one private link per person showing only their match; draw runs in the browser, nothing stored.
 - [Sorteio de amigo secreto grátis com link secreto](https://whistlewhistle311-web.github.io/pt/amigo-secreto/): Nomes entram, um link secreto por pessoa sai. Casais separados, valor e data. Sem cadastro.
 - [Sorteo de intercambio de regalos gratis con link privado](https://whistlewhistle311-web.github.io/es/intercambio-de-regalos/): Nombres entran, un link privado por persona sale. Parejas separadas, monto y fecha. Sin registro.
+- [마니또 뽑기 (한국어)](https://whistlewhistle311-web.github.io/%EB%A7%88%EB%8B%88%EB%98%90/): 이름·제외 쌍·선물 금액·공개 날짜 → 사람마다 비밀 링크.
+- [제비뽑기 (한국어)](https://whistlewhistle311-web.github.io/%EC%A0%9C%EB%B9%84%EB%BD%91%EA%B8%B0/): 당첨자 뽑기, 순서 정하기, 조 나누기.

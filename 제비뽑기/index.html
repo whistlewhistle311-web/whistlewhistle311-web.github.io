@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>제비뽑기 사이트: 당첨자 뽑기·순서 정하기·조 나누기 (무료)</title>
+<meta name="description" content="이름을 적고 누르면 바로 제비뽑기. 당첨자 몇 명 뽑기, 발표·청소 순서 정하기, 조 나누기를 무료로. 가입 없이, 입력한 이름은 저장되지 않아요.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/%EC%A0%9C%EB%B9%84%EB%BD%91%EA%B8%B0/">
+<meta property="og:title" content="제비뽑기: 당첨자·순서·조 나누기">
+<meta property="og:description" content="이름만 적으면 당첨자 뽑기, 순서 정하기, 조 나누기. 무료, 가입 없음.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/%EC%A0%9C%EB%B9%84%EB%BD%91%EA%B8%B0/">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<style>
+:root{--bg:#FBF6F0;--card:#fff;--ink:#2A1F1A;--ink2:#5B4A42;--mute:#8A7B72;--red:#8B1E2D;--grn:#1E5631;--line:#E8DCCF;--soft:#F5EBDF}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}}
+:root[data-theme=dark]{--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:28px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--red);font-weight:700}
+h1{font-size:32px;line-height:1.2;margin:8px 0 12px}h2{font-size:22px;margin:30px 0 8px}
+p,li{color:var(--ink2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+label{font-size:13px;color:var(--mute);display:block;margin:10px 0 4px}
+textarea,input{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+textarea{min-height:150px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;font-weight:800;border:0;border-radius:12px;padding:13px 18px;cursor:pointer}
+.go{background:var(--red);color:#fff;width:100%;margin-top:14px;font-size:18px}
+.sm{background:var(--soft);color:var(--ink);padding:8px 12px;font-size:14px}
+.row{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.row b{min-width:7em}.row input{font-size:12px;padding:6px}
+.err{color:#C0392B;font-weight:700}
+.reveal{text-align:center;padding:34px 18px}.reveal .big{font-size:40px;font-weight:900;color:var(--red);margin:10px 0}
+a{color:var(--red)}footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
+@media (max-width:520px){h1{font-size:26px}.two{grid-template-columns:1fr}.row{flex-wrap:wrap}.row b{min-width:100%}}
+body{word-break:keep-all}
+</style>
+<style>.seg{display:flex;gap:6px;margin:12px 0}.seg button{flex:1;background:var(--soft);color:var(--ink);padding:10px}.seg button.on{background:var(--red);color:#fff}.res{font-size:20px;line-height:1.9}.res b{color:var(--red)}</style>
+</head>
+<body><main>
+<div class="k">무료 · 가입 없음</div>
+<h1>제비뽑기: 당첨자 뽑기, 순서 정하기, 조 나누기</h1>
+<p>이름을 한 줄에 하나씩 적고 원하는 방식을 고른 뒤 뽑기를 누르세요. 결과는 매번 새로 섞여요. 입력한 이름은 어디에도 저장되지 않아요.</p>
+<div class="card">
+<label for="names">이름이나 항목 (한 줄에 하나)</label>
+<textarea id="names">민지
+준호
+서연
+도윤
+하은
+지훈
+예린
+현우</textarea>
+<div class="seg"><button class="on" data-m="win">당첨자 뽑기</button><button data-m="order">순서 정하기</button><button data-m="team">조 나누기</button></div>
+<div id="opt"><label for="n">뽑을 인원</label><input id="n" type="number" min="1" value="1" inputmode="numeric"></div>
+<button class="go" id="go">뽑기</button>
+<p id="msg" class="err"></p>
+</div>
+<div class="card res" id="res" style="display:none"></div>
+<h2>이럴 때 써요</h2>
+<ul><li>경품·이벤트 당첨자 뽑기, 회식 메뉴 고르기</li><li>발표 순서, 청소 당번, 게임 순서 정하기</li><li>수업·워크숍 조 나누기(조 수를 정하면 인원을 고르게 나눠요)</li></ul>
+<h2>같이 쓰면 좋은 것</h2>
+<ul><li><a href="../%EB%A7%88%EB%8B%88%EB%98%90/">마니또 뽑기 (사람마다 비밀 링크)</a></li><li><a href="../%EA%B0%80%EA%B3%84%EB%B6%80/">2027 가계부 엑셀 무료 양식</a></li></ul>
+<footer>한 사람이 AI 도구의 도움을 받아 만들었어요 · 뽑기는 내 브라우저에서 하고 저장하지 않아요 · 뽑기는 브라우저의 무작위 함수를 써요</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);let mode='win';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const rnd=n=>{const a=new Uint32Array(1);crypto.getRandomValues(a);return a[0]%n;};
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=rnd(i+1);[a[i],a[j]]=[a[j],a[i]];}return a;};
+document.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.seg button').forEach(x=>x.classList.remove('on'));b.classList.add('on');mode=b.dataset.m;
+$('opt').innerHTML=mode==='win'?'<label for="n">뽑을 인원</label><input id="n" type="number" min="1" value="1" inputmode="numeric">':mode==='team'?'<label for="n">조 수</label><input id="n" type="number" min="2" value="2" inputmode="numeric">':'';});
+$('go').onclick=()=>{$('msg').textContent='';const L=$('names').value.split('\n').map(s=>s.trim()).filter(Boolean);
+if(L.length<2){$('msg').textContent='두 개 이상 적어 주세요.';return;}const s=shuffle(L);let h='';
+if(mode==='win'){const n=Math.max(1,Math.min(L.length,+($('n').value)||1));h='<b>당첨</b><br>'+s.slice(0,n).map((x,i)=>(i+1)+'. '+esc(x)).join('<br>');}
+else if(mode==='order'){h='<b>순서</b><br>'+s.map((x,i)=>(i+1)+'. '+esc(x)).join('<br>');}
+else{const k=Math.max(2,Math.min(L.length,+($('n').value)||2));const T=Array.from({length:k},()=>[]);s.forEach((x,i)=>T[i%k].push(x));h=T.map((t,i)=>'<b>'+(i+1)+'조</b> '+t.map(esc).join(', ')).join('<br>');}
+$('res').style.display='block';$('res').innerHTML=h;};
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d4b593fd49874cf195851b41cd0caed4"}'></script>
+</body></html>
