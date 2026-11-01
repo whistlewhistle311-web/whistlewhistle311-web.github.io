@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en-PH">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>13th Month Pay Calculator 2026 (Philippines): full or prorated</title>
+<meta name="description" content="Compute your 2026 13th month pay in the Philippines: total basic salary earned this year divided by 12, full or prorated, minus unpaid absences, with the ₱90,000 tax-exempt split. Due on or before December 24. Free, no sign-up.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/ph/13th-month-pay/">
+<meta property="og:title" content="13th Month Pay Calculator 2026 (Philippines)">
+<meta property="og:description" content="Full or prorated 13th month pay, with the ₱90,000 tax-free limit.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/ph/13th-month-pay/"><meta property="og:image" content="https://whistlewhistle311-web.github.io/ph/13th-month-pay/og.png"><meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#FBF6F0;--card:#fff;--ink:#2A1F1A;--ink2:#5B4A42;--mute:#8A7B72;--red:#8B1E2D;--grn:#1E5631;--line:#E8DCCF;--soft:#F5EBDF}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}}
+:root[data-theme=dark]{--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:28px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--red);font-weight:700}
+h1{font-size:32px;line-height:1.2;margin:8px 0 12px}h2{font-size:22px;margin:30px 0 8px}
+p,li{color:var(--ink2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+label{font-size:13px;color:var(--mute);display:block;margin:10px 0 4px}
+textarea,input{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+textarea{min-height:150px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;font-weight:800;border:0;border-radius:12px;padding:13px 18px;cursor:pointer}
+.go{background:var(--red);color:#fff;width:100%;margin-top:14px;font-size:18px}
+.sm{background:var(--soft);color:var(--ink);padding:8px 12px;font-size:14px}
+.row{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.row b{min-width:7em}.row input{font-size:12px;padding:6px}
+.err{color:#C0392B;font-weight:700}
+.reveal{text-align:center;padding:34px 18px}.reveal .big{font-size:40px;font-weight:900;color:var(--red);margin:10px 0}
+a{color:var(--red)}footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
+@media (max-width:520px){h1{font-size:26px}.two{grid-template-columns:1fr}.row{flex-wrap:wrap}.row b{min-width:100%}}
+body{word-break:keep-all}
+select{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}td:last-child{white-space:nowrap}</style>
+<style>.seg{display:flex;gap:6px;margin:12px 0}table{width:100%;border-collapse:collapse;font-size:15px}td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:right}td:first-child{text-align:left;color:var(--mute)}tr.tot td{font-weight:900;color:var(--red);font-size:18px}tr.sub td{font-weight:800;color:var(--ink)}.cta{display:block;text-align:center;background:var(--grn);color:#fff;text-decoration:none;font-weight:800;border-radius:12px;padding:13px;margin-top:10px}.seg button{flex:1;background:var(--soft);color:var(--ink);padding:10px}.seg button.on{background:var(--red);color:#fff}.res{font-size:20px;line-height:1.9}.res b{color:var(--red)}select{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}</style>
+</head>
+<body><main>
+<div class="k">FREE · NO SIGN-UP</div>
+<h1>13th Month Pay Calculator 2026 (Philippines)</h1>
+<p>Enter your monthly basic salary and the months you worked in 2026. You get your 13th month pay, how much of it is tax-free, and the date it is due. Nothing you type is saved.</p>
+<div class="card">
+<div class="seg" id="mode"><button class="on" data-m="fixed">Same salary all year</button><button data-m="month">Salary changed</button></div>
+<div id="fixed" class="two">
+<div><label for="sal">Monthly basic salary (₱)</label><input id="sal" inputmode="decimal" value="25,000"></div>
+<div><label for="mes">Months worked in 2026 (Jan to Dec)</label><input id="mes" type="number" min="0" max="12" step="0.5" value="12"></div>
+</div>
+<div id="monthly" style="display:none"><label>Basic salary earned each month (₱, leave blank if you did not work)</label><div id="mgrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px"></div></div>
+<div class="two">
+<div><label for="abs">Unpaid absences or leave without pay this year (₱)</label><input id="abs" inputmode="decimal" value="0"></div>
+<div><label for="oth">Other bonuses this year (Christmas bonus, etc.) (₱)</label><input id="oth" inputmode="decimal" value="0"></div>
+</div>
+<p id="msg" class="err"></p>
+</div>
+<div class="card"><table id="res"></table></div>
+<a class="cta" style="background:#25D366;color:#0b3d1f" href="https://wa.me/?text=Compute%20your%202026%2013th%20month%20pay%3A%20https%3A//whistlewhistle311-web.github.io/ph/13th-month-pay/" target="_blank" rel="noopener">Share my result on WhatsApp</a>
+<a class="cta" style="background:#0866FF" href="https://www.facebook.com/sharer/sharer.php?u=https%3A//whistlewhistle311-web.github.io/ph/13th-month-pay/" target="_blank" rel="noopener">Share on Facebook</a>
+<div class="card" data-paid style="border-color:var(--grn)"><b>Planning where your 13th month goes?</b><p style="margin:6px 0 10px;font-size:15px">Start with the <a href="../../christmas-budget/">free Christmas budget planner</a>. If you want to track the whole of 2027, the full budget spreadsheet (Google Sheets and Excel) is a paid product on Gumroad.</p><a class="cta" style="margin-top:0" href="https://whistledown8.gumroad.com/l/2027-budget-planner">See the 2027 budget spreadsheet</a></div>
+<h2>How it is computed</h2>
+<ul>
+<li><b>Formula</b>: total basic salary actually earned from January to December ÷ 12 (Presidential Decree 851). Overtime, night differential, holiday pay and allowances are not part of basic salary unless your company says otherwise.</li>
+<li><b>Prorated</b>: if you joined, resigned or took unpaid leave, only the basic salary you actually earned counts. Rank-and-file employees who worked at least one month are covered.</li>
+<li><b>Due date</b>: on or before December 24. Some employers pay half in May or June and half in December.</li>
+<li><b>Tax</b>: the 13th month pay and other benefits are tax-free up to ₱90,000 in total for the year (TRAIN law). Anything above is added to your taxable income.</li>
+<li><b>Resigned employees</b>: you still get the prorated amount, usually with your final pay.</li>
+</ul>
+<p>This is an estimate. Check your payslip or ask HR; for disputes, DOLE has a hotline (1349).</p>
+<h2>Also useful</h2>
+<ul><li><a href="../../christmas-budget/">Christmas budget planner</a> · <a href="../../secret-santa/">Secret Santa (Monito Monita) generator</a></li><li><a href="../../free-budget-spreadsheet/">Free 2027 budget spreadsheet</a> · <a href="../../tools/">All budget tools</a></li></ul>
+<footer>For information only, not legal or tax advice. Made by one person with help from AI tools. Sources: Presidential Decree 851 and its rules; DOLE 13th month pay guidelines; Republic Act 10963 (TRAIN). · <a href="../../">Home</a></footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);let mode='fixed';
+const num=s=>Number(String(s).replace(/,/g,'').replace(/[^0-9.]/g,''))||0;
+const php=x=>'₱'+x.toLocaleString('en-PH',{minimumFractionDigits:2,maximumFractionDigits:2});
+const r2=x=>Math.round((x+1e-9)*100)/100;
+const M=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+$('mgrid').innerHTML=M.map((m,i)=>`<div><label for="m${i}" style="margin:4px 0 2px">${m}</label><input id="m${i}" inputmode="decimal" value="25,000"></div>`).join('');
+document.querySelectorAll('#mode button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#mode button').forEach(x=>x.classList.toggle('on',x===b));mode=b.dataset.m;$('fixed').style.display=mode==='fixed'?'grid':'none';$('monthly').style.display=mode==='month'?'block':'none';calc();});
+function calc(){
+ $('msg').textContent='';let earned;
+ if(mode==='fixed'){const s=num($('sal').value),m=num($('mes').value);if(!s||m>12){$('res').innerHTML='';$('msg').textContent='Check the salary and months (0 to 12).';return;}earned=s*m;}
+ else{earned=M.reduce((a,_,i)=>a+num($('m'+i).value),0);}
+ earned=Math.max(0,r2(earned-num($('abs').value)));
+ const t13=r2(earned/12),oth=num($('oth').value),tot=t13+oth,free=Math.min(tot,90000),tax=r2(Math.max(0,tot-90000));
+ $('res').innerHTML=`<tr><td>Basic salary earned in 2026</td><td>${php(earned)}</td></tr><tr class="tot"><td>13th month pay</td><td>${php(t13)}</td></tr>${oth?`<tr><td>Other bonuses</td><td>${php(oth)}</td></tr>`:''}<tr><td>Tax-free (up to ₱90,000 combined)</td><td>${php(free)}</td></tr><tr class="sub"><td>Taxable part</td><td>${php(tax)}</td></tr><tr><td>Due on or before</td><td>December 24, 2026</td></tr>`;
+}
+document.querySelectorAll('input').forEach(e=>e.addEventListener('input',calc));calc();
+</script>
+<script data-wa-res>(function(){var a=document.querySelector('a.cta[href^="https://wa.me"]');if(!a)return;var base=decodeURIComponent(a.href.split("text=")[1]);a.addEventListener("click",function(){var t=document.querySelector("tr.tot");if(!t)return;var c=t.querySelectorAll("td");a.href="https://wa.me/?text="+encodeURIComponent("My result: "+c[0].innerText.trim()+" = "+c[1].innerText.trim()+"\n"+base);});})();</script>
+</body></html>
