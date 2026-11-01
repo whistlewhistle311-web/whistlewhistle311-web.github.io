@@ -49,7 +49,7 @@ td:last-child{white-space:nowrap}</style>
 <p id="msg" class="err"></p>
 </div>
 <div class="card"><table id="out"></table></div>
-<a class="cta" style="background:#25D366;color:#0b3d1f" href="https://wa.me/?text=Calcule%20o%20seu%2013%C2%BA%20sal%C3%A1rio%202026%20%281%C2%AA%20e%202%C2%AA%20parcela%20com%20INSS%20e%20IR%29%3A%20https%3A//whistlewhistle311-web.github.io/pt/13-salario/" target="_blank" rel="noopener">Compartilhar no WhatsApp</a>
+<a class="cta" style="background:#25D366;color:#0b3d1f" href="https://wa.me/?text=Calcule%20o%20seu%2013%C2%BA%20sal%C3%A1rio%202026%20%281%C2%AA%20e%202%C2%AA%20parcela%20com%20INSS%20e%20IR%29%3A%20https%3A//whistlewhistle311-web.github.io/pt/13-salario/" target="_blank" rel="noopener">Compartilhar meu resultado no WhatsApp</a>
 
 <div class="card" data-paid style="border-color:var(--grn)"><b>Quer controlar o ano inteiro?</b><p style="margin:6px 0 10px;font-size:15px">A planilha de gastos 2027 completa (Google Planilhas e Excel) tem lançamento de receitas e despesas por mês e divide compras parceladas automaticamente. Produto pago no Gumroad.</p><a class="cta" style="margin-top:0" href="https://whistledown8.gumroad.com/l/planilha-de-gastos-2027">Ver a planilha completa</a></div>
 <h2>Como a conta é feita</h2>
@@ -92,4 +92,5 @@ function calc(){
 }
 ['sal','extra','mes','dep','adiant'].forEach(id=>$(id).addEventListener('input',calc));calc();
 </script>
+<script data-wa-res>(function(){var a=document.querySelector('a.cta[href^="https://wa.me"]');if(!a)return;var base=decodeURIComponent(a.href.split("text=")[1]);a.addEventListener("click",function(){var t=document.querySelector("tr.tot");if(!t)return;var c=t.querySelectorAll("td");var res=c[0].innerText.trim()+" = "+c[1].innerText.trim();a.href="https://wa.me/?text="+encodeURIComponent("Meu resultado: "+res+"\n"+base);});})();</script>
 </body></html>
