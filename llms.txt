@@ -46,6 +46,7 @@
 - [Sorteio de amigo secreto grátis com link secreto](https://whistlewhistle311-web.github.io/pt/amigo-secreto/): Nomes entram, um link secreto por pessoa sai. Casais separados, valor e data. Sem cadastro.
 - [Sorteo de intercambio de regalos gratis con link privado](https://whistlewhistle311-web.github.io/es/intercambio-de-regalos/): Nombres entran, un link privado por persona sale. Parejas separadas, monto y fecha. Sin registro.
 - [마니또 뽑기 (한국어)](https://whistlewhistle311-web.github.io/%EB%A7%88%EB%8B%88%EB%98%90/): 이름·제외 쌍·선물 금액·공개 날짜 → 사람마다 비밀 링크.
+- [Calculadora de liquidación laboral 2026, Colombia (Español)](https://whistlewhistle311-web.github.io/es/liquidacion-colombia/): prima, cesantías, intereses, vacaciones, indemnización art. 64 CST; SMMLV 1.750.905 y auxilio 249.095.
 - [Calculadora de finiquito y liquidación 2026, México (Español)](https://whistlewhistle311-web.github.io/es/finiquito/): renuncia o despido injustificado, vacaciones (tabla 2023), prima vacacional, 3 meses, prima de antigüedad con tope de salario mínimo 2026.
 - [Calculadora de aguinaldo 2026, México (Español)](https://whistlewhistle311-web.github.io/es/aguinaldo/): aguinaldo proporcional, parte exenta de ISR (30 UMA = $3,519.30).
 - [Calculadora de rescisão 2026 (Português)](https://whistlewhistle311-web.github.io/pt/rescisao/): sem justa causa, pedido, acordo 484-A, justa causa; aviso prévio proporcional, 13º e férias com projeção, multa e saque do FGTS.
