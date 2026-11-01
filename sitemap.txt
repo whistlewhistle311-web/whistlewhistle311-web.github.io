@@ -135,3 +135,4 @@ https://whistlewhistle311-web.github.io/pt/13-salario/
 https://whistlewhistle311-web.github.io/es/aguinaldo/
 https://whistlewhistle311-web.github.io/es/finiquito/
 https://whistlewhistle311-web.github.io/pt/salario-liquido/
+https://whistlewhistle311-web.github.io/pt/rescisao/

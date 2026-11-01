@@ -48,6 +48,7 @@
 - [마니또 뽑기 (한국어)](https://whistlewhistle311-web.github.io/%EB%A7%88%EB%8B%88%EB%98%90/): 이름·제외 쌍·선물 금액·공개 날짜 → 사람마다 비밀 링크.
 - [Calculadora de finiquito y liquidación 2026, México (Español)](https://whistlewhistle311-web.github.io/es/finiquito/): renuncia o despido injustificado, vacaciones (tabla 2023), prima vacacional, 3 meses, prima de antigüedad con tope de salario mínimo 2026.
 - [Calculadora de aguinaldo 2026, México (Español)](https://whistlewhistle311-web.github.io/es/aguinaldo/): aguinaldo proporcional, parte exenta de ISR (30 UMA = $3,519.30).
+- [Calculadora de rescisão 2026 (Português)](https://whistlewhistle311-web.github.io/pt/rescisao/): sem justa causa, pedido, acordo 484-A, justa causa; aviso prévio proporcional, 13º e férias com projeção, multa e saque do FGTS.
 - [Calculadora de salário líquido 2026 (Português)](https://whistlewhistle311-web.github.io/pt/salario-liquido/): INSS 2026, IRRF com desconto simplificado e redução da Lei 15.270, vale-transporte.
 - [Calculadora do 13º salário 2026 (Português)](https://whistlewhistle311-web.github.io/pt/13-salario/): 1ª e 2ª parcela, INSS 2026, IRRF com a redução da Lei 15.270.
 - [이자 계산기 (한국어)](https://whistlewhistle311-web.github.io/%EC%9D%B4%EC%9E%90%EA%B3%84%EC%82%B0%EA%B8%B0/): 예금·적금 세후 이자, 단리·월복리, 일반과세·세금우대·비과세.
