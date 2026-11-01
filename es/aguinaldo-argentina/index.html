@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calcular aguinaldo (SAC) diciembre 2026 en Argentina: bruto y neto</title>
+<meta name="description" content="Calculá tu aguinaldo de diciembre 2026 (segunda cuota del SAC): la mitad del mejor sueldo del semestre, proporcional a los días trabajados, y el neto después de jubilación, PAMI y obra social. Gratis, sin registro.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/es/aguinaldo-argentina/">
+<meta property="og:title" content="Calcular aguinaldo diciembre 2026 (Argentina)">
+<meta property="og:description" content="Mitad del mejor sueldo del semestre, proporcional, bruto y neto.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/es/aguinaldo-argentina/"><meta property="og:image" content="https://whistlewhistle311-web.github.io/es/aguinaldo-argentina/og.png"><meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#FBF6F0;--card:#fff;--ink:#2A1F1A;--ink2:#5B4A42;--mute:#8A7B72;--red:#8B1E2D;--grn:#1E5631;--line:#E8DCCF;--soft:#F5EBDF}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}}
+:root[data-theme=dark]{--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:28px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--red);font-weight:700}
+h1{font-size:32px;line-height:1.2;margin:8px 0 12px}h2{font-size:22px;margin:30px 0 8px}
+p,li{color:var(--ink2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+label{font-size:13px;color:var(--mute);display:block;margin:10px 0 4px}
+textarea,input{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+textarea{min-height:150px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;font-weight:800;border:0;border-radius:12px;padding:13px 18px;cursor:pointer}
+.go{background:var(--red);color:#fff;width:100%;margin-top:14px;font-size:18px}
+.sm{background:var(--soft);color:var(--ink);padding:8px 12px;font-size:14px}
+.row{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.row b{min-width:7em}.row input{font-size:12px;padding:6px}
+.err{color:#C0392B;font-weight:700}
+.reveal{text-align:center;padding:34px 18px}.reveal .big{font-size:40px;font-weight:900;color:var(--red);margin:10px 0}
+a{color:var(--red)}footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
+@media (max-width:520px){h1{font-size:26px}.two{grid-template-columns:1fr}.row{flex-wrap:wrap}.row b{min-width:100%}}
+body{word-break:keep-all}
+select{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}td:last-child{white-space:nowrap}</style>
+<style>.seg{display:flex;gap:6px;margin:12px 0}table{width:100%;border-collapse:collapse;font-size:15px}td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:right}td:first-child{text-align:left;color:var(--mute)}tr.tot td{font-weight:900;color:var(--red);font-size:18px}tr.sub td{font-weight:800;color:var(--ink)}.cta{display:block;text-align:center;background:var(--grn);color:#fff;text-decoration:none;font-weight:800;border-radius:12px;padding:13px;margin-top:10px}.seg button{flex:1;background:var(--soft);color:var(--ink);padding:10px}.seg button.on{background:var(--red);color:#fff}.res{font-size:20px;line-height:1.9}.res b{color:var(--red)}select{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}</style>
+</head>
+<body><main>
+<div class="k">GRATIS · SIN REGISTRO</div>
+<h1>Calcular aguinaldo de diciembre 2026 (Argentina)</h1>
+<p>Poné el mejor sueldo bruto que cobraste entre julio y diciembre y los días que trabajaste en el semestre. Te mostramos el aguinaldo bruto y el neto. Nada de lo que escribís se guarda.</p>
+<div class="card">
+<div class="two">
+<div><label for="sal">Mejor sueldo bruto del semestre ($)</label><input id="sal" inputmode="numeric" value="1.200.000"></div>
+<div><label for="dias">Días trabajados en el semestre (máx. 184)</label><input id="dias" type="number" min="1" max="184" value="184"></div>
+<div><label for="ing">o fecha de ingreso (si entraste este semestre)</label><input id="ing" type="date" min="2026-07-01" max="2026-12-31"></div>
+<div><label for="apo">Aportes del empleado</label><select id="apo"><option value="0.17">17% (jubilación 11%, PAMI 3%, obra social 3%)</option><option value="0">Sin descuentos (ver solo bruto)</option></select></div>
+</div>
+<p id="msg" class="err"></p>
+</div>
+<div class="card"><table id="res"></table></div>
+<a class="cta" style="background:#25D366;color:#0b3d1f" href="https://wa.me/?text=Calcul%C3%A1%20tu%20aguinaldo%20de%20diciembre%202026%3A%20https%3A//whistlewhistle311-web.github.io/es/aguinaldo-argentina/" target="_blank" rel="noopener">Compartir por WhatsApp</a>
+<h2>Cómo se calcula</h2>
+<ul>
+<li><b>Aguinaldo completo</b>: 50% de la mejor remuneración mensual del semestre (julio a diciembre para la segunda cuota). La segunda cuota se paga hasta el 18 de diciembre, con 4 días hábiles de gracia.</li>
+<li><b>Proporcional</b>: si no trabajaste todo el semestre, se multiplica por los días trabajados y se divide por los días del semestre (184 de julio a diciembre).</li>
+<li><b>Neto</b>: al aguinaldo se le descuentan los mismos aportes que al sueldo: 11% jubilación, 3% PAMI y 3% obra social. El impuesto a las Ganancias depende de tu sueldo anual y no está incluido.</li>
+</ul>
+<p>Es una estimación. Si cobrás comisiones o horas extra, la mejor remuneración las incluye. Revisá tu recibo.</p>
+<h2>También te puede servir</h2>
+<ul><li><a href="../plantilla-presupuesto-gratis/">Plantilla de presupuesto 2027 gratis</a> (Excel y Google Sheets)</li><li><a href="../intercambio-de-regalos/">Sorteo de amigo invisible</a></li></ul>
+<p data-hub><a href="../">Todas las herramientas</a></p>
+<footer>Herramienta informativa, no es asesoramiento legal ni contable. Hecha por una persona con ayuda de herramientas de IA. Fuente: Ley 23.041 y Ley de Contrato de Trabajo 20.744, arts. 121 a 123. · <a href="../../">Inicio</a></footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const num=s=>Number(String(s).replace(/[^0-9]/g,''))||0;
+const ars=x=>'$'+x.toLocaleString('es-AR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const r2=x=>Math.round((x+1e-9)*100)/100;
+$('ing').addEventListener('input',()=>{const v=$('ing').value;if(v){const d=(new Date('2026-12-31T00:00:00')-new Date(v+'T00:00:00'))/864e5+1;$('dias').value=Math.max(1,Math.min(184,Math.round(d)));}calc();});
+$('sal').addEventListener('blur',()=>{const v=num($('sal').value);$('sal').value=v?v.toLocaleString('es-AR'):'';});
+function calc(){
+ $('msg').textContent='';const s=num($('sal').value),d=Math.round(num($('dias').value)),a=Number($('apo').value);
+ if(!s||d<1||d>184){$('res').innerHTML='';$('msg').textContent='Revisá el sueldo y los días (1 a 184).';return;}
+ const full=r2(s/2),br=r2(full*d/184),ap=r2(br*a),ne=r2(br-ap);
+ $('res').innerHTML=`<tr><td>Aguinaldo completo (50%)</td><td>${ars(full)}</td></tr><tr><td>Días trabajados</td><td>${d} de 184</td></tr><tr class="sub"><td>Aguinaldo bruto</td><td>${ars(br)}</td></tr><tr><td>Aportes (${Math.round(a*100)}%)</td><td>-${ars(ap)}</td></tr><tr class="tot"><td>Aguinaldo neto</td><td>${ars(ne)}</td></tr>`;
+}
+['sal','dias','apo'].forEach(id=>$(id).addEventListener('input',calc));calc();
+</script>
+</body></html>
