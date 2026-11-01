@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Secret Santa Generator: Free Name Draw With Private Links (No Sign-up)</title>
+<meta name="description" content="Free Secret Santa generator. Type the names, add couples who should not draw each other, set a budget, and get one private link per person that shows only who they buy for. No email, no sign-up, nothing stored on a server.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/secret-santa/">
+<meta property="og:title" content="Free Secret Santa generator with private links">
+<meta property="og:description" content="Names in, one private link per person out. Exclusions, budget and date. No sign-up.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/secret-santa/">
+<meta property="og:image" content="https://whistlewhistle311-web.github.io/secret-santa/og.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does this Secret Santa generator keep the draw secret?","acceptedAnswer":{"@type":"Answer","text":"Each person gets their own link. Opening it shows only the name they buy for. The draw happens in your browser and is packed into the links, so nothing is stored on a server. If you are the organizer and also playing, send the links without opening them."}},{"@type":"Question","name":"Can I stop couples from drawing each other?","acceptedAnswer":{"@type":"Answer","text":"Yes. Add pairs in the exclusions box, one pair per line, like Anna - Ben. The generator redraws until nobody gets themselves or someone they are excluded from."}}]}</script>
+<style>
+:root{--bg:#FBF6F0;--card:#fff;--ink:#2A1F1A;--ink2:#5B4A42;--mute:#8A7B72;--red:#8B1E2D;--grn:#1E5631;--line:#E8DCCF;--soft:#F5EBDF}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}}
+:root[data-theme=dark]{--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:28px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--red);font-weight:700}
+h1{font-size:32px;line-height:1.2;margin:8px 0 12px}h2{font-size:22px;margin:30px 0 8px}
+p,li{color:var(--ink2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+label{font-size:13px;color:var(--mute);display:block;margin:10px 0 4px}
+textarea,input{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+textarea{min-height:150px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;font-weight:800;border:0;border-radius:12px;padding:13px 18px;cursor:pointer}
+.go{background:var(--red);color:#fff;width:100%;margin-top:14px;font-size:18px}
+.sm{background:var(--soft);color:var(--ink);padding:8px 12px;font-size:14px}
+.row{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.row b{min-width:7em}.row input{font-size:12px;padding:6px}
+.err{color:#C0392B;font-weight:700}
+.reveal{text-align:center;padding:34px 18px}.reveal .big{font-size:40px;font-weight:900;color:var(--red);margin:10px 0}
+a{color:var(--red)}footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
+@media (max-width:520px){h1{font-size:26px}.two{grid-template-columns:1fr}.row{flex-wrap:wrap}.row b{min-width:100%}}
+</style>
+</head>
+<body><main>
+<div id="app">
+<div class="k">FREE · NO SIGN-UP · PRIVATE LINKS</div>
+<h1>Secret Santa generator with a private link for each person</h1>
+<p>Type everyone's name, add couples who should not draw each other, and press draw. You get one link per person. Each link shows only who that person buys for. The draw runs in your browser and nothing is stored on a server.</p>
+<div class="card">
+<label for="names">Names (one per line, at least 3)</label>
+<textarea id="names">Anna
+Ben
+Chloe
+David
+Emma
+Farid</textarea>
+<label for="ex">Who should not draw each other (optional, one pair per line, like "Anna - Ben")</label>
+<textarea id="ex" style="min-height:70px">Anna - Ben</textarea>
+<div class="two">
+<div><label for="budget">Budget per gift (optional)</label><input id="budget" placeholder="$25" value="$25"></div>
+<div><label for="date">Exchange date (optional)</label><input id="date" type="date"></div>
+</div>
+<button class="go" id="draw">Draw names</button>
+<p id="msg" class="err"></p>
+</div>
+<div id="out"></div>
+
+<h2>How to run it</h2>
+<ol>
+<li>Type the names and any pairs who should not get each other, like partners or people who live together.</li>
+<li>Press <b>Draw names</b>. Copy each person's link and send it to them privately (text, chat or email).</li>
+<li>Everyone opens their own link and sees only their match, the budget and the date.</li>
+</ol>
+<p>If you are organizing and playing too, send the links without opening the others. Draw again any time to reshuffle; old links keep showing the old draw, so send the new ones.</p>
+<h2>Plan your own gifts too</h2>
+<p>Keep the whole season on budget with the free <a href="../christmas-budget/">Christmas budget planner and gift list spreadsheet</a>.</p>
+<footer>Made by one person with help from AI tools · The draw runs in your browser; names are packed into the links, not saved anywhere · <a href="../tools/">More free tools</a></footer>
+</div>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const enc=o=>{const s=unescape(encodeURIComponent(JSON.stringify(o)));let x='';for(let i=0;i<s.length;i++)x+=String.fromCharCode(s.charCodeAt(i)^(73+i%7));return btoa(x).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');};
+const dec=t=>{let b=atob(t.replace(/-/g,'+').replace(/_/g,'/'));let x='';for(let i=0;i<b.length;i++)x+=String.fromCharCode(b.charCodeAt(i)^(73+i%7));return JSON.parse(decodeURIComponent(escape(x)));};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function draw(names,ex){const bad=new Set();ex.forEach(([a,b])=>{bad.add(a+'\u0000'+b);bad.add(b+'\u0000'+a);});
+ for(let t=0;t<20000;t++){const p=names.slice();for(let i=p.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[p[i],p[j]]=[p[j],p[i]];}
+  if(names.every((n,i)=>n!==p[i]&&!bad.has(n+'\u0000'+p[i])))return p;}return null;}
+function run(){$('msg').textContent='';$('out').innerHTML='';
+ const names=[...new Set($('names').value.split('\n').map(s=>s.trim()).filter(Boolean))];
+ if(names.length<3){$('msg').textContent='Add at least 3 different names.';return;}
+ const ex=$('ex').value.split('\n').map(l=>l.split(/\s+-\s+|\s*,\s*/).map(s=>s.trim())).filter(p=>p.length===2&&p[0]&&p[1]);
+ const miss=ex.flat().filter(n=>!names.includes(n));if(miss.length){$('msg').textContent='Not in the names list: '+[...new Set(miss)].join(', ');return;}
+ const res=draw(names,ex);if(!res){$('msg').textContent='No valid draw with these exclusions. Remove a pair and try again.';return;}
+ const base=location.origin+location.pathname,b=$('budget').value.trim(),d=$('date').value;
+ const links=names.map((n,i)=>({n,url:base+'#'+enc({g:n,t:res[i],b,d})}));
+ $('out').innerHTML='<div class="card"><b>Send each person their own link</b><p style="font-size:14px;margin:4px 0 8px">Do not open the links yourself if you are playing.</p>'+links.map((l,i)=>`<div class="row"><b>${esc(l.n)}</b><input readonly value="${esc(l.url)}" id="l${i}"><button class="sm" data-i="${i}">Copy</button></div>`).join('')+'<button class="sm" id="all" style="margin-top:10px">Copy all as a list</button></div>';
+ $('out').querySelectorAll('button[data-i]').forEach(bt=>bt.onclick=()=>{navigator.clipboard.writeText($('l'+bt.dataset.i).value);bt.textContent='Copied';});
+ $('all').onclick=()=>{navigator.clipboard.writeText(links.map(l=>l.n+': '+l.url).join('\n'));$('all').textContent='Copied';};}
+if(location.hash.length>2){try{const o=dec(location.hash.slice(1));
+ $('app').innerHTML=`<div class="card reveal"><div class="k">SECRET SANTA</div><p>Hi ${esc(o.g)}, you are buying a gift for</p><div class="big">${esc(o.t)}</div>${o.b?`<p>Budget: <b>${esc(o.b)}</b></p>`:''}${o.d?`<p>Exchange: <b>${esc(new Date(o.d+'T12:00').toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'}))}</b></p>`:''}<p style="font-size:14px">Keep it secret. Only you can see this.</p></div><p>Need ideas or a plan for the rest of your gifts? Try the free <a href="../christmas-budget/">Christmas budget planner and gift list</a>.</p><p><a href="./">Run your own Secret Santa draw</a></p>`;
+ document.title='Your Secret Santa match';}catch(e){}}
+else{$('draw').onclick=run;}
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d4b593fd49874cf195851b41cd0caed4"}'></script>
+</body></html>

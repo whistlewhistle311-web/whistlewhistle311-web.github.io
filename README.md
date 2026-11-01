@@ -12,6 +12,8 @@ Small, free tools that run in the browser. Nothing you type is stored or sent an
 - [Sinking funds calculator](https://whistlewhistle311-web.github.io/tools/sinking-funds/)
 - [Holiday budget calculator](https://whistlewhistle311-web.github.io/tools/holiday-budget/)
 - [Wedding budget calculator](https://whistlewhistle311-web.github.io/tools/wedding-budget/)
+- [Christmas budget planner + free gift list](https://whistlewhistle311-web.github.io/christmas-budget/)
+- [Secret Santa generator (private links, no sign-up)](https://whistlewhistle311-web.github.io/secret-santa/)
 - [All tools](https://whistlewhistle311-web.github.io/tools/)
 
 ## Other languages
