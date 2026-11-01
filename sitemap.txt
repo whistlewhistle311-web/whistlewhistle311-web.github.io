@@ -134,3 +134,4 @@ https://whistlewhistle311-web.github.io/saju/%EC%9B%94%EB%B3%84%EC%9A%B4%EC%84%B
 https://whistlewhistle311-web.github.io/pt/13-salario/
 https://whistlewhistle311-web.github.io/es/aguinaldo/
 https://whistlewhistle311-web.github.io/es/finiquito/
+https://whistlewhistle311-web.github.io/pt/salario-liquido/
