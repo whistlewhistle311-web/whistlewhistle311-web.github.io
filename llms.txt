@@ -67,3 +67,4 @@
 - [Calculadora do 13º salário 2026 (Português)](https://paybonuscalc.com/pt/13-salario/): 1ª e 2ª parcela, INSS 2026, IRRF com a redução da Lei 15.270.
 - [이자 계산기 (한국어)](https://paybonuscalc.com/%EC%9D%B4%EC%9E%90%EA%B3%84%EC%82%B0%EA%B8%B0/): 예금·적금 세후 이자, 단리·월복리, 일반과세·세금우대·비과세.
 - [제비뽑기 (한국어)](https://paybonuscalc.com/%EC%A0%9C%EB%B9%84%EB%BD%91%EA%B8%B0/): 당첨자 뽑기, 순서 정하기, 조 나누기.
+- [연차 계산기 (한국어)](https://paybonuscalc.com/%EC%97%B0%EC%B0%A8%EA%B3%84%EC%82%B0%EA%B8%B0/): 근로기준법 제60조, 1년 미만 월 1일(최대 11), 15일, 3년차부터 2년마다 1일 가산 최대 25일, 미사용 연차수당(월 통상임금 ÷ 209 × 8).
