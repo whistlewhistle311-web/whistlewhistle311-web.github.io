@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de férias 2026: valor líquido com 1/3, abono e INSS/IR</title>
+<meta name="description" content="Calcule as férias 2026: dias de descanso com o terço constitucional, venda de 10 dias (abono pecuniário), adiantamento do 13º e descontos de INSS e IR com a isenção até R$ 5 mil. Grátis, sem cadastro.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/pt/ferias/">
+<meta property="og:title" content="Calculadora de férias 2026">
+<meta property="og:description" content="Férias + 1/3, abono pecuniário e descontos, com as tabelas de 2026.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/pt/ferias/"><meta property="og:image" content="https://whistlewhistle311-web.github.io/pt/ferias/og.png"><meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#FBF6F0;--card:#fff;--ink:#2A1F1A;--ink2:#5B4A42;--mute:#8A7B72;--red:#8B1E2D;--grn:#1E5631;--line:#E8DCCF;--soft:#F5EBDF}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}}
+:root[data-theme=dark]{--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:28px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--red);font-weight:700}
+h1{font-size:32px;line-height:1.2;margin:8px 0 12px}h2{font-size:22px;margin:30px 0 8px}
+p,li{color:var(--ink2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+label{font-size:13px;color:var(--mute);display:block;margin:10px 0 4px}
+textarea,input{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+textarea{min-height:150px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;font-weight:800;border:0;border-radius:12px;padding:13px 18px;cursor:pointer}
+.go{background:var(--red);color:#fff;width:100%;margin-top:14px;font-size:18px}
+.sm{background:var(--soft);color:var(--ink);padding:8px 12px;font-size:14px}
+.row{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.row b{min-width:7em}.row input{font-size:12px;padding:6px}
+.err{color:#C0392B;font-weight:700}
+.reveal{text-align:center;padding:34px 18px}.reveal .big{font-size:40px;font-weight:900;color:var(--red);margin:10px 0}
+a{color:var(--red)}footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
+@media (max-width:520px){h1{font-size:26px}.two{grid-template-columns:1fr}.row{flex-wrap:wrap}.row b{min-width:100%}}
+body{word-break:keep-all}
+td:last-child{white-space:nowrap}select{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}</style>
+<style>.seg{display:flex;gap:6px;margin:12px 0}table{width:100%;border-collapse:collapse;font-size:15px}td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:right}td:first-child{text-align:left;color:var(--mute)}tr.tot td{font-weight:900;color:var(--red);font-size:18px}tr.sub td{font-weight:800;color:var(--ink)}.cta{display:block;text-align:center;background:var(--grn);color:#fff;text-decoration:none;font-weight:800;border-radius:12px;padding:13px;margin-top:10px}.seg button{flex:1;background:var(--soft);color:var(--ink);padding:10px}.seg button.on{background:var(--red);color:#fff}.res{font-size:20px;line-height:1.9}.res b{color:var(--red)}</style>
+</head>
+<body><main>
+<div class="k">GRÁTIS · SEM CADASTRO</div>
+<h1>Calculadora de férias 2026</h1>
+<p>Coloque o salário, quantos dias vai tirar e se vai vender dias. A conta mostra o valor bruto, os descontos e quanto cai na conta até 2 dias antes de começar as férias. Nada do que você digita é salvo.</p>
+<div class="card">
+<div class="two">
+<div><label for="sal">Salário bruto mensal (R$)</label><input id="sal" inputmode="decimal" value="3.000,00"></div>
+<div><label for="med">Média de horas extras e adicionais (R$/mês)</label><input id="med" inputmode="decimal" value="0"></div>
+<div><label for="dias">Dias de férias que vai tirar</label><select id="dias"><option>30</option><option selected>20</option><option>15</option><option>10</option></select></div>
+<div><label for="dep">Dependentes no IR</label><input id="dep" type="number" min="0" max="20" value="0"></div>
+</div>
+<label style="margin-top:12px"><input type="checkbox" id="abono" style="width:auto" checked> Vender 10 dias (abono pecuniário)</label>
+<label style="margin-top:6px"><input type="checkbox" id="adi" style="width:auto"> Receber adiantamento do 13º junto</label>
+<p id="msg" class="err"></p>
+</div>
+<div class="card"><table id="res"></table></div>
+<a class="cta" style="background:#25D366;color:#0b3d1f" href="https://wa.me/?text=Calcule%20as%20suas%20f%C3%A9rias%202026%3A%20https%3A//whistlewhistle311-web.github.io/pt/ferias/" target="_blank" rel="noopener">Compartilhar meu resultado no WhatsApp</a>
+<div class="card" data-paid style="border-color:var(--grn)"><b>Quer controlar o ano inteiro?</b><p style="margin:6px 0 10px;font-size:15px">A planilha de gastos 2027 completa (Google Planilhas e Excel) tem lançamento de receitas e despesas por mês e divide compras parceladas automaticamente. Produto pago no Gumroad.</p><a class="cta" style="margin-top:0" href="https://whistledown8.gumroad.com/l/planilha-de-gastos-2027">Ver a planilha completa</a></div>
+<h2>Como a conta é feita</h2>
+<ul>
+<li><b>Férias</b>: (salário + médias) ÷ 30 × dias de descanso, mais 1/3 desse valor.</li>
+<li><b>Abono pecuniário</b>: você pode vender até 1/3 das férias (10 dias). Recebe esses dias com o 1/3 deles, e o abono não paga INSS nem IR.</li>
+<li><b>INSS</b>: tabela progressiva 2026 sobre férias + 1/3.</li>
+<li><b>IR</b>: base = férias + 1/3 − INSS − R$ 189,59 por dependente (ou o desconto simplificado de R$ 607,20, se der menos imposto). Em 2026, com rendimento tributável até R$ 5 mil o imposto zera; até R$ 7.350 há redução parcial (Lei 15.270).</li>
+<li><b>Adiantamento do 13º</b>: metade do salário, sem descontos, se você pedir em janeiro ou se a empresa pagar junto.</li>
+</ul>
+<p>É uma estimativa. O mês das férias ainda tem o salário dos dias trabalhados, pago no fim do mês. Confira o recibo de férias.</p>
+<h2>Veja também</h2>
+<ul><li><a href="../salario-liquido/">Salário líquido 2026</a> · <a href="../13-salario/">13º salário</a> · <a href="../rescisao/">Rescisão</a></li></ul>
+<p data-hub><a href="../">Todas as ferramentas</a></p>
+<footer>Ferramenta informativa, não é consultoria contábil nem jurídica. Feita por uma pessoa com ajuda de ferramentas de IA. Base: CLT arts. 129 a 145; Constituição art. 7º XVII; tabela INSS 2026; IRRF e Lei 15.270/2025. · <a href="../../">Início</a></footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const num=s=>{s=String(s).trim();if(s.includes(','))s=s.replace(/\./g,'').replace(',','.');return Number(s.replace(/[^0-9.]/g,''))||0;};
+const brl=x=>'R$ '+x.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
+const r2=x=>Math.round((x+1e-9)*100)/100;
+function inss(b){const f=[[1621.00,.075],[2902.84,.09],[4354.27,.12],[8475.55,.14]];let t=0,prev=0;for(const[lim,a]of f){if(b>prev)t+=(Math.min(b,lim)-prev)*a;prev=lim;}return r2(t);}
+function irTab(base){const f=[[2428.80,0,0],[2826.65,.075,182.16],[3751.05,.15,394.16],[4664.68,.225,675.49],[Infinity,.275,908.73]];for(const[lim,a,d]of f){if(base<=lim)return Math.max(0,r2(base*a-d));}}
+function calc(){
+ $('msg').textContent='';const s=num($('sal').value),m=num($('med').value),d=Number($('dias').value),dep=Math.round(num($('dep').value)),ab=$('abono').checked,ad=$('adi').checked;
+ if(!s){$('res').innerHTML='';$('msg').textContent='Coloque o salário.';return;}
+ if(ab&&d>20){$('msg').textContent='Vendendo 10 dias, você tira no máximo 20.';}
+ const base=s+m,fer=r2(base/30*d),ter=r2(fer/3),trib=r2(fer+ter);
+ const abv=ab?r2(base/30*10):0,abt=ab?r2(abv/3):0,adv=ad?r2(s/2):0;
+ const i=inss(trib),bLeg=Math.max(0,r2(trib-i-dep*189.59)),bSim=Math.max(0,r2(trib-607.20));
+ const tL=irTab(bLeg),tS=irTab(bSim),t=Math.min(tL,tS);let red=0;if(trib<=5000)red=t;else if(trib<=7350)red=Math.min(t,Math.max(0,r2(978.62-0.133145*trib)));
+ const ir=r2(t-red),liq=r2(trib+abv+abt+adv-i-ir);
+ const row=(k,v,c='')=>`<tr class="${c}"><td>${k}</td><td>${v}</td></tr>`;
+ $('res').innerHTML=row('Férias ('+d+' dias)',brl(fer))+row('1/3 constitucional',brl(ter))+(ab?row('Abono pecuniário (10 dias)',brl(abv))+row('1/3 do abono',brl(abt)):'')+(ad?row('Adiantamento do 13º',brl(adv)):'')+row('INSS','-'+brl(i))+row('IR pela tabela','-'+brl(t))+row('Redução 2026 (Lei 15.270)','+'+brl(red))+row('Férias líquidas a receber',brl(liq),'tot');
+}
+['sal','med','dias','dep','abono','adi'].forEach(id=>$(id).addEventListener('input',calc));calc();
+</script>
+<script data-wa-res>(function(){var a=document.querySelector('a.cta[href^="https://wa.me"]');if(!a)return;var base=decodeURIComponent(a.href.split("text=")[1]);a.addEventListener("click",function(){var t=document.querySelector("tr.tot");if(!t)return;var c=t.querySelectorAll("td");a.href="https://wa.me/?text="+encodeURIComponent("Meu resultado: "+c[0].innerText.trim()+" = "+c[1].innerText.trim()+"\n"+base);});})();</script>
+</body></html>
