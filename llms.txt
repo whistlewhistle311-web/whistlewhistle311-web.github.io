@@ -53,6 +53,7 @@
 - [Calculadora de liquidación laboral 2026, Colombia (Español)](https://whistlewhistle311-web.github.io/es/liquidacion-colombia/): prima, cesantías, intereses, vacaciones, indemnización art. 64 CST; SMMLV 1.750.905 y auxilio 249.095.
 - [Calculadora de finiquito y liquidación 2026, México (Español)](https://whistlewhistle311-web.github.io/es/finiquito/): renuncia o despido injustificado, vacaciones (tabla 2023), prima vacacional, 3 meses, prima de antigüedad con tope de salario mínimo 2026.
 - [Calculadora de aguinaldo 2026, México (Español)](https://whistlewhistle311-web.github.io/es/aguinaldo/): aguinaldo proporcional, parte exenta de ISR (30 UMA = $3,519.30).
+- [13th month pay by country 2026 (English guide)](https://whistlewhistle311-web.github.io/guides/13th-month-pay-by-country/): formula, deadline and tax for PH, BR, MX, AR, CO, PE, EC with calculators.
 - [13th Month Pay Calculator 2026, Philippines (English)](https://whistlewhistle311-web.github.io/ph/13th-month-pay/): total basic salary earned ÷ 12, prorated, ₱90,000 tax-exempt split, due Dec 24 (PD 851).
 - [Calculadora de férias 2026 (Português)](https://whistlewhistle311-web.github.io/pt/ferias/): férias + 1/3, abono pecuniário isento, adiantamento do 13º, INSS e IR com a Lei 15.270.
 - [Calculadora de rescisão 2026 (Português)](https://whistlewhistle311-web.github.io/pt/rescisao/): sem justa causa, pedido, acordo 484-A, justa causa; aviso prévio proporcional, 13º e férias com projeção, multa e saque do FGTS.
