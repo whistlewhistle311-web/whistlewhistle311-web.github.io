@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lista de regalos de Navidad gratis (Excel y Google Sheets) + presupuesto navideño</title>
+<meta name="description" content="Plantilla gratis de lista de regalos de Navidad para Excel y Google Sheets: persona, presupuesto, idea, estado y costo real, con totales. Y una calculadora de presupuesto navideño: cuánto por persona y cuánto apartar cada semana hasta el 25 de diciembre.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/es/navidad/">
+<link rel="alternate" hreflang="es" href="https://whistlewhistle311-web.github.io/es/navidad/"><link rel="alternate" hreflang="en" href="https://whistlewhistle311-web.github.io/christmas-budget/">
+<meta property="og:title" content="Lista de regalos de Navidad gratis + presupuesto navideño">
+<meta property="og:description" content="Plantilla gratis para Excel y Google Sheets y calculadora: cuánto por persona y cuánto apartar por semana.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/es/navidad/">
+<meta property="og:image" content="https://whistlewhistle311-web.github.io/es/navidad/regalos.png"><meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"es","mainEntity":[{"@type":"Question","name":"¿Cómo hago un presupuesto de Navidad?","acceptedAnswer":{"@type":"Answer","text":"Define un total que puedas pagar sin endeudarte, resta comida, decoración y viajes, y reparte lo que queda entre las personas de tu lista. Divide lo que falta por pagar entre las semanas que quedan hasta el 25 de diciembre para saber cuánto apartar cada semana."}},{"@type":"Question","name":"¿La lista de regalos funciona en Google Sheets?","acceptedAnswer":{"@type":"Answer","text":"Sí. Sube el archivo .xlsx a Google Drive y ábrelo con Hojas de cálculo de Google. Los totales y las listas siguen funcionando."}}]}</script>
+<style>
+:root{--bg:#FBF6F0;--card:#fff;--ink:#2A1F1A;--ink2:#5B4A42;--mute:#8A7B72;--red:#8B1E2D;--grn:#1E5631;--line:#E8DCCF;--soft:#F5EBDF}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}}
+:root[data-theme=dark]{--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:28px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--red);font-weight:700}
+h1{font-size:32px;line-height:1.2;margin:8px 0 12px}h2{font-size:22px;margin:34px 0 8px}
+p,li{color:var(--ink2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{font-size:12px;color:var(--mute);display:block}
+input{width:100%;font:inherit;font-size:15px;padding:8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.out{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.out div{background:var(--soft);border-radius:12px;padding:12px 6px}.out small{display:block;font-size:12px;color:var(--mute)}.out b{font-size:20px;font-variant-numeric:tabular-nums}
+.dl{display:block;text-align:center;background:var(--grn);color:#fff;text-decoration:none;font-weight:800;font-size:19px;border-radius:14px;padding:16px;margin:18px 0 6px}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .dl{color:#17120f}}
+.note{font-size:13px;color:var(--mute);text-align:center;margin:0 0 14px}
+img.shot{width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+table{width:100%;border-collapse:collapse;font-size:15px;background:var(--card);border:1px solid var(--line)}th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-size:12px;color:var(--mute)}
+.cta{display:block;background:var(--red);color:#fff;text-decoration:none;border-radius:14px;padding:16px 18px;margin:18px 0;font-weight:800}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .cta{background:#8B1E2D}}
+a{color:var(--red)}footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
+@media (max-width:520px){h1{font-size:26px}.g{grid-template-columns:1fr}.out b{font-size:17px}table{font-size:13px}th,td{padding:7px 6px}}
+</style>
+</head>
+<body><main>
+<div class="k">NAVIDAD · GRATIS</div>
+<h1>Lista de regalos de Navidad gratis y presupuesto navideño</h1>
+<p>Primero un total que puedas pagar sin endeudarte. Luego resta lo que no son regalos y reparte el resto entre tu lista. La calculadora hace las cuentas y te dice cuánto apartar cada semana hasta el 25 de diciembre. No se guarda nada.</p>
+<div class="card g">
+<div><label>Presupuesto total de Navidad</label><input id="tot" type="number" min="0" step="500" value="12000" inputmode="decimal"></div>
+<div><label>Ya pagado</label><input id="paid" type="number" min="0" step="100" value="1500" inputmode="decimal"></div>
+<div><label>Comida y cena</label><input id="food" type="number" min="0" step="100" value="2500" inputmode="decimal"></div>
+<div><label>Decoración, tarjetas, envolturas</label><input id="deco" type="number" min="0" step="100" value="1000" inputmode="decimal"></div>
+<div><label>Viajes y salidas</label><input id="trav" type="number" min="0" step="100" value="1500" inputmode="decimal"></div>
+<div><label>Personas en tu lista de regalos</label><input id="ppl" type="number" min="1" step="1" value="10" inputmode="numeric"></div>
+</div>
+<div class="card out">
+<div><small>Para regalos</small><b id="gifts"></b></div>
+<div><small>Por persona</small><b id="per"></b></div>
+<div><small>Apartar por semana</small><b id="wk"></b></div>
+</div>
+<p id="msg" style="font-size:14px;margin-top:0"></p>
+<h2>Plantilla gratis: lista de regalos de Navidad</h2>
+<p>Una fila por persona: grupo, presupuesto, idea de regalo, estado (Idea, Pedido, Comprado, Envuelto, Entregado) y costo real. El cuadro de la derecha suma tu presupuesto de regalos, lo gastado, lo que queda y cuántos regalos ya tienes. Sirve también para el intercambio de regalos del trabajo.</p>
+<a class="dl" href="Lista-de-Regalos-Navidad-Gratis.xlsx" download>Descargar la lista de regalos (.xlsx)</a>
+<p class="note">Excel y Google Sheets. Totales revisados en LibreOffice. Sin correo ni registro.</p>
+<img class="shot" src="regalos.png" alt="Lista de regalos de Navidad en Excel con presupuesto, estado, costo real, lo que queda por persona y totales" width="1156" height="359" loading="lazy">
+<h2>Para el resto del año</h2>
+<p>Si en enero quieres llevar todos tus gastos, hay una <a href="../plantilla-presupuesto-gratis/">plantilla de presupuesto 2027 gratis</a>. La versión completa (5 USD) reparte las compras a meses sin intereses en los meses que pagas, algo que pesa mucho después de Navidad y el Buen Fin.</p>
+<a class="cta" href="https://whistledown8.gumroad.com/l/presupuesto-2027" target="_blank" rel="noopener">Ver el Presupuesto 2027 con meses sin intereses (5 USD) →</a>
+<h2>Tres hábitos para no pasarte en Navidad</h2>
+<ol>
+<li><b>Decide el total primero.</b> Si lo que toca por persona se ve muy poco, acorta la lista o cambia algunos regalos por un plan juntos antes de comprar.</li>
+<li><b>Cuenta lo que no son regalos.</b> La cena, los viajes, las envolturas y el intercambio del trabajo se olvidan fácil y suman mucho.</li>
+<li><b>Aparta dinero cada semana.</b> Una cantidad fija cada quincena pesa menos que un golpe en diciembre y deja menos a meses para enero.</li>
+</ol>
+<h2>Relacionado</h2>
+<ul>
+<li><a href="../presupuesto/">Calculadora de presupuesto con meses sin intereses</a></li>
+<li><a href="../guias/como-ahorrar-dinero/">Cómo ahorrar dinero aunque ganes poco</a></li>
+<li>English: <a href="../../christmas-budget/">Christmas budget planner</a></li>
+</ul>
+<footer>Hecho por una persona con ayuda de herramientas de IA · Los cálculos se hacen en tu navegador y no se guardan · No es asesoría financiera</footer>
+</main>
+<script>
+const $=id=>document.getElementById(id),v=id=>Math.max(0,+$(id).value||0),f=n=>isFinite(n)?n.toLocaleString('es-MX',{minimumFractionDigits:2,maximumFractionDigits:2}):'-';
+function weeksLeft(){const now=new Date();let y=now.getFullYear();let xmas=new Date(y,11,25);if(now>xmas)xmas=new Date(y+1,11,25);return Math.max(1,Math.ceil((xmas-now)/(7*864e5)));}
+function calc(){const tot=v('tot'),paid=v('paid'),other=v('food')+v('deco')+v('trav'),ppl=Math.max(1,Math.round(v('ppl'))||1);
+const gifts=tot-other,per=gifts/ppl,wk=weeksLeft(),unpaid=Math.max(0,tot-paid),perwk=unpaid/wk;
+$('gifts').textContent=f(gifts);$('per').textContent=f(per);$('wk').textContent=f(perwk);
+$('msg').textContent=gifts<0?'Lo que no son regalos ya supera tu total. Sube el total o recorta comida, decoración o viajes.':`Faltan ${wk} semana${wk>1?'s':''} para el 25 de diciembre. Te faltan ${f(unpaid)} por pagar; con ${f(perwk)} por semana lo cubres.`;
+$('gifts').style.color=gifts<0?'#C0392B':'';}
+['tot','paid','food','deco','trav','ppl'].forEach(id=>$(id).addEventListener('input',calc));calc();
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "d4b593fd49874cf195851b41cd0caed4"}'></script>
+</body></html>
