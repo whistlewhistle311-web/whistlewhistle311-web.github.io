@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calculadora de aguinaldo 2026 (México): cuánto te toca y cuánto está exento</title>
+<meta name="description" content="Calcula tu aguinaldo 2026 en México: monto proporcional por días trabajados, mínimo de 15 días de salario, parte exenta de ISR (30 UMA = $3,519.30) y parte gravada. Gratis, sin registro.">
+<link rel="canonical" href="https://whistlewhistle311-web.github.io/es/aguinaldo/">
+<meta property="og:title" content="Calculadora de aguinaldo 2026 (México)">
+<meta property="og:description" content="Cuánto te toca de aguinaldo y cuánto está exento de ISR en 2026.">
+<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/es/aguinaldo/"><meta property="og:image" content="https://whistlewhistle311-web.github.io/es/aguinaldo/og.png"><meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--bg:#FBF6F0;--card:#fff;--ink:#2A1F1A;--ink2:#5B4A42;--mute:#8A7B72;--red:#8B1E2D;--grn:#1E5631;--line:#E8DCCF;--soft:#F5EBDF}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}}
+:root[data-theme=dark]{--bg:#17120f;--card:#211a16;--ink:#f3ece6;--ink2:#d4c6bb;--mute:#a39488;--red:#f08a96;--grn:#7fcf9a;--line:#3a2f28;--soft:#2a211c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.7 Pretendard,-apple-system,"Segoe UI",sans-serif}
+main{max-width:720px;margin:0 auto;padding:28px 16px 64px}
+.k{font-size:12px;letter-spacing:.2em;color:var(--red);font-weight:700}
+h1{font-size:32px;line-height:1.2;margin:8px 0 12px}h2{font-size:22px;margin:30px 0 8px}
+p,li{color:var(--ink2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+label{font-size:13px;color:var(--mute);display:block;margin:10px 0 4px}
+textarea,input{width:100%;font:inherit;font-size:15px;padding:9px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+textarea{min-height:150px}.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+button{font:inherit;font-weight:800;border:0;border-radius:12px;padding:13px 18px;cursor:pointer}
+.go{background:var(--red);color:#fff;width:100%;margin-top:14px;font-size:18px}
+.sm{background:var(--soft);color:var(--ink);padding:8px 12px;font-size:14px}
+.row{display:flex;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}.row b{min-width:7em}.row input{font-size:12px;padding:6px}
+.err{color:#C0392B;font-weight:700}
+.reveal{text-align:center;padding:34px 18px}.reveal .big{font-size:40px;font-weight:900;color:var(--red);margin:10px 0}
+a{color:var(--red)}footer{font-size:12px;color:var(--mute);margin-top:30px}footer a{color:inherit}
+@media (max-width:520px){h1{font-size:26px}.two{grid-template-columns:1fr}.row{flex-wrap:wrap}.row b{min-width:100%}}
+body{word-break:keep-all}
+</style>
+<style>.seg{display:flex;gap:6px;margin:12px 0}table{width:100%;border-collapse:collapse;font-size:15px}td{padding:8px 6px;border-bottom:1px solid var(--line);text-align:right}td:first-child{text-align:left;color:var(--mute)}tr.tot td{font-weight:900;color:var(--red);font-size:18px}tr.sub td{font-weight:800;color:var(--ink)}.cta{display:block;text-align:center;background:var(--grn);color:#fff;text-decoration:none;font-weight:800;border-radius:12px;padding:13px;margin-top:10px}.seg button{flex:1;background:var(--soft);color:var(--ink);padding:10px}.seg button.on{background:var(--red);color:#fff}.res{font-size:20px;line-height:1.9}.res b{color:var(--red)}</style>
+</head>
+<body><main>
+<div class="k">GRATIS · SIN REGISTRO</div>
+<h1>Calculadora de aguinaldo 2026 (México)</h1>
+<p>Pon tu sueldo, los días de aguinaldo que da tu empresa y los días que trabajaste este año. Te decimos cuánto te toca, cuánto está exento de ISR y cuánto queda gravado. Nada de lo que escribes se guarda.</p>
+<div class="card">
+<div class="seg" id="tipo"><button class="on" data-t="m">Sueldo mensual</button><button data-t="d">Salario diario</button></div>
+<div class="two">
+<div><label for="sal" id="salL">Sueldo mensual bruto ($)</label><input id="sal" inputmode="decimal" value="12,000"></div>
+<div><label for="dias">Días de aguinaldo (mínimo legal 15)</label><input id="dias" type="number" min="15" max="90" value="15"></div>
+<div><label for="trab">Días trabajados en 2026</label><input id="trab" type="number" min="1" max="365" value="365"></div>
+<div><label for="ing">o fecha de ingreso (si entraste en 2026)</label><input id="ing" type="date" min="2026-01-01" max="2026-12-31"></div>
+</div>
+<p id="msg" class="err"></p>
+</div>
+<div class="card"><table id="out"></table></div>
+<h2>Cómo se calcula</h2>
+<ul>
+<li><b>Salario diario</b>: sueldo mensual ÷ 30.</li>
+<li><b>Aguinaldo</b>: salario diario × días de aguinaldo × días trabajados ÷ 365. La Ley Federal del Trabajo (art. 87) marca mínimo 15 días de salario, pagados antes del 20 de diciembre; si no trabajaste el año completo, te toca la parte proporcional.</li>
+<li><b>Parte exenta de ISR</b>: hasta 30 veces la UMA diaria. En 2026 la UMA es de $117.31, así que el tope exento es de $3,519.30.</li>
+<li><b>Parte gravada</b>: lo que pasa de $3,519.30. Sobre esa parte tu empresa retiene ISR; el monto exacto depende de tu sueldo y del método que use la nómina, por eso aquí no lo restamos.</li>
+</ul>
+<p>Es una estimación. Tu contrato puede dar más días o tomar en cuenta otros conceptos; revisa tu recibo de nómina.</p>
+<h2>¿Ya sabes en qué vas a usar el aguinaldo?</h2>
+<p>La <a href="../plantilla-presupuesto-gratis/">plantilla de presupuesto 2027 gratis</a> (Excel y Google Sheets) tiene una fila para ingresos extra como el aguinaldo y te muestra cuánto te queda cada mes. Para los regalos, usa la <a href="../navidad/">lista de regalos de Navidad con presupuesto</a>.</p>
+<a class="cta" href="../plantilla-presupuesto-gratis/">Descargar la plantilla gratis</a>
+<h2>También te puede servir</h2>
+<ul>
+<li><a href="../presupuesto/">Calculadora de presupuesto 50/30/20</a> · <a href="../deudas/">Calculadora para salir de deudas</a></li>
+<li><a href="../intercambio-de-regalos/">Sorteo de intercambio de regalos</a></li>
+</ul>
+<footer>Herramienta informativa, no es asesoría fiscal ni financiera. Hecha por una persona con ayuda de herramientas de IA. Fuentes: Ley Federal del Trabajo art. 87; UMA 2026 de INEGI (DOF 09/01/2026); Ley del ISR art. 93. · <a href="../../">Inicio</a></footer>
+</main>
+<script>
+const $=id=>document.getElementById(id);let tipo='m';
+const num=s=>Number(String(s).replace(/[^0-9.]/g,''))||0;
+const mxn=x=>'$'+x.toLocaleString('es-MX',{minimumFractionDigits:2,maximumFractionDigits:2});
+const r2=x=>Math.round((x+1e-9)*100)/100;const EX=3519.30;
+document.querySelectorAll('#tipo button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#tipo button').forEach(x=>x.classList.toggle('on',x===b));tipo=b.dataset.t;$('salL').textContent=tipo==='m'?'Sueldo mensual bruto ($)':'Salario diario ($)';$('sal').value=tipo==='m'?'12,000':'400';calc();});
+$('ing').addEventListener('input',()=>{const v=$('ing').value;if(v){const d=(new Date('2026-12-31T00:00:00')-new Date(v+'T00:00:00'))/864e5+1;$('trab').value=Math.max(1,Math.min(365,Math.round(d)));}calc();});
+function calc(){
+ const s=num($('sal').value),dias=num($('dias').value),t=Math.round(num($('trab').value));$('msg').textContent='';
+ if(!s||dias<1||t<1||t>365){$('out').innerHTML='';$('msg').textContent='Revisa el sueldo, los días de aguinaldo y los días trabajados (1 a 365).';return;}
+ const sd=tipo==='m'?s/30:s,ag=r2(sd*dias*t/365),ex=Math.min(ag,EX),gr=r2(ag-ex);
+ $('out').innerHTML=`<tr><td>Salario diario</td><td>${mxn(r2(sd))}</td></tr><tr><td>Días proporcionales</td><td>${(dias*t/365).toFixed(2)} de ${dias}</td></tr><tr class="tot"><td>Aguinaldo bruto</td><td>${mxn(ag)}</td></tr><tr><td>Parte exenta de ISR (hasta 30 UMA)</td><td>${mxn(ex)}</td></tr><tr class="sub"><td>Parte gravada (paga ISR)</td><td>${mxn(gr)}</td></tr>${dias<15?'<tr><td colspan=2 style="color:#C0392B;text-align:left">Ojo: la ley marca mínimo 15 días.</td></tr>':''}`;
+}
+['sal','dias','trab'].forEach(id=>$(id).addEventListener('input',calc));calc();
+</script>
+</body></html>
