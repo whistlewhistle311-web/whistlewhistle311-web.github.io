@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>2027 운세 그래프 무료 | 내 사주로 계산한 월별 흐름</title>
 <meta name="description" content="생년월일시만 넣으면 내 사주 여덟 글자와 2027 정미년 12달 운의 흐름을 그래프로 보여 드려요. 절기 날짜 기준, 서울 경도 30분 보정, 무료, 정보는 저장하지 않아요.">
-<meta property="og:image" content="https://whistlewhistle311-web.github.io/saju/og/main.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://whistlewhistle311-web.github.io/saju/">
+<meta property="og:image" content="https://paybonuscalc.com/saju/og/main.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://paybonuscalc.com/saju/">
 <meta property="og:title" content="2027 내 운 그래프, 30초면 나와요">
 <meta property="og:description" content="내 사주로 계산한 2027년 12달 흐름. 차오르는 때와 숨 고를 때를 날짜로.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://whistlewhistle311-web.github.io/saju/">
+<meta property="og:url" content="https://paybonuscalc.com/saju/">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap">
 <style>
@@ -232,7 +232,7 @@ async function storyCard(r){
   function box(y,lab,val,col){x.fillStyle='rgba(247,241,229,.08)';x.beginPath();x.roundRect(90,y,W-180,150,28);x.fill();x.fillStyle=col;x.font='700 34px '+SANS;x.fillText(lab,130,y+60);x.fillStyle='#F7F1E5';x.font='800 52px '+SANS;x.fillText(val,130,y+122)}
   box(1420,'차오르는 때',best,'#E0563F');box(1600,'숨 고를 때',worst,'#9fb4e6');
   x.fillStyle='#D9C9A8';x.font='600 34px '+SANS;x.fillText('내 그래프도 30초면 나와요 · 무료',90,1830);
-  x.fillStyle='#8f9ab3';x.font='500 30px '+SANS;x.fillText('whistlewhistle311-web.github.io/saju · 계산공방',90,1880);
+  x.fillStyle='#8f9ab3';x.font='500 30px '+SANS;x.fillText('paybonuscalc.com/saju · 계산공방',90,1880);
   return new Promise(res=>c.toBlob(res,'image/png'));
 }
 $('img').addEventListener('click',async()=>{if(!LAST)return;const b=await storyCard(LAST);const f=new File([b],'2027-운그래프.png',{type:'image/png'});

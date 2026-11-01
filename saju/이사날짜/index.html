@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>내 사주로 이사 날짜 고르기 | 손없는날 + 충 피하는 날 무료 계산기</title>
 <meta name="description" content="생년월일시와 이사 가능한 기간을 넣으면, 내 일지·띠와 충하는 날을 빼고 그 달 운, 반기는 기운, 천을귀인, 손없는날을 더해 이사 날짜 후보 3개와 예비 날짜 5개를 골라 드려요. 무료, 저장 안 함.">
-<meta property="og:image" content="https://whistlewhistle311-web.github.io/saju/og/move.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://whistlewhistle311-web.github.io/saju/%EC%9D%B4%EC%82%AC%EB%82%A0%EC%A7%9C/">
+<meta property="og:image" content="https://paybonuscalc.com/saju/og/move.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://paybonuscalc.com/saju/%EC%9D%B4%EC%82%AC%EB%82%A0%EC%A7%9C/">
 <meta property="og:title" content="내 사주로 고른 이사 날짜 3개">
 <meta property="og:description" content="손없는날만 보지 말고, 내 사주와 충하는 날까지 빼고 고르기. 무료.">
-<meta property="og:type" content="website"><meta property="og:url" content="https://whistlewhistle311-web.github.io/saju/%EC%9D%B4%EC%82%AC%EB%82%A0%EC%A7%9C/">
+<meta property="og:type" content="website"><meta property="og:url" content="https://paybonuscalc.com/saju/%EC%9D%B4%EC%82%AC%EB%82%A0%EC%A7%9C/">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@700&display=swap">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"손없는날이면 아무 날이나 괜찮나요?","acceptedAnswer":{"@type":"Answer","text":"손없는날은 모두에게 같은 날이에요. 사주로 이사 날을 볼 때는 그날의 일진이 내 일지(태어난 날의 아래 글자)나 띠와 충하는지를 먼저 보고, 충하는 날은 손없는날이어도 빼요."}},{"@type":"Question","name":"가족이 여러 명이면 누구 기준으로 보나요?","acceptedAnswer":{"@type":"Answer","text":"보통 세대주나 계약하는 사람을 먼저 보고, 함께 움직이는 사람과 충이 겹치는 날을 빼요. 이 계산기는 한 사람 기준이라, 두 사람이면 각자 넣어 보고 둘 다 후보에 있는 날을 고르면 돼요."}},{"@type":"Question","name":"입력한 생년월일은 저장되나요?","acceptedAnswer":{"@type":"Answer","text":"계산은 브라우저 안에서만 이뤄지고 어디에도 보내거나 저장하지 않아요."}}]}</script>
@@ -238,7 +238,7 @@ async function storyCard(R){
   if(!R.best.length){x.fillStyle='#D9C9A8';x.font='600 40px '+SANS;x.fillText('조건에 맞는 날이 없었어요',90,700)}
   x.fillStyle='#8f9ab3';x.font='500 30px '+SANS;x.fillText('함께 움직이는 사람도 각자 넣어 보고, 둘 다 나온 날을 고르세요.',90,1620);
   x.fillStyle='#D9C9A8';x.font='600 34px '+SANS;x.fillText('내 생년월일로 바로 · 무료',90,1780);
-  x.fillStyle='#8f9ab3';x.font='500 30px '+SANS;x.fillText('whistlewhistle311-web.github.io/saju/이사날짜 · 계산공방',90,1830);
+  x.fillStyle='#8f9ab3';x.font='500 30px '+SANS;x.fillText('paybonuscalc.com/saju/이사날짜 · 계산공방',90,1830);
   return new Promise(res=>c.toBlob(res,'image/png'));
 }
 $('img').addEventListener('click',async()=>{if(!LAST)return;const b=await storyCard(LAST);const f=new File([b],'이사-날짜.png',{type:'image/png'});
